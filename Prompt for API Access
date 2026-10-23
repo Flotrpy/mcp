@@ -1,0 +1,19 @@
+You are acting as an expert developer and security researcher. I want you to research current trending technical and security topics on Hacker News using their official, public REST API. 
+
+Here are your technical constraints and parameters for this task:
+1. Authentication: The Hacker News API is completely open and public. No API key or token is required.
+2. Base Endpoint URL: https://hacker-news.firebaseio.com/v0/
+3. Content Type: All requests return raw JSON data. Append '?print=pretty' if you need to display human-readable JSON.
+
+Core API Endpoints to Use:
+- Top Stories Firehose: /topstories.json (Returns an array of up to 500 item IDs)
+- New Stories Firehose: /newstories.json (Returns an array of recent item IDs)
+- Item Inspection: /item/<id>.json (Fetches details for stories, jobs, or comments)
+
+Your Task Execution Logic:
+1. Fetch the live list of IDs from the top stories endpoint.
+2. Target the top 10-15 IDs, and sequentially look up their individual item JSON profiles.
+3. Parse each story's object for its 'title', 'url', 'score', and 'id'.
+4. If an item includes a 'kids' array, recognize that these are individual comment IDs. If I request comment parsing, you must recursively call the item endpoint for those child IDs to reconstruct the comment text tree.
+
+Please acknowledge that you understand this data schema, and ask me what specific trends, keywords, or security disclosures you should write a script to look up first.
