@@ -33,7 +33,7 @@ Prebuilt binaries for Linux, macOS and Windows are attached to each [release](ht
 The [website](site/) has a config builder for Claude Code, Claude Desktop, Cursor and Codex.
 
 ## Quality gates
-- **Tests:** `cargo test --workspace` runs 128 unit and end-to-end tests. The end-to-end tests drive each compiled binary over stdio, on both protocol generations.
+- **Tests:** `cargo test --workspace` runs 130 unit and end-to-end tests. The end-to-end tests drive each compiled binary over stdio, on both protocol generations.
 - **CI** runs fmt, `clippy -D warnings`, the tests, and the site's JS tests. It then has **lighthouse audit every server** and fails below an A, and **verify each against its committed `locks/*.lock`**, which fails on any silent change to a tool's description or schema.
 - **Dashboard:** `site/dashboard.html` shows the latest audit, with grades, token cost per tool and lockfile status.
 
