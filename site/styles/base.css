@@ -63,6 +63,20 @@ a:hover {
   text-underline-offset: 0.18em;
 }
 
+/* Links inside running text are underlined so colour is not the only cue. */
+p a,
+li > p a {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+  text-decoration-color: color-mix(in srgb, currentColor 40%, transparent);
+}
+
+p a.chevron,
+p a.button {
+  text-decoration: none;
+}
+
 code,
 pre,
 kbd {

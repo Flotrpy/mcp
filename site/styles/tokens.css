@@ -25,9 +25,9 @@
 
   /* Status is never a server accent (HIG Color: one colour, one meaning)
      and is always paired with a text label. */
-  --ok: #1f8a3b;
-  --warn: #b26b00;
-  --bad: #c62828;
+  --ok: #12672b;
+  --warn: #8a4f00;
+  --bad: #b3261e;
 
   /* Terminal */
   --term-bg: #16161a;
