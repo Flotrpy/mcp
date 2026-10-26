@@ -1,0 +1,104 @@
+{
+ "joinery": [
+  {
+   "tool": "design_furniture",
+   "args": {
+    "kind": "bookcase",
+    "width": 36,
+    "height": 72,
+    "depth": 12,
+    "stock_thickness": 0.75,
+    "adjustable_shelves": 4,
+    "units": "in",
+    "species": "mdf"
+   },
+   "reply": "bookcase with 9 parts. 1 shelf type(s) will sag visibly in MDF; see shelf_checks advice."
+  },
+  {
+   "tool": "check_shelf_sag",
+   "args": {
+    "span": 900,
+    "depth": 280,
+    "thickness": 19,
+    "species": "white-oak",
+    "load_preset": "books"
+   },
+   "reply": "Passes: 1.90 mm long-term sag vs 2.34 mm limit (81% of limit)."
+  }
+ ],
+ "binscope": [
+  {
+   "tool": "overview",
+   "args": {
+    "path": "./target/release/joinery-mcp"
+   },
+   "reply": "Elf X86_64 64-bit, 3347496 bytes, 32 sections, 94 imports, 0 exports. Entropy: ▃▅▇▇▇▆▆▅▅▆▇▇▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▇▆▆▇▆▆▆▆▇▆▆▇▇▇▆▇▇▆▂"
+  },
+  {
+   "tool": "diff",
+   "args": {
+    "old_path": "./target/release/joinery-mcp",
+    "new_path": "./target/release/binscope-mcp"
+   },
+   "reply": "Size delta +412208 bytes; no headline changes."
+  }
+ ],
+ "lighthouse": [
+  {
+   "tool": "audit_server",
+   "args": {
+    "command": "sh",
+    "args": [
+     "./crates/lighthouse/tests/fixtures/legacy_server.sh"
+    ]
+   },
+   "reply": "Grade C (74/100) for fake — migration: legacy-only, 1 tools, ~40 tokens per turn, 2 finding(s)."
+  },
+  {
+   "tool": "audit_server",
+   "args": {
+    "command": "./target/release/joinery-mcp"
+   },
+   "reply": "Grade A (100/100) for joinery — migration: ready, 4 tools, ~1536 tokens per turn, 0 finding(s)."
+  }
+ ],
+ "vitals": [
+  {
+   "tool": "import_health_data",
+   "args": {
+    "path": "./examples/vitals-demo.csv"
+   },
+   "reply": "Read 349 records: 349 new samples stored, 0 already present, 0 skipped (unsupported type or unit)."
+  },
+  {
+   "tool": "daily_summary",
+   "args": {
+    "metrics": [
+     "steps"
+    ],
+    "from": "2026-10-24"
+   },
+   "reply": "2026-10-24 to 2026-10-24: 1 metric(s). Removed 6842 double-counted steps."
+  },
+  {
+   "tool": "readiness",
+   "args": {},
+   "reply": "2026-10-24: 31/100 (rest). HRV 38 ms is 33% below your 7-day average of 57 ms. Resting heart rate 61 bpm is 8.0 bpm above your 7-day average. Slept 5h 00m of a 8h need. Acute:chronic load 1.52 (1030 vs 678 kcal/day) is a spike — recent load is well above what you are used to."
+  }
+ ],
+ "handset": [
+  {
+   "tool": "snapshot",
+   "args": {},
+   "reply": "e1 text \"Welcome back\"\ne2 input \"Email\"\ne3 button \"Sign in\""
+  },
+  {
+   "tool": "act",
+   "args": {
+    "action": "tap",
+    "ref": "e3"
+   },
+   "reply": "Tapped e3 \"Sign in\".\n+ e4 text \"Inbox\"\n+ e5 list (scrollable)\n+ e6 button \"Compose\"\n- e1 text \"Welcome back\"\n- e2 input \"Email\"\n- e3 button \"Sign in\"\n\nNew screen:\ne4 text \"Inbox\"\ne5 list (scrollable)\ne6 button \"Compose\""
+  }
+ ]
+}
