@@ -1,0 +1,17 @@
+[package]
+name = "mcp-kit"
+description = "Shared plumbing for the Flotrpy MCP servers: stdio bootstrap, results, token budgets"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+authors.workspace = true
+
+[dependencies]
+rmcp.workspace = true
+tokio.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+anyhow.workspace = true
+tracing.workspace = true
+tracing-subscriber.workspace = true
