@@ -19,7 +19,8 @@ pub fn scaled(values: &[f64], min: f64, max: f64) -> String {
 
 /// Sparkline scaled to the series' own minimum and maximum.
 pub fn auto(values: &[f64]) -> String {
-    let (min, max) = values.iter().fold((f64::INFINITY, f64::NEG_INFINITY), |(lo, hi), &v| (lo.min(v), hi.max(v)));
+    let (min, max) =
+        values.iter().fold((f64::INFINITY, f64::NEG_INFINITY), |(lo, hi), &v| (lo.min(v), hi.max(v)));
     scaled(values, min, max)
 }
 

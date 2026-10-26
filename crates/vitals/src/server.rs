@@ -342,14 +342,7 @@ impl Vitals {
         let recent = window_mean(0, 7);
         let prior = window_mean(7, 14);
         let change = recent.zip(prior).filter(|(_, p)| *p != 0.0).map(|(r, p)| (r - p) / p * 100.0);
-        const BARS: [char; 8] = ['▁', '▂', '▃', '▄', '▅', '▆', '▇', '█'];
-        let spark: String =
-            values
-                .iter()
-                .map(|v| {
-                    if max > min { BARS[(((v - min) / (max - min)) * 7.0).round() as usize] } else { BARS[3] }
-                })
-                .collect();
+        let spark = mcp_kit::spark::auto(&values);
         let unit = a.metric.unit();
         structured(
             format!(
