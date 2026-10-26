@@ -7,6 +7,7 @@
 pub mod budget;
 pub mod cli;
 pub mod result;
+pub mod spark;
 pub mod testing;
 
 use rmcp::{
