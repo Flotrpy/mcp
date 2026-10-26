@@ -6,6 +6,7 @@
 
 pub mod budget;
 pub mod result;
+pub mod testing;
 
 use rmcp::{
     ServerHandler, ServiceExt,
