@@ -78,9 +78,32 @@ fn round1(v: f64) -> f64 {
     (v * 10.0).round() / 10.0
 }
 
+/// A factor before weights are normalised.
+struct RawFactor {
+    name: &'static str,
+    weight: f64,
+    value: f64,
+    baseline: Option<f64>,
+    score: f64,
+    why: String,
+}
+
+impl RawFactor {
+    fn new(
+        name: &'static str,
+        weight: f64,
+        value: f64,
+        baseline: Option<f64>,
+        score: f64,
+        why: String,
+    ) -> Self {
+        Self { name, weight, value, baseline, score, why }
+    }
+}
+
 pub fn score(series: &Series, day: NaiveDate, sleep_need_min: f64) -> Readiness {
     let key = day_str(day);
-    let mut raw: Vec<(&'static str, f64, f64, Option<f64>, f64, String)> = Vec::new(); // name, weight, value, baseline, score, why
+    let mut raw: Vec<RawFactor> = Vec::new();
     let mut missing = Vec::new();
 
     match (series.hrv.get(&key), prior_mean(&series.hrv, day, 7, MIN_BASELINE_DAYS)) {
@@ -88,7 +111,7 @@ pub fn score(series: &Series, day: NaiveDate, sleep_need_min: f64) -> Readiness 
             let ratio = v / base;
             let s = clamp(NEUTRAL + (ratio - 1.0) * 250.0);
             let pct = (ratio - 1.0) * 100.0;
-            raw.push((
+            raw.push(RawFactor::new(
                 "hrv",
                 0.35,
                 v,
@@ -108,7 +131,7 @@ pub fn score(series: &Series, day: NaiveDate, sleep_need_min: f64) -> Readiness 
         (Some(&v), Some(base)) => {
             let delta = v - base;
             let s = clamp(NEUTRAL - delta * 8.0);
-            raw.push((
+            raw.push(RawFactor::new(
                 "resting_heart_rate",
                 0.20,
                 v,
@@ -127,7 +150,7 @@ pub fn score(series: &Series, day: NaiveDate, sleep_need_min: f64) -> Readiness 
     match series.sleep_min.get(&key) {
         Some(&v) => {
             let s = clamp(100.0 * v / sleep_need_min);
-            raw.push((
+            raw.push(RawFactor::new(
                 "sleep",
                 0.30,
                 v,
@@ -162,7 +185,7 @@ pub fn score(series: &Series, day: NaiveDate, sleep_need_min: f64) -> Readiness 
                 r if r < 0.8 => "below your usual — fine for recovery, detraining if it lasts",
                 _ => "in the 0.8–1.3 sweet spot",
             };
-            raw.push((
+            raw.push(RawFactor::new(
                 "training_load",
                 0.15,
                 round1(acwr * 100.0) / 100.0,
@@ -177,12 +200,12 @@ pub fn score(series: &Series, day: NaiveDate, sleep_need_min: f64) -> Readiness 
     if raw.len() < 2 {
         return Readiness { day: key, score: None, label: "not enough data", factors: Vec::new(), missing };
     }
-    let total_weight: f64 = raw.iter().map(|r| r.1).sum();
+    let total_weight: f64 = raw.iter().map(|r| r.weight).sum();
     // Sum unrounded contributions; rounding each first can drift by 0.1.
-    let overall = round1(raw.iter().map(|r| r.1 / total_weight * r.4).sum());
+    let overall = round1(raw.iter().map(|r| r.weight / total_weight * r.score).sum());
     let factors: Vec<Factor> = raw
         .into_iter()
-        .map(|(name, w, value, baseline, s, explanation)| {
+        .map(|RawFactor { name, weight: w, value, baseline, score: s, why: explanation }| {
             let weight = w / total_weight;
             Factor {
                 name,
