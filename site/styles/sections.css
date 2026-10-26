@@ -4,6 +4,19 @@
   padding-block: var(--s-24);
 }
 
+@media (max-width: 40rem) {
+  .section,
+  .band {
+    padding-block: var(--s-16);
+  }
+  .section__head {
+    margin-bottom: var(--s-8);
+  }
+  .sag__readout dd {
+    font-size: var(--text-lg);
+  }
+}
+
 .section__head {
   display: grid;
   gap: var(--s-4);
@@ -349,9 +362,11 @@ input[type="range"] {
 }
 
 .sag__scale {
-  fill: var(--band-ink-2);
-  font-size: 22px;
-  letter-spacing: 0.02em;
+  margin-top: calc(-1 * var(--s-4));
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-small);
+  color: var(--band-ink-2);
+  text-align: center;
 }
 
 .sag__readout {

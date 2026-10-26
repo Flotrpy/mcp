@@ -86,12 +86,14 @@ export async function initReplay(root = document.querySelector("[data-replay]"))
   });
   root.querySelector("[data-replay-again]").addEventListener("click", () => select(current));
 
-  // Play the first session once, when the terminal becomes visible.
+  // Show the first session as soon as data arrives, then replay it with the
+  // line-by-line entrance once the terminal is actually on screen.
+  select(current);
   const io = new IntersectionObserver((entries) => {
     if (entries.some((e) => e.isIntersecting)) {
       select(current);
       io.disconnect();
     }
-  }, { threshold: 0.25 });
+  }, { threshold: 0.1 });
   io.observe(root);
 }
