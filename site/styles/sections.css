@@ -548,3 +548,13 @@ input[type="range"] {
     max-width: 18rem;
   }
 }
+
+/* In dark mode the page is already black, so the band steps *up* a surface
+   (as apple.com alternates #000 / #161617) and keeps hairline edges. */
+@media (prefers-color-scheme: dark) {
+  .band {
+    --band-bg: #101012;
+    --band-surface: #1c1c1e;
+    border-block: 1px solid var(--hairline);
+  }
+}

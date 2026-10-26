@@ -363,3 +363,10 @@
 .terminal__caption code {
   color: var(--term-ink);
 }
+
+/* The top-edge highlight is subtler on dark material. */
+@media (prefers-color-scheme: dark) {
+  .nav {
+    box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.07);
+  }
+}
