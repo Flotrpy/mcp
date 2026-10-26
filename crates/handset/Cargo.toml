@@ -1,0 +1,23 @@
+[package]
+name = "handset"
+description = "MCP server to drive Android devices and the iOS Simulator with compact, ref-tagged UI trees and snapshot diffs"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+authors.workspace = true
+
+[[bin]]
+name = "handset-mcp"
+path = "src/main.rs"
+
+[dependencies]
+mcp-kit.workspace = true
+rmcp.workspace = true
+tokio.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+schemars.workspace = true
+anyhow.workspace = true
+thiserror.workspace = true
+quick-xml = "0.38"
