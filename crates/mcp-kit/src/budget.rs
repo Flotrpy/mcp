@@ -23,9 +23,7 @@ pub fn estimate_tokens(text: &str) -> usize {
 
 /// Estimate tokens for any serializable value as compact JSON.
 pub fn estimate_json_tokens<T: Serialize>(value: &T) -> usize {
-    serde_json::to_string(value)
-        .map(|s| estimate_tokens(&s))
-        .unwrap_or(0)
+    serde_json::to_string(value).map(|s| estimate_tokens(&s)).unwrap_or(0)
 }
 
 /// The outcome of fitting a list into a budget.
@@ -53,11 +51,7 @@ pub fn fit<T: Serialize>(items: Vec<T>, max_tokens: usize) -> Fitted<T> {
         kept.push(item);
     }
     let omitted = total - kept.len();
-    Fitted {
-        items: kept,
-        omitted,
-        tokens,
-    }
+    Fitted { items: kept, omitted, tokens }
 }
 
 #[cfg(test)]

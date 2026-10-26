@@ -52,10 +52,7 @@ pub fn legacy(bin: &str, requests: &[(&str, Value)]) -> Vec<Value> {
 pub fn call_tool(bin: &str, name: &str, arguments: Value) -> Value {
     let mut responses = stateless(bin, &[("tools/call", json!({"name": name, "arguments": arguments}))]);
     let response = responses.pop().expect("one response");
-    response
-        .get("result")
-        .cloned()
-        .unwrap_or_else(|| panic!("tools/call {name} failed: {response}"))
+    response.get("result").cloned().unwrap_or_else(|| panic!("tools/call {name} failed: {response}"))
 }
 
 fn exchange(bin: &str, lines: &[String]) -> Vec<Value> {

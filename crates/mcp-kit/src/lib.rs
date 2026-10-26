@@ -17,12 +17,7 @@ use rmcp::{
 /// Build the `ServerConfig` every server in the workspace returns from
 /// `get_info`: tools enabled, the crate's own name and version (not the SDK's),
 /// a human title and instructions that tell the model how to use the tools.
-pub fn server_config(
-    name: &str,
-    version: &str,
-    title: &str,
-    instructions: &str,
-) -> ServerConfig {
+pub fn server_config(name: &str, version: &str, title: &str, instructions: &str) -> ServerConfig {
     ServerConfig::new(ServerCapabilities::builder().enable_tools().build())
         .with_server_info(
             Implementation::new(name, version)
