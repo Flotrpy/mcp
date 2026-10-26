@@ -114,6 +114,10 @@ async fn run_cli(cli: Cli) -> Result<ExitCode, String> {
 #[tokio::main]
 async fn main() -> anyhow::Result<ExitCode> {
     let args: Vec<String> = std::env::args().skip(1).collect();
+    if args.iter().any(|a| a == "--version" || a == "-V") {
+        println!("lighthouse-mcp {}", env!("CARGO_PKG_VERSION"));
+        return Ok(ExitCode::SUCCESS);
+    }
     if args.iter().any(|a| a == "--help" || a == "-h") {
         println!("lighthouse-mcp {}\n\n{USAGE}", env!("CARGO_PKG_VERSION"));
         return Ok(ExitCode::SUCCESS);

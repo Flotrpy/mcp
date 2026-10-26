@@ -1,13 +1,21 @@
 //! `vitals-mcp`: stdio MCP server for a local health-data warehouse.
 
+use mcp_kit::cli::{About, handle};
+
+const ABOUT: About = About {
+    name: "vitals",
+    version: env!("CARGO_PKG_VERSION"),
+    summary: "A local-first health warehouse over MCP: Apple Health and CSV import, cross-device de-duplication, explainable readiness.",
+    env: &[
+        ("VITALS_DB", "SQLite file (default ~/.local/share/vitals/vitals.sqlite)"),
+        ("VITALS_REDACT", "set to 1 to hide source names in every result"),
+    ],
+};
+
 #[tokio::main]
 async fn main() -> anyhow::Result<()> {
-    if std::env::args().any(|a| a == "--help" || a == "-h") {
-        println!(
-            "vitals-mcp {}\n\nLocal-first health warehouse over MCP (stdio).\n\nEnvironment:\n  VITALS_DB      SQLite file (default {})\n  VITALS_REDACT  set to 1 to hide source names in every result\n\nAdd to your client:\n  {{\"mcpServers\": {{\"vitals\": {{\"command\": \"vitals-mcp\"}}}}}}",
-            env!("CARGO_PKG_VERSION"),
-            vitals::server::default_db_path().display()
-        );
+    if let Some(text) = handle(&ABOUT, std::env::args().skip(1)) {
+        print!("{text}");
         return Ok(());
     }
     let server = vitals::server::Vitals::open(&vitals::server::default_db_path())?;
