@@ -1,0 +1,172 @@
+/* Content sections: headings, the server bento and scroll reveals. */
+
+.section {
+  padding-block: var(--s-24);
+}
+
+.section__head {
+  display: grid;
+  gap: var(--s-4);
+  max-width: 44rem;
+  margin-bottom: var(--s-12);
+}
+
+.section__title {
+  font-size: var(--text-2xl);
+  letter-spacing: var(--tracking-display);
+}
+
+.section__lede {
+  font-size: var(--text-lg);
+  line-height: 1.4;
+  color: var(--ink-2);
+}
+
+/* ---------- Bento ---------- */
+.bento {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: var(--s-4);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tile {
+  --pad: var(--s-8);
+  grid-column: span 2;
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+  padding: var(--pad);
+  border-radius: var(--r-lg);
+  background: var(--bg-elevated);
+  border: 1px solid var(--hairline);
+  box-shadow: var(--shadow-1);
+  transition: transform var(--dur) var(--ease-out), box-shadow var(--dur) var(--ease-out);
+}
+
+.tile--wide {
+  grid-column: span 4;
+}
+
+@media (hover: hover) {
+  .tile:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-2);
+  }
+}
+
+@media (max-width: 60rem) {
+  .tile,
+  .tile--wide {
+    grid-column: span 3;
+  }
+  .tile:last-child {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 40rem) {
+  .tile,
+  .tile--wide {
+    grid-column: 1 / -1;
+  }
+  .tile {
+    --pad: var(--s-6);
+  }
+}
+
+.tile__icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0.45rem;
+  /* Concentric with the tile: tile radius minus its padding, floored. */
+  border-radius: max(var(--r-sm), calc(var(--r-lg) - var(--pad)));
+  background: color-mix(in srgb, var(--accent) 12%, transparent);
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.tile__name {
+  margin-top: var(--s-2);
+  font-size: var(--text-xl);
+  letter-spacing: var(--tracking-tight);
+}
+
+.tile__pitch {
+  color: var(--ink-2);
+  max-width: 34rem;
+}
+
+.tile__points {
+  display: grid;
+  gap: var(--s-2);
+  margin: var(--s-2) 0 0;
+  padding: 0;
+  list-style: none;
+  font-size: var(--text-sm);
+  color: var(--ink-2);
+}
+
+.tile__points li {
+  position: relative;
+  padding-left: 1.1rem;
+}
+
+.tile__points li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.tile__meta {
+  display: flex;
+  gap: var(--s-4);
+  margin-top: auto;
+  padding-top: var(--s-4);
+  font-size: var(--text-xs);
+  color: var(--ink-3);
+}
+
+.tile__meta a {
+  margin-left: auto;
+  font-weight: 500;
+}
+
+/* ---------- Scroll reveal ----------
+   Scroll-driven where supported (no JS, off the main thread); elsewhere the
+   reveal script adds .is-visible via IntersectionObserver. */
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .reveal {
+      animation: reveal linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 40%;
+    }
+  }
+  @supports not (animation-timeline: view()) {
+    .js .reveal:not(.is-visible) {
+      opacity: 0;
+      transform: translateY(16px);
+    }
+    .js .reveal {
+      transition: opacity var(--dur-slow) var(--ease-out), transform var(--dur-slow) var(--ease-out);
+    }
+  }
+}
+
+@keyframes reveal {
+  from {
+    opacity: 0;
+    transform: translateY(24px) scale(0.985);
+  }
+}

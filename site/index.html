@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="styles/tokens.css">
   <link rel="stylesheet" href="styles/base.css">
   <link rel="stylesheet" href="styles/layout.css">
+  <link rel="stylesheet" href="styles/sections.css">
   <link rel="preload" href="data/transcripts.json" as="fetch" type="application/json" crossorigin>
 </head>
 <body>
@@ -60,6 +61,73 @@
         <pre class="terminal__screen" role="tabpanel" aria-live="polite" tabindex="0"><code data-replay-screen>Loading recorded sessions…</code></pre>
         <figcaption class="terminal__caption">Real output, recorded from the release builds by <code translate="no">site/tools/record.py</code>.</figcaption>
       </figure>
+    </section>
+    <section class="section" id="servers" aria-labelledby="servers-title">
+      <div class="wrap">
+        <header class="section__head">
+          <p class="eyebrow">The servers</p>
+          <h2 id="servers-title" class="section__title">Built for what agents get&nbsp;wrong.</h2>
+          <p class="section__lede">Each server answers a whole question in one call, trims its own output to a token budget and explains its errors so the model can recover.</p>
+        </header>
+
+        <ul class="bento" role="list">
+          <li class="tile tile--wide reveal" style="--accent: var(--joinery)" id="joinery">
+            <svg class="tile__icon" viewBox="0 0 32 32" aria-hidden="true"><path d="M5 26 26 5M9 26h17V9"/><path d="M14 26v-4M18 26v-3M22 26v-4M26 22h-4M26 18h-3M26 14h-4"/></svg>
+            <h3 class="tile__name" translate="no">joinery</h3>
+            <p class="tile__pitch">Woodworking that survives contact with the saw. Parametric furniture, cut lists, sheet nesting and shelf-sag physics.</p>
+            <ul class="tile__points">
+              <li>Beam-theory sag check with species stiffness and creep</li>
+              <li>Guillotine nesting that respects kerf and grain</li>
+              <li>Glue-up order derived from the joint graph</li>
+            </ul>
+            <p class="tile__meta tabular"><span>4 tools</span><span>3.2&nbsp;MB</span><a href="https://github.com/Flotrpy/mcp/tree/claude/vibrant-gauss-ej6mfz/crates/joinery">README</a></p>
+          </li>
+          <li class="tile reveal" style="--accent: var(--binscope)" id="binscope">
+            <svg class="tile__icon" viewBox="0 0 32 32" aria-hidden="true"><rect x="5" y="5" width="22" height="22" rx="4"/><path d="M10 12h4M10 16h8M10 20h6M20 12h2M22 20h0"/></svg>
+            <h3 class="tile__name" translate="no">binscope</h3>
+            <p class="tile__pitch">Read-only look inside ELF, PE and Mach‑O files — and what changed between two builds.</p>
+            <ul class="tile__points">
+              <li>4 coarse tools with next-step hints</li>
+              <li>Ranked strings, entropy map</li>
+              <li>Release diff flags breaking exports</li>
+            </ul>
+            <p class="tile__meta tabular"><span>4 tools</span><span>3.6&nbsp;MB</span><a href="https://github.com/Flotrpy/mcp/tree/claude/vibrant-gauss-ej6mfz/crates/binscope">README</a></p>
+          </li>
+          <li class="tile reveal" style="--accent: var(--lighthouse)" id="lighthouse">
+            <svg class="tile__icon" viewBox="0 0 32 32" aria-hidden="true"><path d="M13 27h6l-1-15h-4zM12 12h8M14 9h4l-2-4zM5 9l7 2M27 9l-7 2"/></svg>
+            <h3 class="tile__name" translate="no">lighthouse</h3>
+            <p class="tile__pitch">Audits any MCP server: both protocol generations, lint, token cost and an A–F&nbsp;grade.</p>
+            <ul class="tile__points">
+              <li><code>mcp.lock</code> catches silent tool edits</li>
+              <li>CI exit codes for grade and drift</li>
+              <li>Graded every server here 100/100</li>
+            </ul>
+            <p class="tile__meta tabular"><span>4 tools</span><span>3.6&nbsp;MB</span><a href="https://github.com/Flotrpy/mcp/tree/claude/vibrant-gauss-ej6mfz/crates/lighthouse">README</a></p>
+          </li>
+          <li class="tile reveal" style="--accent: var(--vitals)" id="vitals">
+            <svg class="tile__icon" viewBox="0 0 32 32" aria-hidden="true"><path d="M3 17h6l3-8 5 15 3-9 2 2h7"/></svg>
+            <h3 class="tile__name" translate="no">vitals</h3>
+            <p class="tile__pitch">Your Apple Health export and wearable CSVs in a local SQLite warehouse.</p>
+            <ul class="tile__points">
+              <li>Phone + watch steps counted once</li>
+              <li>Readiness score that shows its work</li>
+              <li>Redaction mode hides device names</li>
+            </ul>
+            <p class="tile__meta tabular"><span>5 tools</span><span>5.5&nbsp;MB</span><a href="https://github.com/Flotrpy/mcp/tree/claude/vibrant-gauss-ej6mfz/crates/vitals">README</a></p>
+          </li>
+          <li class="tile reveal" style="--accent: var(--handset)" id="handset">
+            <svg class="tile__icon" viewBox="0 0 32 32" aria-hidden="true"><rect x="9" y="3" width="14" height="26" rx="3.5"/><path d="M14 25h4"/></svg>
+            <h3 class="tile__name" translate="no">handset</h3>
+            <p class="tile__pitch">A pair of hands for Android and the iOS Simulator, without drowning the model in XML.</p>
+            <ul class="tile__points">
+              <li>≥10× smaller than a raw UI dump</li>
+              <li>Stable refs, change-only replies</li>
+              <li><code>wait_for</code> instead of sleep-and-retry</li>
+            </ul>
+            <p class="tile__meta tabular"><span>4 tools</span><span>3.4&nbsp;MB</span><a href="https://github.com/Flotrpy/mcp/tree/claude/vibrant-gauss-ej6mfz/crates/handset">README</a></p>
+          </li>
+        </ul>
+      </div>
     </section>
   </main>
 

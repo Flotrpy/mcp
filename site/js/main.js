@@ -2,6 +2,7 @@
 // Every module is optional — the page is fully readable without JavaScript.
 
 import { initReplay } from "./replay.js";
+import { initReveal } from "./reveal.js";
 
 const isMac = /Mac|iPhone|iPad/.test(navigator.platform || navigator.userAgent);
 
@@ -11,5 +12,6 @@ for (const el of document.querySelectorAll("[data-shortcut]")) {
 }
 
 initReplay();
+initReveal();
 
 export { isMac };
