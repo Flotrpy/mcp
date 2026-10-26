@@ -9,5 +9,6 @@ pub mod android;
 pub mod device;
 pub mod ios;
 pub mod node;
+pub mod server;
 pub mod session;
 pub mod snapshot;
