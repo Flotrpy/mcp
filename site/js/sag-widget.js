@@ -48,7 +48,7 @@ export function initSag(root = document.querySelector("[data-sag]")) {
   });
 
   let urlTimer = 0;
-  const update = () => {
+  const update = (fromUser = true) => {
     spanMm = Number(form.span.value);
     const thicknessMm = Number(form.thickness.value);
     const preset = form.load.value;
@@ -73,6 +73,7 @@ export function initSag(root = document.querySelector("[data-sag]")) {
     spring.set(Math.min(r.longTermMm * EXAGGERATE * X_PER_MM, 110));
     draw();
 
+    if (!fromUser) return;
     clearTimeout(urlTimer);
     urlTimer = setTimeout(() => {
       const q = new URLSearchParams(location.search);
@@ -83,7 +84,7 @@ export function initSag(root = document.querySelector("[data-sag]")) {
       history.replaceState(null, "", `?${q}${location.hash}`);
     }, 250);
   };
-  form.addEventListener("input", update);
+  form.addEventListener("input", () => update());
 
   // Drag the right support. Pointer capture keeps tracking outside the SVG.
   let grab = 0;
@@ -109,5 +110,5 @@ export function initSag(root = document.querySelector("[data-sag]")) {
   pin.addEventListener("pointerup", release);
   pin.addEventListener("pointercancel", release);
 
-  update();
+  update(false);
 }

@@ -18,7 +18,7 @@ export function initBuilder(root = document.querySelector("[data-builder]")) {
 
   const snippets = { install: "", config: "" };
 
-  const update = () => {
+  const update = (fromUser = true) => {
     const servers = [...form.querySelectorAll('input[name="server"]:checked')].map((b) => b.value);
     const chosen = form.client.value;
     const opts = { binscopeRoot: form.binscopeRoot.value.trim(), vitalsRedact: form.vitalsRedact.checked };
@@ -36,12 +36,14 @@ export function initBuilder(root = document.querySelector("[data-builder]")) {
     out("empty").hidden = servers.length > 0;
     for (const c of root.querySelectorAll(".code")) c.hidden = servers.length === 0;
 
+    // Only record state once the visitor has changed something.
+    if (!fromUser) return;
     const next = new URLSearchParams(location.search);
     next.set("servers", servers.join(","));
     next.set("client", chosen);
     history.replaceState(null, "", `?${next}${location.hash}`);
   };
-  form.addEventListener("input", update);
+  form.addEventListener("input", () => update());
 
   for (const btn of root.querySelectorAll("[data-copy]")) {
     let timer = 0;
@@ -62,5 +64,5 @@ export function initBuilder(root = document.querySelector("[data-builder]")) {
     });
   }
 
-  update();
+  update(false);
 }
