@@ -6,3 +6,4 @@
 //! between two versions. It never executes, patches or unpacks anything.
 
 pub mod entropy;
+pub mod inspect;
