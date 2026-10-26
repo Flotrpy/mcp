@@ -44,6 +44,22 @@
           <a class="button button--ghost" href="https://github.com/Flotrpy/mcp">View the source <span aria-hidden="true">→</span></a>
         </div>
       </div>
+
+      <figure class="wrap terminal" data-replay aria-label="Recorded MCP sessions">
+        <div class="terminal__bar">
+          <span class="terminal__lights" aria-hidden="true"><i></i><i></i><i></i></span>
+          <div class="terminal__tabs" role="tablist" aria-label="Server">
+            <button role="tab" type="button" data-server="joinery" aria-selected="true">joinery</button>
+            <button role="tab" type="button" data-server="binscope" aria-selected="false" tabindex="-1">binscope</button>
+            <button role="tab" type="button" data-server="lighthouse" aria-selected="false" tabindex="-1">lighthouse</button>
+            <button role="tab" type="button" data-server="vitals" aria-selected="false" tabindex="-1">vitals</button>
+            <button role="tab" type="button" data-server="handset" aria-selected="false" tabindex="-1">handset</button>
+          </div>
+          <button class="terminal__replay" type="button" data-replay-again aria-label="Replay session">↻</button>
+        </div>
+        <pre class="terminal__screen" role="tabpanel" aria-live="polite" tabindex="0"><code data-replay-screen>Loading recorded sessions…</code></pre>
+        <figcaption class="terminal__caption">Real output, recorded from the release builds by <code translate="no">site/tools/record.py</code>.</figcaption>
+      </figure>
     </section>
   </main>
 

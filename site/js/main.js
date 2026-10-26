@@ -1,11 +1,15 @@
 // Entry point: wires up each interactive piece once the DOM is ready.
 // Every module is optional — the page is fully readable without JavaScript.
 
+import { initReplay } from "./replay.js";
+
 const isMac = /Mac|iPhone|iPad/.test(navigator.platform || navigator.userAgent);
 
 // Show the right modifier for the palette shortcut.
 for (const el of document.querySelectorAll("[data-shortcut]")) {
   el.textContent = isMac ? "⌘ K" : "Ctrl K";
 }
+
+initReplay();
 
 export { isMac };
