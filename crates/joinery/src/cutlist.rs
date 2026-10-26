@@ -83,6 +83,7 @@ pub fn build(parts: &[Part], inches: bool) -> CutList {
         }
     }
     for t in &mut totals {
+        t.thickness_mm = round(t.thickness_mm, 1);
         t.area_m2 = round(t.area_m2, 3);
         t.board_feet = round(t.board_feet, 2);
     }
@@ -124,5 +125,6 @@ mod tests {
         let cl = build(&[one_bf], true);
         assert_eq!(cl.totals[0].board_feet, 1.0);
         assert_eq!(cl.lines[0].length, 12.0);
+        assert_eq!(cl.totals[0].thickness_mm, 25.4);
     }
 }
