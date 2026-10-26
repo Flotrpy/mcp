@@ -1,0 +1,372 @@
+/* Page layout: navigation, hero and shared controls. */
+
+/* ---------- Navigation: frosted glass that never hides focus ---------- */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--glass);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  backdrop-filter: saturate(180%) blur(20px);
+  /* Light catching the top edge of the material. */
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.5);
+}
+
+/* Scroll-edge effect instead of a hard divider: a short fade that only
+   appears once content is scrolling underneath. */
+.nav::after {
+  content: "";
+  position: absolute;
+  inset: 100% 0 auto;
+  height: 12px;
+  background: linear-gradient(var(--hairline), transparent);
+  opacity: 0;
+  transition: opacity var(--dur) var(--ease-out);
+  pointer-events: none;
+}
+
+.nav[data-scrolled]::after {
+  opacity: 1;
+}
+
+@media (prefers-reduced-transparency: reduce), (prefers-contrast: more) {
+  .nav {
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    box-shadow: 0 1px 0 var(--hairline);
+  }
+}
+
+.nav__inner {
+  display: flex;
+  align-items: center;
+  gap: var(--s-6);
+  height: 3.25rem;
+}
+
+.nav__brand {
+  font-weight: 600;
+  letter-spacing: var(--tracking-tight);
+  color: var(--ink);
+  margin-right: auto;
+}
+
+.nav__brand span {
+  color: var(--ink-3);
+}
+
+.nav__links {
+  display: flex;
+  gap: var(--s-6);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: var(--text-sm);
+}
+
+.nav__links a {
+  color: var(--ink-2);
+}
+
+.nav__links a:hover {
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.nav__search {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-2);
+  min-height: 2rem;
+  padding: 0 var(--s-2) 0 var(--s-3);
+  border: 1px solid var(--hairline-strong);
+  border-radius: var(--r-pill);
+  background: transparent;
+  color: var(--ink-3);
+  font-size: var(--text-sm);
+  cursor: pointer;
+  transition: color var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out);
+}
+
+.nav__search:hover {
+  color: var(--ink);
+  border-color: var(--ink-3);
+}
+
+.nav__search kbd {
+  padding: 0.05rem 0.4rem;
+  border-radius: 6px;
+  background: var(--bg-sunken);
+  font-size: var(--text-xs);
+}
+
+@media (max-width: 40rem) {
+  .nav__links {
+    display: none;
+  }
+}
+
+/* ---------- Buttons ---------- */
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--s-2);
+  min-height: 2.75rem;
+  padding: 0 var(--s-6);
+  border-radius: var(--r-pill);
+  border: 1px solid transparent;
+  font-size: var(--text-base);
+  font-weight: 500;
+  cursor: pointer;
+  transition: transform var(--dur-fast) var(--ease-out), background-color var(--dur-fast) var(--ease-out),
+    border-color var(--dur-fast) var(--ease-out);
+}
+
+.button:hover {
+  text-decoration: none;
+}
+
+/* Feedback on press, not release (WWDC "Designing Fluid Interfaces"). */
+.button:active {
+  transform: scale(0.97);
+  transition-duration: 100ms;
+}
+
+.button--primary {
+  background: var(--ink);
+  color: var(--bg);
+}
+
+.button--primary:hover {
+  background: color-mix(in srgb, var(--ink) 86%, var(--bg));
+}
+
+.button--ghost {
+  color: var(--ink);
+  border-color: var(--hairline-strong);
+}
+
+.button--ghost:hover {
+  border-color: var(--ink-3);
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  padding-block: clamp(var(--s-16), 12vh, var(--s-32)) var(--s-16);
+  text-align: center;
+}
+
+.hero__inner {
+  display: grid;
+  justify-items: center;
+  gap: var(--s-6);
+}
+
+.eyebrow {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: var(--ink-3);
+}
+
+.hero__title {
+  font-size: var(--text-hero);
+  letter-spacing: var(--tracking-display);
+  line-height: 1.02;
+}
+
+.hero__lede {
+  max-width: var(--measure);
+  font-size: var(--text-lg);
+  line-height: 1.38;
+  color: var(--ink-2);
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--s-3);
+  margin-top: var(--s-2);
+}
+
+/* Entrance: one staggered fade-up on load, nothing after. */
+@media (prefers-reduced-motion: no-preference) {
+  .hero__inner > * {
+    animation: rise var(--dur-slow) var(--ease-out) both;
+  }
+  .hero__inner > :nth-child(2) {
+    animation-delay: 60ms;
+  }
+  .hero__inner > :nth-child(3) {
+    animation-delay: 120ms;
+  }
+  .hero__inner > :nth-child(4) {
+    animation-delay: 180ms;
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+}
+
+/* ---------- Terminal replay ---------- */
+.terminal {
+  margin-top: var(--s-16);
+  padding: 0;
+  max-width: 56rem;
+  border-radius: var(--r-lg);
+  background: var(--term-bg);
+  color: var(--term-ink);
+  box-shadow: var(--shadow-3);
+  overflow: hidden;
+  text-align: left;
+  border: 1px solid rgb(255 255 255 / 0.06);
+}
+
+.terminal__bar {
+  display: flex;
+  align-items: center;
+  gap: var(--s-4);
+  padding: var(--s-3) var(--s-4);
+  border-bottom: 1px solid rgb(255 255 255 / 0.07);
+}
+
+.terminal__lights {
+  display: flex;
+  gap: 7px;
+}
+
+.terminal__lights i {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #3a3a3f;
+}
+
+.terminal__tabs {
+  display: flex;
+  gap: 2px;
+  padding: 3px;
+  margin-inline: auto;
+  border-radius: var(--r-pill);
+  background: rgb(255 255 255 / 0.06);
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.terminal__tabs button {
+  position: relative;
+  min-height: 1.85rem;
+  padding: 0 var(--s-3);
+  border: 0;
+  border-radius: var(--r-pill);
+  background: transparent;
+  color: var(--term-dim);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  cursor: pointer;
+  transition: color var(--dur-fast) var(--ease-out), background-color var(--dur) var(--ease-out);
+}
+
+.terminal__tabs button:hover {
+  color: var(--term-ink);
+}
+
+.terminal__tabs button[aria-selected="true"] {
+  background: rgb(255 255 255 / 0.12);
+  color: var(--term-ink);
+}
+
+.terminal__replay {
+  width: 2rem;
+  height: 2rem;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--term-dim);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: color var(--dur-fast) var(--ease-out), transform var(--dur) var(--ease-out);
+}
+
+.terminal__replay:hover {
+  color: var(--term-ink);
+}
+
+.terminal__replay:active {
+  transform: rotate(-90deg);
+}
+
+.terminal__screen {
+  margin: 0;
+  min-height: 16rem;
+  max-height: 30rem;
+  padding: var(--s-6);
+  overflow: auto;
+  font-size: 0.8125rem;
+  line-height: 1.65;
+  white-space: pre-wrap;
+  word-break: break-word;
+  overscroll-behavior: contain;
+}
+
+.terminal__screen .ln {
+  display: block;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .terminal__screen .ln {
+    animation: line-in var(--dur) var(--ease-out) both;
+    animation-delay: calc(var(--i, 0) * 45ms);
+  }
+}
+
+@keyframes line-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+}
+
+.terminal__screen .req {
+  color: var(--term-dim);
+}
+
+.terminal__screen .req b {
+  color: var(--term-ink);
+  font-weight: 600;
+}
+
+.terminal__screen .add {
+  color: var(--term-add);
+}
+
+.terminal__screen .del {
+  color: var(--term-del);
+}
+
+.terminal__screen .gap {
+  height: 0.9em;
+}
+
+.terminal__caption {
+  padding: 0 var(--s-6) var(--s-4);
+  font-size: var(--text-xs);
+  color: var(--term-dim);
+}
+
+.terminal__caption code {
+  color: var(--term-ink);
+}
+
+/* The top-edge highlight is subtler on dark material. */
+@media (prefers-color-scheme: dark) {
+  .nav {
+    box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.07);
+  }
+}

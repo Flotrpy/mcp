@@ -1,0 +1,150 @@
+/* Design tokens. Every colour, size and curve on the site comes from here.
+   Light is the default; dark follows the system. */
+
+:root {
+  color-scheme: light dark;
+
+  /* Surfaces & ink */
+  --bg: #fbfbfd;
+  --bg-elevated: #ffffff;
+  --bg-sunken: #f2f2f5;
+  --ink: #1d1d1f;
+  --ink-2: #4b4b50;
+  --ink-3: #6e6e73;
+  --hairline: rgb(0 0 0 / 0.08);
+  --hairline-strong: rgb(0 0 0 / 0.14);
+  --glass: rgb(251 251 253 / 0.72);
+
+  /* One accent per server, plus a neutral link blue. */
+  --link: #0066cc;
+  --joinery: #a8611f;
+  --binscope: #0d7f80;
+  --lighthouse: #b8860b;
+  --vitals: #d93a3f;
+  --handset: #0a6cff;
+
+  /* Status is never a server accent (HIG Color: one colour, one meaning)
+     and is always paired with a text label. */
+  --ok: #12672b;
+  --warn: #8a4f00;
+  --bad: #b3261e;
+
+  /* Terminal */
+  --term-bg: #16161a;
+  --term-ink: #e8e8ed;
+  --term-dim: #8e8e96;
+  --term-add: #5ad17a;
+  --term-del: #ff7a7a;
+
+  /* Type */
+  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Inter", "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+  --font-display: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Inter", "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+  --font-mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1.0625rem;
+  --text-lg: 1.3125rem;
+  --text-xl: clamp(1.5rem, 1.2rem + 1.2vw, 2rem);
+  --text-2xl: clamp(2rem, 1.4rem + 2.6vw, 3.5rem);
+  --text-hero: clamp(2.75rem, 1.6rem + 5vw, 5.5rem);
+  /* Tracking is size-specific (HIG Typography, WWDC "Details of UI
+     Typography"): tighter as text grows, slightly open when small. */
+  --tracking-display: -0.035em;
+  --tracking-tight: -0.022em;
+  --tracking-body: -0.011em;
+  --tracking-small: 0.01em;
+
+  /* Space (4 px grid) */
+  --s-1: 0.25rem;
+  --s-2: 0.5rem;
+  --s-3: 0.75rem;
+  --s-4: 1rem;
+  --s-6: 1.5rem;
+  --s-8: 2rem;
+  --s-12: 3rem;
+  --s-16: 4rem;
+  --s-24: 6rem;
+  --s-32: 8rem;
+  --measure: 38rem;
+  --page: 75rem;
+
+  /* Radii are concentric: a child sits inside its parent's padding, so
+     child radius = parent radius - padding. */
+  --r-lg: 28px;
+  --r-md: 18px;
+  --r-sm: 10px;
+  --r-pill: 999px;
+
+  /* Layered shadows: ambient + direct light. */
+  --shadow-1: 0 1px 1px rgb(0 0 0 / 0.04), 0 2px 6px rgb(0 0 0 / 0.04);
+  --shadow-2: 0 1px 2px rgb(0 0 0 / 0.05), 0 8px 24px rgb(0 0 0 / 0.07);
+  --shadow-3: 0 2px 4px rgb(0 0 0 / 0.06), 0 24px 60px rgb(0 0 0 / 0.14);
+
+  /* Motion: short, ease-out, interruptible. */
+  --ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --ease-spring: cubic-bezier(0.34, 1.36, 0.64, 1);
+  --dur-fast: 150ms;
+  --dur: 240ms;
+  --dur-slow: 420ms;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #000000;
+    --bg-elevated: #161617;
+    --bg-sunken: #0d0d0e;
+    --ink: #f5f5f7;
+    --ink-2: #c7c7cc;
+    --ink-3: #98989d;
+    --hairline: rgb(255 255 255 / 0.1);
+    --hairline-strong: rgb(255 255 255 / 0.18);
+    --glass: rgb(22 22 23 / 0.72);
+    --link: #2997ff;
+    --joinery: #e3a062;
+    --binscope: #3cc6c7;
+    --lighthouse: #f2c14e;
+    --vitals: #ff6b6f;
+    --handset: #5aa2ff;
+    --term-bg: #0b0b0d;
+    --ok: #4cd46c;
+    --warn: #ffb340;
+    --bad: #ff6961;
+    --shadow-1: 0 1px 1px rgb(0 0 0 / 0.4);
+    --shadow-2: 0 1px 2px rgb(0 0 0 / 0.5), 0 8px 24px rgb(0 0 0 / 0.5);
+    --shadow-3: 0 2px 4px rgb(0 0 0 / 0.5), 0 24px 60px rgb(0 0 0 / 0.6);
+  }
+}
+
+/* Increased contrast: solid surfaces, stronger edges, darker secondary ink. */
+@media (prefers-contrast: more) {
+  :root {
+    --ink-2: #1d1d1f;
+    --ink-3: #3a3a3c;
+    --hairline: rgb(0 0 0 / 0.3);
+    --hairline-strong: rgb(0 0 0 / 0.5);
+    --glass: var(--bg);
+  }
+}
+
+@media (prefers-contrast: more) and (prefers-color-scheme: dark) {
+  :root {
+    --ink-2: #f5f5f7;
+    --ink-3: #d1d1d6;
+    --hairline: rgb(255 255 255 / 0.35);
+    --hairline-strong: rgb(255 255 255 / 0.55);
+  }
+}
+
+/* Reduced transparency: glass becomes a solid surface. */
+@media (prefers-reduced-transparency: reduce) {
+  :root {
+    --glass: var(--bg);
+  }
+}
+
+/* Accent hooks (classes rather than inline styles, so the CSP can forbid them). */
+.accent-joinery { --accent: var(--joinery); }
+.accent-binscope { --accent: var(--binscope); }
+.accent-lighthouse { --accent: var(--lighthouse); }
+.accent-vitals { --accent: var(--vitals); }
+.accent-handset { --accent: var(--handset); }
