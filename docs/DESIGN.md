@@ -83,20 +83,18 @@ Each list below was checked against the prior art found in the research (ShopSpe
 
 **Decision: static.** The guidelines say "CSS > Web Animations API > JS libraries" and to animate only `transform` and `opacity`. A static page meets that best, and the Rust lives where it pays off: in the servers.
 
-### UI features (deliberately not generic AI-landing-page fare)
-1. **Live terminal replay.** Each server card replays a *real* recorded JSON-RPC exchange captured from the built binaries, not lorem ipsum.
-2. **Config builder.** Pick a client and servers, and get the exact JSON snippet with a copy button and a deep link (URL as state).
-3. **Interactive shelf-sag widget.** This is `joinery`'s formula ported to JS: drag span and load, and the shelf bends, with a spring-like eased SVG and live numbers in tabular figures.
-4. **Command palette (⌘K)** to jump to any server or section, with no open animation (keyboard-initiated actions should feel instant).
-5. **Scroll-driven reveals** using CSS `animation-timeline: view()`, with a `prefers-reduced-motion` opacity-only fallback.
+### What was built
+The UI features avoid generic AI landing-page fare, and every one shows real output:
+1. **Recorded terminal replay.** The hero replays genuine JSON-RPC exchanges that `site/tools/record.py` captured from the release binaries. It is input-driven, never an autoplaying loop.
+2. **Real cut diagram.** The joinery tile shows the actual SVG that `nest_parts` drew for the transcript's bookcase.
+3. **Shelf-sag calculator.** This is joinery's formula ported to JS. A test parses the Rust species table, so the two cannot drift. The support can be dragged 1:1, with a velocity-preserving spring.
+4. **Config builder.** It covers Claude Code, Claude Desktop, Cursor and Codex, with options shown only for the selected servers. The URL becomes shareable after the first change.
+5. **⌘K palette.** A native `<dialog>` with combobox semantics. Keyboard opening is instant; pointer opening grows the panel out of its trigger.
+6. **Dashboard** (`site/dashboard.html`). Lighthouse grades, protocol support, handshake latency, lockfile status and per-tool token cost, all from a real audit. Every chart has a sentence description and a data table.
+7. **Scroll-driven reveals** via `animation-timeline: view()`, with an IntersectionObserver fallback.
 
-**Motion rules adopted:**
-- Durations ≤ 300 ms.
-- ease-out curves: `cubic-bezier(.2,.8,.2,1)`.
-- Transitions that list their properties explicitly, never `all`.
-- Interruptible transitions over keyframes.
-- No animation on frequent or keyboard actions.
-- Visible `:focus-visible` rings.
-- Hit targets ≥ 24 px (44 px on touch).
-- `color-scheme` and `theme-color` set.
-- Layered shadows and concentric radii.
+The motion, material, typography and colour rules were refined after comparing the Apple HIG, Apple's kits, Emil Kowalski's *apple-design* notes and Dribbble trends. The decisions are recorded in [`UI-RESEARCH.md`](UI-RESEARCH.md).
+
+**Verification:**
+- **axe-core** reports 0 violations on both pages in light and dark mode.
+- **CSP:** both pages run under the strict CSP in `site/vercel.json` with no violations.
