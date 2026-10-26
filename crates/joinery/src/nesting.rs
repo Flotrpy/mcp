@@ -131,13 +131,15 @@ pub fn nest(parts: &[Part], sheet: Sheet, kerf_mm: f64) -> Layout {
     Layout { sheet, kerf_mm, sheets_used, placements, unplaced, yield_percent }
 }
 
+/// A candidate orientation: placed length, placed width, rotated?
+type Orientation = (f64, f64, bool);
+
+/// Where a part goes: sheet index, free-rectangle index, orientation.
+type Spot = (usize, usize, Orientation);
+
 /// Best-area-fit search across every free rectangle of every sheet.
-fn best_spot(
-    free: &[Vec<Rect>],
-    orientations: &[(f64, f64, bool)],
-    kerf: f64,
-) -> Option<(usize, usize, (f64, f64, bool))> {
-    let mut best: Option<(f64, usize, usize, (f64, f64, bool))> = None;
+fn best_spot(free: &[Vec<Rect>], orientations: &[Orientation], kerf: f64) -> Option<Spot> {
+    let mut best: Option<(f64, Spot)> = None;
     for (si, rects) in free.iter().enumerate() {
         for (ri, r) in rects.iter().enumerate() {
             for &o in orientations {
@@ -145,13 +147,13 @@ fn best_spot(
                 if l + kerf <= r.l + 1e-9 && w + kerf <= r.w + 1e-9 {
                     let waste = r.area() - (l + kerf) * (w + kerf);
                     if best.as_ref().is_none_or(|b| waste < b.0) {
-                        best = Some((waste, si, ri, o));
+                        best = Some((waste, (si, ri, o)));
                     }
                 }
             }
         }
     }
-    best.map(|(_, s, r, o)| (s, r, o))
+    best.map(|(_, spot)| spot)
 }
 
 /// Split the space left after placing an `l × w` block in the top-left of

@@ -29,7 +29,7 @@ fn lists_the_same_four_tools_on_both_protocol_generations() {
     let old = legacy(BIN, &[("tools/list", json!({}))]);
     let expected = ["check_shelf_sag", "design_furniture", "list_species", "nest_parts"];
     assert_eq!(names(&new[0]), expected);
-    assert_eq!(names(&old.last().unwrap()), expected);
+    assert_eq!(names(old.last().unwrap()), expected);
 }
 
 #[test]
