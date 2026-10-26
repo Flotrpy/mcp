@@ -6,5 +6,6 @@
 //! `mcp.lock` file so silent changes are caught in CI.
 
 pub mod canonical;
+pub mod cost;
 pub mod lint;
 pub mod probe;
