@@ -64,10 +64,8 @@ struct Instance<'a> {
 
 /// Nest `parts` onto as few `sheet`s as this greedy heuristic manages.
 pub fn nest(parts: &[Part], sheet: Sheet, kerf_mm: f64) -> Layout {
-    let mut instances: Vec<Instance> = parts
-        .iter()
-        .flat_map(|p| (0..p.quantity).map(move |_| Instance { part: p }))
-        .collect();
+    let mut instances: Vec<Instance> =
+        parts.iter().flat_map(|p| (0..p.quantity).map(move |_| Instance { part: p })).collect();
     instances.sort_by(|a, b| {
         let ka = a.part.length_mm.max(a.part.width_mm);
         let kb = b.part.length_mm.max(b.part.width_mm);
@@ -166,11 +164,8 @@ fn split(r: Rect, l: f64, w: f64) -> Vec<Rect> {
 
     let vertical_cut = right_full.area().max(below_short.area());
     let horizontal_cut = right_short.area().max(below_full.area());
-    let (a, b) = if vertical_cut >= horizontal_cut {
-        (right_full, below_short)
-    } else {
-        (right_short, below_full)
-    };
+    let (a, b) =
+        if vertical_cut >= horizontal_cut { (right_full, below_short) } else { (right_short, below_full) };
     [a, b].into_iter().filter(|x| x.l > 1e-6 && x.w > 1e-6).collect()
 }
 

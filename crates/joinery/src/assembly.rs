@@ -54,15 +54,16 @@ pub fn steps(design: &Design) -> Vec<Step> {
     let mut joints: Vec<_> = design.joints.iter().collect();
     joints.sort_by_key(|j| stage(j.kind, &j.member));
 
-    let mut lines = vec![format!(
-        "Dry-fit the whole {} without glue; label every part and mark faces.",
-        design.kind
-    )];
+    let mut lines =
+        vec![format!("Dry-fit the whole {} without glue; label every part and mark faces.", design.kind)];
     let mut squared = false;
     for j in joints {
         let s = stage(j.kind, &j.member);
         if s >= 4 && !squared {
-            lines.push("Check both diagonals match before the glue sets; clamp across the long diagonal to correct.".into());
+            lines.push(
+                "Check both diagonals match before the glue sets; clamp across the long diagonal to correct."
+                    .into(),
+            );
             squared = true;
         }
         let glue = if j.kind == JointKind::ShelfPins { "" } else { "Glue and fit " };

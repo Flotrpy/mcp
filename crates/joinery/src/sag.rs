@@ -74,7 +74,13 @@ pub struct SagReport {
     pub advice: Vec<String>,
 }
 
-fn immediate_deflection_in(span_in: f64, depth_in: f64, thickness_in: f64, load_lb: f64, moe_psi: f64) -> f64 {
+fn immediate_deflection_in(
+    span_in: f64,
+    depth_in: f64,
+    thickness_in: f64,
+    load_lb: f64,
+    moe_psi: f64,
+) -> f64 {
     let moment_of_inertia = depth_in * thickness_in.powi(3) / 12.0;
     5.0 * load_lb * span_in.powi(3) / (384.0 * moe_psi * moment_of_inertia)
 }
@@ -108,16 +114,15 @@ pub fn check(shelf: Shelf, species: &'static Species) -> SagReport {
             "Shorten the span to {:.0} mm or less, or add a centre support.",
             max_span_in * MM_PER_INCH
         ));
-        advice.push(format!(
-            "Or use stock at least {:.1} mm thick.",
-            min_thickness_in * MM_PER_INCH
-        ));
+        advice.push(format!("Or use stock at least {:.1} mm thick.", min_thickness_in * MM_PER_INCH));
         advice.push(
             "Or glue a hardwood edge strip on edge under the front (it adds stiffness far faster than thickness)."
                 .to_string(),
         );
         if species.sheet_good && species.moe_psi < 1_000_000.0 {
-            advice.push("MDF and particleboard creep badly; plywood or solid wood will hold up longer.".to_string());
+            advice.push(
+                "MDF and particleboard creep badly; plywood or solid wood will hold up longer.".to_string(),
+            );
         }
     }
 

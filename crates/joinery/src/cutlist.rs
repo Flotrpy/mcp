@@ -48,11 +48,8 @@ pub fn build(parts: &[Part], inches: bool) -> CutList {
             merged.push(p.clone());
         }
     }
-    merged.sort_by(|a, b| {
-        b.thickness_mm
-            .total_cmp(&a.thickness_mm)
-            .then(b.length_mm.total_cmp(&a.length_mm))
-    });
+    merged
+        .sort_by(|a, b| b.thickness_mm.total_cmp(&a.thickness_mm).then(b.length_mm.total_cmp(&a.length_mm)));
 
     let conv = |mm: f64| if inches { round(mm / MM_PER_INCH, 3) } else { round(mm, 1) };
     let lines = merged

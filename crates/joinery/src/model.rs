@@ -51,16 +51,70 @@ pub struct Species {
 /// furniture-scale decisions, not engineering sign-off.
 pub const SPECIES: &[Species] = &[
     Species { id: "red-oak", name: "Red oak", moe_psi: 1_820_000.0, creep_factor: 1.5, sheet_good: false },
-    Species { id: "white-oak", name: "White oak", moe_psi: 1_780_000.0, creep_factor: 1.5, sheet_good: false },
-    Species { id: "hard-maple", name: "Hard maple", moe_psi: 1_830_000.0, creep_factor: 1.5, sheet_good: false },
-    Species { id: "cherry", name: "Black cherry", moe_psi: 1_490_000.0, creep_factor: 1.5, sheet_good: false },
-    Species { id: "walnut", name: "Black walnut", moe_psi: 1_680_000.0, creep_factor: 1.5, sheet_good: false },
-    Species { id: "poplar", name: "Yellow poplar", moe_psi: 1_580_000.0, creep_factor: 1.5, sheet_good: false },
-    Species { id: "white-pine", name: "Eastern white pine", moe_psi: 1_240_000.0, creep_factor: 1.5, sheet_good: false },
-    Species { id: "douglas-fir", name: "Douglas fir", moe_psi: 1_950_000.0, creep_factor: 1.5, sheet_good: false },
-    Species { id: "birch-ply", name: "Birch plywood", moe_psi: 1_200_000.0, creep_factor: 1.75, sheet_good: true },
+    Species {
+        id: "white-oak",
+        name: "White oak",
+        moe_psi: 1_780_000.0,
+        creep_factor: 1.5,
+        sheet_good: false,
+    },
+    Species {
+        id: "hard-maple",
+        name: "Hard maple",
+        moe_psi: 1_830_000.0,
+        creep_factor: 1.5,
+        sheet_good: false,
+    },
+    Species {
+        id: "cherry",
+        name: "Black cherry",
+        moe_psi: 1_490_000.0,
+        creep_factor: 1.5,
+        sheet_good: false,
+    },
+    Species {
+        id: "walnut",
+        name: "Black walnut",
+        moe_psi: 1_680_000.0,
+        creep_factor: 1.5,
+        sheet_good: false,
+    },
+    Species {
+        id: "poplar",
+        name: "Yellow poplar",
+        moe_psi: 1_580_000.0,
+        creep_factor: 1.5,
+        sheet_good: false,
+    },
+    Species {
+        id: "white-pine",
+        name: "Eastern white pine",
+        moe_psi: 1_240_000.0,
+        creep_factor: 1.5,
+        sheet_good: false,
+    },
+    Species {
+        id: "douglas-fir",
+        name: "Douglas fir",
+        moe_psi: 1_950_000.0,
+        creep_factor: 1.5,
+        sheet_good: false,
+    },
+    Species {
+        id: "birch-ply",
+        name: "Birch plywood",
+        moe_psi: 1_200_000.0,
+        creep_factor: 1.75,
+        sheet_good: true,
+    },
     Species { id: "mdf", name: "MDF", moe_psi: 400_000.0, creep_factor: 2.0, sheet_good: true },
-    Species { id: "particleboard", name: "Particleboard", moe_psi: 300_000.0, creep_factor: 2.0, sheet_good: true },
+    Species {
+        id: "particleboard",
+        name: "Particleboard",
+        moe_psi: 300_000.0,
+        creep_factor: 2.0,
+        sheet_good: true,
+    },
 ];
 
 /// Look a species up by id (case-insensitive), accepting spaces for dashes.
@@ -89,15 +143,14 @@ fn default_true() -> bool {
 }
 
 impl Part {
-    pub fn new(name: impl Into<String>, length_mm: f64, width_mm: f64, thickness_mm: f64, quantity: u32) -> Self {
-        Self {
-            name: name.into(),
-            length_mm,
-            width_mm,
-            thickness_mm,
-            quantity,
-            grain_locked: true,
-        }
+    pub fn new(
+        name: impl Into<String>,
+        length_mm: f64,
+        width_mm: f64,
+        thickness_mm: f64,
+        quantity: u32,
+    ) -> Self {
+        Self { name: name.into(), length_mm, width_mm, thickness_mm, quantity, grain_locked: true }
     }
 
     pub fn area_mm2(&self) -> f64 {

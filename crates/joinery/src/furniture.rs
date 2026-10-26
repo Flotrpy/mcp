@@ -117,13 +117,18 @@ pub fn bookcase(c: Carcass, fixed: u32, adjustable: u32) -> Design {
     if adjustable > 0 {
         let len = c.inside_width() - ADJUSTABLE_SHELF_CLEARANCE_MM;
         d.parts.push(Part::new("adjustable shelf", len, c.shelf_depth(), c.stock_mm, adjustable));
-        d.joints.push(Joint { kind: JointKind::ShelfPins, host: "side".into(), member: "adjustable shelf".into() });
+        d.joints.push(Joint {
+            kind: JointKind::ShelfPins,
+            host: "side".into(),
+            member: "adjustable shelf".into(),
+        });
         d.notes.push(format!(
             "Adjustable shelves are {ADJUSTABLE_SHELF_CLEARANCE_MM} mm short of the inside width so they drop in without binding."
         ));
     }
     let openings = fixed + adjustable + 1;
-    let clear = (c.height_mm - 2.0 * c.stock_mm - f64::from(fixed + adjustable) * c.stock_mm) / f64::from(openings);
+    let clear =
+        (c.height_mm - 2.0 * c.stock_mm - f64::from(fixed + adjustable) * c.stock_mm) / f64::from(openings);
     d.notes.push(format!("Evenly spaced, each opening is about {clear:.0} mm tall."));
     d
 }

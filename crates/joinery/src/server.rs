@@ -169,7 +169,10 @@ impl Joinery {
         description = "Design a bookcase, cabinet or drawer from outside dimensions. Returns every part sized for its joinery, a merged cut list with board feet, a glue-up order, and a sag check for each shelf.",
         annotations(title = "Design furniture", read_only_hint = true, open_world_hint = false)
     )]
-    pub fn design_furniture(&self, Parameters(a): Parameters<DesignArgs>) -> Result<CallToolResult, ErrorData> {
+    pub fn design_furniture(
+        &self,
+        Parameters(a): Parameters<DesignArgs>,
+    ) -> Result<CallToolResult, ErrorData> {
         let u = a.units;
         let mm = |name: &str, v: f64| positive(name, v).map(|v| u.to_mm(v));
         let stock = mm("stock_thickness", a.stock_thickness)?;
@@ -179,7 +182,9 @@ impl Joinery {
         };
         let (w, h, d) = (mm("width", a.width)?, mm("height", a.height)?, mm("depth", a.depth)?);
         if w <= 2.0 * stock || d <= back {
-            return Ok(tool_error("The case is too small for its own stock: width must exceed two stock thicknesses and depth must exceed the back."));
+            return Ok(tool_error(
+                "The case is too small for its own stock: width must exceed two stock thicknesses and depth must exceed the back.",
+            ));
         }
         let carcass = Carcass { width_mm: w, height_mm: h, depth_mm: d, stock_mm: stock, back_mm: back };
         let design = match a.kind {
@@ -222,9 +227,16 @@ impl Joinery {
             if shelf_checks.is_empty() {
                 "No shelves to check.".to_string()
             } else if failing == 0 {
-                format!("All {} shelf types pass the 1/32\" per foot sag limit in {}.", shelf_checks.len(), species.name)
+                format!(
+                    "All {} shelf types pass the 1/32\" per foot sag limit in {}.",
+                    shelf_checks.len(),
+                    species.name
+                )
             } else {
-                format!("{failing} shelf type(s) will sag visibly in {}; see shelf_checks advice.", species.name)
+                format!(
+                    "{failing} shelf type(s) will sag visibly in {}; see shelf_checks advice.",
+                    species.name
+                )
             }
         );
         let out = DesignOutput {
@@ -252,9 +264,14 @@ impl Joinery {
         let load_kg = match (a.load_kg, a.load_preset) {
             (Some(kg), _) => positive("load_kg", kg)?,
             (None, Some(p)) => p.lb_per_ft() * (span / model::MM_PER_INCH / 12.0) / sag::LB_PER_KG,
-            (None, None) => return Ok(tool_error("Pass `load_kg` (total weight) or `load_preset` (books, dishes, records, decor).")),
+            (None, None) => {
+                return Ok(tool_error(
+                    "Pass `load_kg` (total weight) or `load_preset` (books, dishes, records, decor).",
+                ));
+            }
         };
-        let r = sag::check(Shelf { span_mm: span, depth_mm: depth, thickness_mm: thickness, load_kg }, species);
+        let r =
+            sag::check(Shelf { span_mm: span, depth_mm: depth, thickness_mm: thickness, load_kg }, species);
         let summary = format!(
             "{}: {:.2} mm long-term sag vs {:.2} mm limit ({:.0}% of limit).",
             if r.passes { "Passes" } else { "Fails" },
@@ -303,10 +320,15 @@ impl Joinery {
             if layout.unplaced.is_empty() {
                 String::new()
             } else {
-                format!("; {} part(s) larger than a sheet: {}", layout.unplaced.len(), layout.unplaced.join(", "))
+                format!(
+                    "; {} part(s) larger than a sheet: {}",
+                    layout.unplaced.len(),
+                    layout.unplaced.join(", ")
+                )
             }
         );
-        let mut value = serde_json::to_value(&layout).map_err(|e| ErrorData::internal_error(e.to_string(), None))?;
+        let mut value =
+            serde_json::to_value(&layout).map_err(|e| ErrorData::internal_error(e.to_string(), None))?;
         if a.include_svg {
             value["svg"] = serde_json::Value::String(svg::render(&layout));
         }
