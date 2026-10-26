@@ -8,3 +8,4 @@
 //! names hidden before results reach the model.
 
 pub mod metric;
+pub mod store;
