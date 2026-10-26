@@ -7,7 +7,9 @@ cd site && npm run serve     # http://localhost:8000
 npm test                     # JS unit tests (sag formula parity, config generators, search)
 ```
 
-Deploy by pointing a Vercel project's root at `site/`. `vercel.json` sets clean URLs, caching and a strict Content Security Policy (no inline scripts or styles).
+**Live:** https://flotrpy.github.io/mcp/ (GitHub Pages, served from the `gh-pages` branch). `.github/workflows/pages.yml` republishes it when `site/` changes on `main`. To publish by hand, run `sh site/tools/build-pages.sh dist` and push `dist/` to `gh-pages`.
+
+Alternatively, deploy to Vercel by pointing a project's root at `site/`. `vercel.json` sets clean URLs, caching and a strict Content Security Policy (no inline scripts or styles).
 
 ## Pages
 - **`index.html`:**
