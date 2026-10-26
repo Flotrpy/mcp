@@ -7,5 +7,6 @@
 //! uploaded anywhere; with redaction on, timestamps are coarsened and device
 //! names hidden before results reach the model.
 
+pub mod import;
 pub mod metric;
 pub mod store;
