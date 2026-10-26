@@ -9,4 +9,5 @@ pub mod access;
 pub mod diff;
 pub mod entropy;
 pub mod inspect;
+pub mod report;
 pub mod strings;
