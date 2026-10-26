@@ -5,6 +5,7 @@
 //! context tokens, grades the result and can pin the tool surface to an
 //! `mcp.lock` file so silent changes are caught in CI.
 
+pub mod audit;
 pub mod canonical;
 pub mod cost;
 pub mod lint;
