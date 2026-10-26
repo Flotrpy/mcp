@@ -23,6 +23,18 @@ jobs:
       - name: Test
         run: cargo test --workspace
 
+  site:
+    # The site's JS has unit tests, including a parity check that the sag
+    # calculator's species table matches crates/joinery/src/model.rs.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm test
+        working-directory: site
+
   dogfood:
     # Every server must keep an A from lighthouse and match its committed mcp.lock.
     runs-on: ubuntu-latest
