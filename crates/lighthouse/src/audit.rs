@@ -84,7 +84,7 @@ pub fn score(stateless: &Generation, legacy: &Generation, findings: &[Finding], 
         d.push(("Non-JSON output on stdout (logs belong on stderr)".into(), 10));
     }
     d.retain(|(_, p)| *p > 0);
-    d.sort_by(|a, b| b.1.cmp(&a.1));
+    d.sort_by_key(|(_, points)| std::cmp::Reverse(*points));
     let lost: u32 = d.iter().map(|(_, p)| p).sum();
     let points = 100u32.saturating_sub(lost);
     Score { points, grade: letter(points), deductions: d }
