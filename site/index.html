@@ -14,6 +14,7 @@
   <link rel="stylesheet" href="styles/base.css">
   <link rel="stylesheet" href="styles/layout.css">
   <link rel="stylesheet" href="styles/sections.css">
+  <link rel="stylesheet" href="styles/builder.css">
   <link rel="preload" href="data/transcripts.json" as="fetch" type="application/json" crossorigin>
 </head>
 <body>
@@ -181,6 +182,63 @@
               <div><dt>Of limit</dt><dd data-out="util">–</dd></div>
             </dl>
             <p class="sag__verdict" id="sag-verdict" aria-live="polite" data-out="verdict">–</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section" id="install" aria-labelledby="install-title">
+      <div class="wrap">
+        <header class="section__head">
+          <p class="eyebrow">Install</p>
+          <h2 id="install-title" class="section__title">Your config, ready to&nbsp;paste.</h2>
+          <p class="section__lede">Pick servers and a client. The link updates as you go, so you can send a teammate the exact setup.</p>
+        </header>
+
+        <div class="builder" data-builder>
+          <form class="builder__form" onsubmit="return false">
+            <fieldset class="builder__group">
+              <legend>Servers</legend>
+              <div class="chips">
+                <label class="chip" style="--accent: var(--joinery)"><input type="checkbox" name="server" value="joinery" checked><span translate="no">joinery</span></label>
+                <label class="chip" style="--accent: var(--binscope)"><input type="checkbox" name="server" value="binscope"><span translate="no">binscope</span></label>
+                <label class="chip" style="--accent: var(--lighthouse)"><input type="checkbox" name="server" value="lighthouse" checked><span translate="no">lighthouse</span></label>
+                <label class="chip" style="--accent: var(--vitals)"><input type="checkbox" name="server" value="vitals"><span translate="no">vitals</span></label>
+                <label class="chip" style="--accent: var(--handset)"><input type="checkbox" name="server" value="handset"><span translate="no">handset</span></label>
+              </div>
+            </fieldset>
+            <fieldset class="builder__group">
+              <legend>Client</legend>
+              <div class="segmented segmented--light" role="radiogroup">
+                <label><input type="radio" name="client" value="claude-code" checked><span>Claude Code</span></label>
+                <label><input type="radio" name="client" value="claude-desktop"><span>Desktop</span></label>
+                <label><input type="radio" name="client" value="cursor"><span>Cursor</span></label>
+                <label><input type="radio" name="client" value="codex"><span>Codex</span></label>
+              </div>
+            </fieldset>
+            <fieldset class="builder__group" data-when="binscope vitals">
+              <legend>Options</legend>
+              <label class="option" data-when="binscope">
+                <span>Confine binscope to a folder</span>
+                <input type="text" name="binscopeRoot" placeholder="/path/to/builds…" autocomplete="off" spellcheck="false">
+              </label>
+              <label class="option option--toggle" data-when="vitals">
+                <input type="checkbox" name="vitalsRedact" role="switch">
+                <span>Hide device names in vitals results</span>
+              </label>
+            </fieldset>
+          </form>
+
+          <div class="builder__out">
+            <div class="code">
+              <div class="code__head"><span>1. Install</span><button type="button" class="code__copy" data-copy="install">Copy</button></div>
+              <pre><code data-out="install"></code></pre>
+            </div>
+            <div class="code">
+              <div class="code__head"><span data-out="file">2. Configure</span><button type="button" class="code__copy" data-copy="config">Copy</button></div>
+              <pre><code data-out="config"></code></pre>
+            </div>
+            <p class="builder__empty" data-out="empty" hidden>Choose at least one server to see its config.</p>
+            <p class="visually-hidden" aria-live="polite" data-out="status"></p>
           </div>
         </div>
       </div>

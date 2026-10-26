@@ -1,0 +1,205 @@
+/* Install builder: chips, light segmented control, options and code output. */
+
+.builder {
+  display: grid;
+  grid-template-columns: minmax(18rem, 26rem) 1fr;
+  gap: var(--s-8);
+  align-items: start;
+}
+
+@media (max-width: 56rem) {
+  .builder {
+    grid-template-columns: 1fr;
+  }
+}
+
+.builder__form {
+  display: grid;
+  gap: var(--s-8);
+}
+
+.builder__group {
+  display: grid;
+  gap: var(--s-3);
+  margin: 0;
+  padding: 0;
+  border: 0;
+  min-width: 0;
+}
+
+.builder__group legend {
+  padding: 0;
+  margin-bottom: var(--s-3);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  letter-spacing: var(--tracking-small);
+  color: var(--ink-3);
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-2);
+}
+
+.chip {
+  position: relative;
+  cursor: pointer;
+}
+
+.chip input {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.chip span {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-2);
+  min-height: 2.25rem;
+  padding: 0 var(--s-4);
+  border-radius: var(--r-pill);
+  border: 1px solid var(--hairline-strong);
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  color: var(--ink-2);
+  transition: background-color var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out),
+    color var(--dur-fast) var(--ease-out);
+}
+
+.chip span::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: 1.5px solid var(--accent);
+  transition: background-color var(--dur-fast) var(--ease-out);
+}
+
+.chip input:checked + span {
+  border-color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 10%, transparent);
+  color: var(--ink);
+}
+
+.chip input:checked + span::before {
+  background: var(--accent);
+}
+
+.chip input:focus-visible + span {
+  outline: 2px solid var(--link);
+  outline-offset: 2px;
+}
+
+.segmented--light {
+  background: var(--bg-sunken);
+}
+
+.segmented--light span {
+  color: var(--ink-2);
+}
+
+.segmented--light input:checked + span {
+  background: var(--bg-elevated);
+  color: var(--ink);
+  box-shadow: var(--shadow-1);
+}
+
+.segmented--light input:focus-visible + span {
+  outline-color: var(--link);
+}
+
+.option {
+  display: grid;
+  gap: var(--s-2);
+  font-size: var(--text-sm);
+  color: var(--ink-2);
+}
+
+/* ≥ 16 px so iOS Safari does not zoom on focus. */
+.option input[type="text"] {
+  min-height: 2.5rem;
+  padding: 0 var(--s-3);
+  border-radius: var(--r-sm);
+  border: 1px solid var(--hairline-strong);
+  background: var(--bg-elevated);
+  font-family: var(--font-mono);
+  font-size: max(16px, var(--text-sm));
+}
+
+.option--toggle {
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: var(--s-3);
+  cursor: pointer;
+}
+
+.option--toggle input {
+  width: 1.15rem;
+  height: 1.15rem;
+  accent-color: var(--vitals);
+}
+
+[data-when][hidden],
+.code[hidden] {
+  display: none;
+}
+
+.builder__out {
+  display: grid;
+  gap: var(--s-4);
+  min-width: 0;
+}
+
+.code {
+  border-radius: var(--r-md);
+  background: var(--term-bg);
+  color: var(--term-ink);
+  box-shadow: var(--shadow-2);
+  overflow: hidden;
+}
+
+.code__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--s-2) var(--s-2) var(--s-2) var(--s-4);
+  border-bottom: 1px solid rgb(255 255 255 / 0.07);
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-small);
+  color: var(--term-dim);
+}
+
+.code__copy {
+  min-height: 1.85rem;
+  padding: 0 var(--s-3);
+  border: 0;
+  border-radius: var(--r-pill);
+  background: rgb(255 255 255 / 0.08);
+  color: var(--term-ink);
+  font-size: var(--text-xs);
+  cursor: pointer;
+  transition: background-color var(--dur-fast) var(--ease-out);
+}
+
+.code__copy:hover {
+  background: rgb(255 255 255 / 0.16);
+}
+
+.code__copy[data-copied] {
+  color: var(--term-add);
+}
+
+.code pre {
+  margin: 0;
+  padding: var(--s-4);
+  overflow-x: auto;
+  font-size: 0.8125rem;
+  line-height: 1.6;
+}
+
+.builder__empty {
+  color: var(--ink-3);
+}
