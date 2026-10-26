@@ -4,10 +4,10 @@
 Uses the public HN Firebase API (no key required). Standard library only.
 
 Examples:
-    python3 hn_mcp_search.py                       # scan top 200 stories
-    python3 hn_mcp_search.py --feed new --limit 300
-    python3 hn_mcp_search.py --feed top --feed new --comments --json out.json
-    python3 hn_mcp_search.py --extra "langgraph" --extra "a2a"
+    python3 research/hn_mcp_search.py                       # scan top 200 stories
+    python3 research/hn_mcp_search.py --feed new --limit 300
+    python3 research/hn_mcp_search.py --feed top --feed new --comments --json out.json
+    python3 research/hn_mcp_search.py --extra "langgraph" --extra "a2a"
 """
 import argparse
 import json
