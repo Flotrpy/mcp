@@ -36,7 +36,11 @@ pub enum Direction {
 pub enum Action {
     Tap(Target),
     /// Optionally focus `target` first, type, optionally press enter.
-    Type { target: Option<Target>, text: String, submit: bool },
+    Type {
+        target: Option<Target>,
+        text: String,
+        submit: bool,
+    },
     /// Scroll the content in `direction` (swipes the opposite way).
     Scroll(Direction),
     Key(String),
@@ -79,7 +83,12 @@ pub struct Session {
 
 impl Session {
     pub fn new(runner: Arc<dyn Runner>) -> Self {
-        Self { runner, registries: Mutex::new(HashMap::new()), settle: Duration::from_millis(400), poll: Duration::from_millis(500) }
+        Self {
+            runner,
+            registries: Mutex::new(HashMap::new()),
+            settle: Duration::from_millis(400),
+            poll: Duration::from_millis(500),
+        }
     }
 
     pub fn devices(&self) -> (Vec<DeviceInfo>, Vec<String>) {
@@ -112,12 +121,16 @@ impl Session {
         let describe = |e: &Element| format!("{} {:?}", e.reference, e.node.label);
         match target {
             Target::Point(x, y) => Ok(((*x, *y), format!("({x}, {y})"))),
-            Target::Ref(r) => snap.get(r).map(|e| (e.node.bounds.center(), describe(e))).ok_or_else(|| ActError::StaleRef(r.clone())),
+            Target::Ref(r) => snap
+                .get(r)
+                .map(|e| (e.node.bounds.center(), describe(e)))
+                .ok_or_else(|| ActError::StaleRef(r.clone())),
             Target::Text(t) => {
                 let matches = snap.find(t);
                 // Prefer something tappable when text also appears as a label.
                 let interactive: Vec<&&Element> = matches.iter().filter(|e| e.node.interactive).collect();
-                let pick: Vec<&Element> = if interactive.len() == 1 { vec![*interactive[0]] } else { matches };
+                let pick: Vec<&Element> =
+                    if interactive.len() == 1 { vec![*interactive[0]] } else { matches };
                 match pick.as_slice() {
                     [] => Err(ActError::NoMatch(t.clone())),
                     [one] => Ok((one.node.bounds.center(), describe(one))),
@@ -156,14 +169,20 @@ impl Session {
                 if *submit {
                     backend.key("enter")?;
                 }
-                format!("Typed {} characters into {what}{}", text.chars().count(), if *submit { " and pressed enter" } else { "" })
+                format!(
+                    "Typed {} characters into {what}{}",
+                    text.chars().count(),
+                    if *submit { " and pressed enter" } else { "" }
+                )
             }
             Action::Scroll(dir) => {
                 let screen = before
                     .elements
                     .iter()
                     .map(|e| e.node.bounds)
-                    .fold((0, 0, 1080, 1920), |(a, b, c, d), r| (a.min(r.x1), b.min(r.y1), c.max(r.x2), d.max(r.y2)));
+                    .fold((0, 0, 1080, 1920), |(a, b, c, d), r| {
+                        (a.min(r.x1), b.min(r.y1), c.max(r.x2), d.max(r.y2))
+                    });
                 let (cx, cy) = ((screen.0 + screen.2) / 2, (screen.1 + screen.3) / 2);
                 let (dx, dy) = ((screen.2 - screen.0) / 3, (screen.3 - screen.1) / 3);
                 // Content moves opposite to the finger.
@@ -195,7 +214,13 @@ impl Session {
     }
 
     /// Poll until something matching `needle` appears (or disappears).
-    pub fn wait_for(&self, wanted: Option<&str>, needle: &str, gone: bool, timeout: Duration) -> Result<(DeviceInfo, Snapshot, f64), ActError> {
+    pub fn wait_for(
+        &self,
+        wanted: Option<&str>,
+        needle: &str,
+        gone: bool,
+        timeout: Duration,
+    ) -> Result<(DeviceInfo, Snapshot, f64), ActError> {
         let dev = self.device(wanted)?;
         let started = Instant::now();
         loop {
@@ -246,7 +271,16 @@ mod tests {
     fn type_by_text_focuses_then_types_then_submits() {
         let r = Arc::new(FakeRunner::default());
         let s = session(&r);
-        let out = s.act(None, Action::Type { target: Some(Target::Text("Password".into())), text: "pw 1".into(), submit: true }).unwrap();
+        let out = s
+            .act(
+                None,
+                Action::Type {
+                    target: Some(Target::Text("Password".into())),
+                    text: "pw 1".into(),
+                    submit: true,
+                },
+            )
+            .unwrap();
         assert!(out.did.contains("Typed 4 characters"));
         let calls = r.calls.lock().unwrap();
         let tail: Vec<&String> = calls.iter().filter(|c| c.contains("input")).collect();

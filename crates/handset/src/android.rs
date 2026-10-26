@@ -28,17 +28,34 @@ pub fn parse_bounds(s: &str) -> Option<Rect> {
 fn role(class: &str, clickable: bool, checkable: bool) -> Role {
     let short = class.rsplit('.').next().unwrap_or(class);
     match short {
-        "Button" | "ImageButton" | "FloatingActionButton" | "MaterialButton" | "AppCompatButton" => Role::Button,
-        "EditText" | "AutoCompleteTextView" | "TextInputEditText" | "AppCompatEditText" | "SearchView" => Role::Input,
+        "Button" | "ImageButton" | "FloatingActionButton" | "MaterialButton" | "AppCompatButton" => {
+            Role::Button
+        }
+        "EditText" | "AutoCompleteTextView" | "TextInputEditText" | "AppCompatEditText" | "SearchView" => {
+            Role::Input
+        }
         "CheckBox" | "AppCompatCheckBox" | "RadioButton" => Role::Checkbox,
         "Switch" | "SwitchCompat" | "SwitchMaterial" | "ToggleButton" => Role::Switch,
         "ImageView" | "AppCompatImageView" => {
-            if clickable { Role::Button } else { Role::Image }
+            if clickable {
+                Role::Button
+            } else {
+                Role::Image
+            }
         }
-        "RecyclerView" | "ListView" | "ScrollView" | "HorizontalScrollView" | "NestedScrollView" | "GridView" => Role::List,
+        "RecyclerView"
+        | "ListView"
+        | "ScrollView"
+        | "HorizontalScrollView"
+        | "NestedScrollView"
+        | "GridView" => Role::List,
         "TabView" | "TabLayout$TabView" => Role::Tab,
         "TextView" | "AppCompatTextView" | "MaterialTextView" => {
-            if clickable { Role::Button } else { Role::Text }
+            if clickable {
+                Role::Button
+            } else {
+                Role::Text
+            }
         }
         _ if checkable => Role::Checkbox,
         _ if clickable => Role::Button,
@@ -83,21 +100,31 @@ pub fn parse(xml: &str) -> Result<Vec<Node>, ParseError> {
                 let password = flag("password");
                 let (label, value) = if r == Role::Input {
                     // For inputs, text is the value; the hint lives in content-desc.
-                    let v = if password && !text.is_empty() { Some("••••".to_string()) } else { (!text.is_empty()).then_some(text.clone()) };
+                    let v = if password && !text.is_empty() {
+                        Some("••••".to_string())
+                    } else {
+                        (!text.is_empty()).then_some(text.clone())
+                    };
                     (desc, v)
                 } else if text.is_empty() {
                     (desc, None)
                 } else {
                     (text, None)
                 };
-                let id = get.get("resource-id").filter(|s| !s.is_empty()).map(|s| s.rsplit('/').next().unwrap_or(s).to_string());
+                let id = get
+                    .get("resource-id")
+                    .filter(|s| !s.is_empty())
+                    .map(|s| s.rsplit('/').next().unwrap_or(s).to_string());
                 nodes.push(Node {
                     role: r,
                     label: label.trim().to_string(),
                     value,
                     id,
                     bounds,
-                    interactive: clickable || checkable || r == Role::Input || flag("focusable") && r != Role::Other && r != Role::Text,
+                    interactive: clickable
+                        || checkable
+                        || r == Role::Input
+                        || flag("focusable") && r != Role::Other && r != Role::Text,
                     enabled: get.get("enabled").is_none_or(|v| v == "true"),
                     checked: checkable.then(|| flag("checked")),
                     focused: flag("focused"),
@@ -141,7 +168,10 @@ UI hierchary dumped to: /dev/tty"#;
         let nodes = parse(LOGIN).unwrap();
         assert_eq!(nodes.len(), 7);
         let email = &nodes[2];
-        assert_eq!((email.role, email.label.as_str(), email.value.as_deref()), (Role::Input, "Email", Some("jo@example.com")));
+        assert_eq!(
+            (email.role, email.label.as_str(), email.value.as_deref()),
+            (Role::Input, "Email", Some("jo@example.com"))
+        );
         assert!(email.focused);
         assert_eq!(nodes[3].value.as_deref(), Some("••••"), "passwords are never echoed");
         assert_eq!(nodes[4].checked, Some(false));

@@ -124,7 +124,11 @@ impl Handset {
         let summary = if devices.is_empty() {
             format!("No devices. {}", notes.join(" "))
         } else {
-            devices.iter().map(|d| format!("{} ({:?}, {})", d.id, d.platform, d.name)).collect::<Vec<_>>().join("; ")
+            devices
+                .iter()
+                .map(|d| format!("{} ({:?}, {})", d.id, d.platform, d.name))
+                .collect::<Vec<_>>()
+                .join("; ")
         };
         structured(summary, &json!({"devices": devices, "notes": notes}))
     }
@@ -149,7 +153,12 @@ impl Handset {
 
     #[tool(
         description = "Tap, type, scroll, press a key or launch an app, then return only what changed on screen (+ added, - removed, ~ changed). Target by `ref` (best), `target_text`, or `x`/`y`.",
-        annotations(title = "Act on the device", read_only_hint = false, destructive_hint = true, open_world_hint = true)
+        annotations(
+            title = "Act on the device",
+            read_only_hint = false,
+            destructive_hint = true,
+            open_world_hint = true
+        )
     )]
     pub async fn act(&self, Parameters(a): Parameters<ActArgs>) -> Result<CallToolResult, ErrorData> {
         let action = match a.action {
@@ -159,7 +168,11 @@ impl Handset {
             },
             ActKind::Type => match &a.text {
                 Some(text) => Action::Type { target: target(&a), text: text.clone(), submit: a.submit },
-                None => return Ok(tool_error("type needs `text` (and optionally a `ref` or `target_text` to focus first).")),
+                None => {
+                    return Ok(tool_error(
+                        "type needs `text` (and optionally a `ref` or `target_text` to focus first).",
+                    ));
+                }
             },
             ActKind::Scroll => Action::Scroll(a.direction.unwrap_or(Direction::Down)),
             ActKind::Key => match &a.key {

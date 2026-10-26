@@ -75,12 +75,10 @@ pub fn parse(output: &str) -> Result<Vec<Node>, ParseError> {
             let r = role(&e.kind);
             let secure = e.kind == "SecureTextField";
             let label = e.label.or(e.title).unwrap_or_default();
-            let value = e.value.filter(|v| !v.is_empty()).map(|v| if secure { "••••".to_string() } else { v });
-            let (checked, value) = if r == Role::Switch {
-                (value.as_deref().map(|v| v == "1"), None)
-            } else {
-                (None, value)
-            };
+            let value =
+                e.value.filter(|v| !v.is_empty()).map(|v| if secure { "••••".to_string() } else { v });
+            let (checked, value) =
+                if r == Role::Switch { (value.as_deref().map(|v| v == "1"), None) } else { (None, value) };
             Some(Node {
                 role: r,
                 label: label.trim().to_string(),
@@ -92,7 +90,10 @@ pub fn parse(output: &str) -> Result<Vec<Node>, ParseError> {
                     x2: (f.x + f.width).round() as i32,
                     y2: (f.y + f.height).round() as i32,
                 },
-                interactive: matches!(r, Role::Button | Role::Input | Role::Switch | Role::Checkbox | Role::Link | Role::Tab),
+                interactive: matches!(
+                    r,
+                    Role::Button | Role::Input | Role::Switch | Role::Checkbox | Role::Link | Role::Tab
+                ),
                 enabled: e.enabled,
                 checked,
                 focused: false,

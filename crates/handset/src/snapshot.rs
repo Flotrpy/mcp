@@ -66,7 +66,12 @@ pub fn collapse(nodes: Vec<Node>) -> Vec<Node> {
             continue;
         }
         let parent = (0..nodes.len())
-            .filter(|&j| j != i && nodes[j].interactive && nodes[j].role != Role::List && contains(&nodes[j].bounds, &nodes[i].bounds))
+            .filter(|&j| {
+                j != i
+                    && nodes[j].interactive
+                    && nodes[j].role != Role::List
+                    && contains(&nodes[j].bounds, &nodes[i].bounds)
+            })
             .min_by_key(|&j| area(&nodes[j].bounds));
         if let Some(j) = parent {
             if nodes[j].label.is_empty() {
@@ -207,7 +212,11 @@ pub fn diff(before: &Snapshot, after: &Snapshot) -> Diff {
             None => d.added.push(line(e)),
             Some(o) => {
                 let (a, b) = (&o.node, &e.node);
-                if a.value != b.value || a.checked != b.checked || a.enabled != b.enabled || a.focused != b.focused {
+                if a.value != b.value
+                    || a.checked != b.checked
+                    || a.enabled != b.enabled
+                    || a.focused != b.focused
+                {
                     d.changed.push(line(e));
                 }
             }
@@ -271,10 +280,21 @@ mod tests {
     #[test]
     fn refs_survive_reordering_and_identical_siblings_stay_distinct() {
         let mut reg = Registry::default();
-        let first = reg.assign(vec![node(Role::Button, "Delete", 0, true), node(Role::Button, "Delete", 100, true), node(Role::Text, "Inbox", 200, false)]);
-        assert_eq!(first.elements.iter().map(|e| e.reference.as_str()).collect::<Vec<_>>(), ["e1", "e2", "e3"]);
+        let first = reg.assign(vec![
+            node(Role::Button, "Delete", 0, true),
+            node(Role::Button, "Delete", 100, true),
+            node(Role::Text, "Inbox", 200, false),
+        ]);
+        assert_eq!(
+            first.elements.iter().map(|e| e.reference.as_str()).collect::<Vec<_>>(),
+            ["e1", "e2", "e3"]
+        );
         // Scroll: the header moves to the top; same elements keep their refs.
-        let second = reg.assign(vec![node(Role::Text, "Inbox", 0, false), node(Role::Button, "Delete", 50, true), node(Role::Button, "Delete", 150, true)]);
+        let second = reg.assign(vec![
+            node(Role::Text, "Inbox", 0, false),
+            node(Role::Button, "Delete", 50, true),
+            node(Role::Button, "Delete", 150, true),
+        ]);
         assert_eq!(second.get("e3").unwrap().node.label, "Inbox");
         assert_eq!(second.elements[1].reference, "e1");
         assert_eq!(second.elements[2].reference, "e2");
@@ -283,7 +303,8 @@ mod tests {
     #[test]
     fn diff_reports_added_removed_and_changed() {
         let mut reg = Registry::default();
-        let before = reg.assign(vec![node(Role::Button, "Sign in", 0, true), node(Role::Input, "Email", 100, true)]);
+        let before =
+            reg.assign(vec![node(Role::Button, "Sign in", 0, true), node(Role::Input, "Email", 100, true)]);
         let mut email = node(Role::Input, "Email", 100, true);
         email.value = Some("jo@example.com".into());
         let after = reg.assign(vec![email, node(Role::Text, "Wrong password", 200, false)]);

@@ -76,6 +76,7 @@ impl Node {
     /// Elements worth showing to the model: anything it can act on, or any
     /// on-screen text.
     pub fn is_meaningful(&self) -> bool {
-        !self.bounds.is_empty() && (self.interactive || self.scrollable || !self.label.is_empty() || self.value.is_some())
+        !self.bounds.is_empty()
+            && (self.interactive || self.scrollable || !self.label.is_empty() || self.value.is_some())
     }
 }

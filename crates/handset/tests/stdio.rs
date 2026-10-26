@@ -1,6 +1,9 @@
 //! End-to-end tests of `handset-mcp` with a fake `adb` on PATH.
 
-use std::{io::Write, process::{Command, Stdio}};
+use std::{
+    io::Write,
+    process::{Command, Stdio},
+};
 
 use mcp_kit::testing::stateless_meta;
 use serde_json::{Value, json};
@@ -14,7 +17,10 @@ struct Run {
 
 impl Run {
     fn new(name: &str) -> Self {
-        let log = std::env::temp_dir().join(format!("handset-{}-{name}.log", std::process::id())).display().to_string();
+        let log = std::env::temp_dir()
+            .join(format!("handset-{}-{name}.log", std::process::id()))
+            .display()
+            .to_string();
         let _ = std::fs::remove_file(&log);
         Self { log }
     }
@@ -92,7 +98,13 @@ fn tap_by_ref_navigates_and_returns_the_new_screen() {
 #[test]
 fn type_into_a_field_by_label() {
     let run = Run::new("type");
-    let r = run.calls(&[("act", json!({"action": "type", "target_text": "Email", "text": "jo@example.com", "submit": true}))], false);
+    let r = run.calls(
+        &[(
+            "act",
+            json!({"action": "type", "target_text": "Email", "text": "jo@example.com", "submit": true}),
+        )],
+        false,
+    );
     assert!(text(&r[0]).contains("Typed 14 characters"), "{}", r[0]);
     let calls = run.adb_calls();
     assert!(calls.contains("shell input text jo@example.com"), "{calls}");
@@ -102,10 +114,8 @@ fn type_into_a_field_by_label() {
 #[test]
 fn bad_arguments_and_stale_refs_are_recoverable_errors() {
     let run = Run::new("errors");
-    let r = run.calls(&[
-        ("act", json!({"action": "tap"})),
-        ("act", json!({"action": "tap", "ref": "e42"})),
-    ], false);
+    let r = run
+        .calls(&[("act", json!({"action": "tap"})), ("act", json!({"action": "tap", "ref": "e42"}))], false);
     assert_eq!(r[0]["isError"], true);
     assert!(text(&r[0]).contains("needs `ref`"));
     assert_eq!(r[1]["isError"], true);

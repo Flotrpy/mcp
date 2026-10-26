@@ -86,7 +86,9 @@ impl Runner for SystemRunner {
             }
             std::thread::sleep(Duration::from_millis(20));
         }
-        let out = child.wait_with_output().map_err(|e| DeviceError::Failed { command: program.into(), stderr: e.to_string() })?;
+        let out = child
+            .wait_with_output()
+            .map_err(|e| DeviceError::Failed { command: program.into(), stderr: e.to_string() })?;
         if !out.status.success() {
             return Err(DeviceError::Failed {
                 command: format!("{program} {}", args.join(" ")),
@@ -108,7 +110,8 @@ pub fn adb_text(text: &str) -> String {
     for c in text.chars() {
         match c {
             ' ' => out.push_str("%s"),
-            '\'' | '"' | '\\' | '&' | '|' | ';' | '<' | '>' | '(' | ')' | '$' | '`' | '*' | '?' | '#' | '~' | '!' | '%' => {
+            '\'' | '"' | '\\' | '&' | '|' | ';' | '<' | '>' | '(' | ')' | '$' | '`' | '*' | '?' | '#'
+            | '~' | '!' | '%' => {
                 out.push('\\');
                 out.push(c);
             }
@@ -181,7 +184,9 @@ impl Backend<'_> {
         let v: Vec<String> = [from.0, from.1, to.0, to.1].iter().map(i32::to_string).collect();
         let ms = duration_ms.to_string();
         match self.device.platform {
-            Platform::Android => self.adb(&["shell", "input", "swipe", &v[0], &v[1], &v[2], &v[3], &ms]).map(drop),
+            Platform::Android => {
+                self.adb(&["shell", "input", "swipe", &v[0], &v[1], &v[2], &v[3], &ms]).map(drop)
+            }
             Platform::Ios => {
                 let secs = format!("{:.2}", f64::from(duration_ms) / 1000.0);
                 self.idb(&["ui", "swipe", &v[0], &v[1], &v[2], &v[3], "--duration", &secs]).map(drop)
@@ -192,24 +197,32 @@ impl Backend<'_> {
     pub fn key(&self, key: &str) -> Result<(), DeviceError> {
         match self.device.platform {
             Platform::Android => {
-                let code = android_keycode(key).ok_or_else(|| DeviceError::Parse(format!("unknown key `{key}`; use back, home, enter, delete, tab or recents")))?;
+                let code = android_keycode(key).ok_or_else(|| {
+                    DeviceError::Parse(format!(
+                        "unknown key `{key}`; use back, home, enter, delete, tab or recents"
+                    ))
+                })?;
                 self.adb(&["shell", "input", "keyevent", code]).map(drop)
             }
             Platform::Ios => match key.to_ascii_lowercase().as_str() {
                 "home" => self.idb(&["ui", "button", "HOME"]).map(drop),
                 "enter" | "return" => self.idb(&["ui", "key", "40"]).map(drop),
                 "delete" | "backspace" => self.idb(&["ui", "key", "42"]).map(drop),
-                _ => Err(DeviceError::Parse(format!("key `{key}` is not available on iOS; use home, enter or delete"))),
+                _ => Err(DeviceError::Parse(format!(
+                    "key `{key}` is not available on iOS; use home, enter or delete"
+                ))),
             },
         }
     }
 
     pub fn launch(&self, app: &str) -> Result<(), DeviceError> {
         match self.device.platform {
-            Platform::Android => {
-                self.adb(&["shell", "monkey", "-p", app, "-c", "android.intent.category.LAUNCHER", "1"]).map(drop)
+            Platform::Android => self
+                .adb(&["shell", "monkey", "-p", app, "-c", "android.intent.category.LAUNCHER", "1"])
+                .map(drop),
+            Platform::Ios => {
+                self.runner.run("xcrun", &s(&["simctl", "launch", &self.device.id, app])).map(drop)
             }
-            Platform::Ios => self.runner.run("xcrun", &s(&["simctl", "launch", &self.device.id, app])).map(drop),
         }
     }
 }
@@ -271,11 +284,15 @@ pub fn list(runner: &dyn Runner) -> (Vec<DeviceInfo>, Vec<String>) {
 /// Pick `wanted`, or the only device when there is exactly one.
 pub fn choose(devices: &[DeviceInfo], wanted: Option<&str>) -> Result<DeviceInfo, DeviceError> {
     match wanted {
-        Some(id) => devices.iter().find(|d| d.id == id).cloned().ok_or_else(|| DeviceError::UnknownDevice(id.into())),
+        Some(id) => {
+            devices.iter().find(|d| d.id == id).cloned().ok_or_else(|| DeviceError::UnknownDevice(id.into()))
+        }
         None => match devices {
             [] => Err(DeviceError::NoDevice),
             [one] => Ok(one.clone()),
-            many => Err(DeviceError::Ambiguous(many.iter().map(|d| d.id.as_str()).collect::<Vec<_>>().join(", "))),
+            many => {
+                Err(DeviceError::Ambiguous(many.iter().map(|d| d.id.as_str()).collect::<Vec<_>>().join(", ")))
+            }
         },
     }
 }
@@ -303,7 +320,12 @@ pub(crate) mod tests {
             let line = format!("{program} {}", args.join(" "));
             self.calls.lock().unwrap().push(line.clone());
             let replies = self.replies.lock().unwrap();
-            Ok(replies.iter().rev().find(|(p, _)| line.starts_with(p.as_str())).map(|(_, o)| o.clone()).unwrap_or_default())
+            Ok(replies
+                .iter()
+                .rev()
+                .find(|(p, _)| line.starts_with(p.as_str()))
+                .map(|(_, o)| o.clone())
+                .unwrap_or_default())
         }
     }
 
@@ -331,7 +353,10 @@ pub(crate) mod tests {
     #[test]
     fn ios_command_lines() {
         let r = FakeRunner::default();
-        let b = Backend { runner: &r, device: DeviceInfo { id: "ABC".into(), platform: Platform::Ios, name: "iPhone".into() } };
+        let b = Backend {
+            runner: &r,
+            device: DeviceInfo { id: "ABC".into(), platform: Platform::Ios, name: "iPhone".into() },
+        };
         b.tap(195, 282).unwrap();
         b.swipe((0, 0), (0, 100), 500).unwrap();
         b.launch("com.apple.Preferences").unwrap();
@@ -346,7 +371,14 @@ pub(crate) mod tests {
     fn parses_device_lists() {
         let adb = "List of devices attached\nemulator-5554          device product:sdk model:Pixel_8 device:emu\nR58M       unauthorized usb:1-1\n\n";
         let d = parse_adb_devices(adb);
-        assert_eq!(d, vec![DeviceInfo { id: "emulator-5554".into(), platform: Platform::Android, name: "Pixel 8".into() }]);
+        assert_eq!(
+            d,
+            vec![DeviceInfo {
+                id: "emulator-5554".into(),
+                platform: Platform::Android,
+                name: "Pixel 8".into()
+            }]
+        );
         let simctl = r#"{"devices":{"com.apple.CoreSimulator.SimRuntime.iOS-26-0":[{"udid":"ABC","name":"iPhone 17","state":"Booted"},{"udid":"DEF","name":"iPad","state":"Shutdown"}]}}"#;
         assert_eq!(parse_simctl_devices(simctl).len(), 1);
     }
