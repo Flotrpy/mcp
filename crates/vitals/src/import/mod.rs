@@ -48,11 +48,14 @@ pub fn load(path: &Path) -> Result<(Format, Parsed), ImportError> {
             Ok((Format::VitalsCsv, csv::parse(BufReader::new(open()?), source)?))
         }
         "zip" => {
-            let mut archive = zip::ZipArchive::new(open()?).map_err(|e| ImportError::Malformed(e.to_string()))?;
+            let mut archive =
+                zip::ZipArchive::new(open()?).map_err(|e| ImportError::Malformed(e.to_string()))?;
             // The iPhone export is apple_health_export/export.xml (localised
             // exports keep the same file name); skip export_cda.xml.
             let index = (0..archive.len())
-                .find(|&i| archive.name_for_index(i).is_some_and(|n| n.ends_with("/export.xml") || n == "export.xml"))
+                .find(|&i| {
+                    archive.name_for_index(i).is_some_and(|n| n.ends_with("/export.xml") || n == "export.xml")
+                })
                 .ok_or_else(|| ImportError::Malformed("zip has no export.xml".into()))?;
             let entry = archive.by_index(index).map_err(|e| ImportError::Malformed(e.to_string()))?;
             Ok((Format::AppleHealthZip, apple::parse(BufReader::new(entry))?))

@@ -59,7 +59,10 @@ mod tests {
 
     #[test]
     fn aliases_are_stable_and_sorted() {
-        let r = Redactor::new(true, ["Jo's iPhone".to_string(), "Jo's Apple Watch".to_string(), "Oura".to_string()]);
+        let r = Redactor::new(
+            true,
+            ["Jo's iPhone".to_string(), "Jo's Apple Watch".to_string(), "Oura".to_string()],
+        );
         assert_eq!(r.source("Jo's Apple Watch"), "Source A");
         assert_eq!(r.source("Jo's iPhone"), "Source B");
         assert_eq!(r.source("Oura"), "Source C");

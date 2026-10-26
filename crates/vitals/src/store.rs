@@ -98,14 +98,21 @@ impl Store {
                  VALUES (?1, ?2, ?3, ?4, ?5, ?6, ?7)",
             )?;
             for s in samples {
-                inserted += stmt.execute(params![s.metric.id(), s.start, s.end, s.day, s.value, s.source, s.device])?;
+                inserted +=
+                    stmt.execute(params![s.metric.id(), s.start, s.end, s.day, s.value, s.source, s.device])?;
             }
         }
         tx.commit()?;
         Ok(inserted)
     }
 
-    pub fn record_import(&self, path: &str, format: &str, read: usize, inserted: usize) -> Result<(), StoreError> {
+    pub fn record_import(
+        &self,
+        path: &str,
+        format: &str,
+        read: usize,
+        inserted: usize,
+    ) -> Result<(), StoreError> {
         self.conn.execute(
             "INSERT INTO imports (path, format, imported_at, read, inserted) VALUES (?1, ?2, ?3, ?4, ?5)",
             params![path, format, chrono::Utc::now().timestamp(), read as i64, inserted as i64],
@@ -149,7 +156,9 @@ impl Store {
                 "SELECT source, COUNT(*) AS n FROM samples WHERE metric = ?1 GROUP BY source ORDER BY n DESC",
             )?;
             let sources = stmt
-                .query_map(params![metric.id()], |r| Ok((r.get::<_, String>(0)?, r.get::<_, i64>(1)? as u64)))?
+                .query_map(params![metric.id()], |r| {
+                    Ok((r.get::<_, String>(0)?, r.get::<_, i64>(1)? as u64))
+                })?
                 .collect::<Result<_, _>>()?;
             out.push(MetricInfo {
                 metric,

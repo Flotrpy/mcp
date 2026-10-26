@@ -70,7 +70,9 @@ pub fn parse<R: Read>(input: R, default_source: &str) -> Result<Parsed, ImportEr
             parsed.skipped += 1;
             continue;
         };
-        let (end, end_day) = if row.end.is_empty() { (start, start_day.clone()) } else {
+        let (end, end_day) = if row.end.is_empty() {
+            (start, start_day.clone())
+        } else {
             match parse_time(&row.end) {
                 Some(t) => t,
                 None => {
@@ -80,7 +82,8 @@ pub fn parse<R: Read>(input: R, default_source: &str) -> Result<Parsed, ImportEr
             }
         };
         let unit = if row.unit.is_empty() { metric.unit().to_string() } else { row.unit };
-        let Some(value) = row.value.parse::<f64>().ok().and_then(|v| metric::normalise(metric, v, &unit)) else {
+        let Some(value) = row.value.parse::<f64>().ok().and_then(|v| metric::normalise(metric, v, &unit))
+        else {
             parsed.skipped += 1;
             continue;
         };

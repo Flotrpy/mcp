@@ -99,7 +99,8 @@ pub struct Vitals {
 }
 
 fn parse_day(s: &str) -> Result<NaiveDate, CallToolResult> {
-    NaiveDate::parse_from_str(s.trim(), "%Y-%m-%d").map_err(|_| tool_error(format!("`{s}` is not a YYYY-MM-DD date.")))
+    NaiveDate::parse_from_str(s.trim(), "%Y-%m-%d")
+        .map_err(|_| tool_error(format!("`{s}` is not a YYYY-MM-DD date.")))
 }
 
 fn fmt(d: NaiveDate) -> String {
@@ -132,11 +133,19 @@ impl Vitals {
         let last = self.store.lock().unwrap().last_day().map_err(db_err)?;
         match last {
             Some(d) => parse_day(&d),
-            None => Err(tool_error("The warehouse is empty. Import an Apple Health export or a vitals CSV with import_health_data first.")),
+            None => Err(tool_error(
+                "The warehouse is empty. Import an Apple Health export or a vitals CSV with import_health_data first.",
+            )),
         }
     }
 
-    fn days(&self, m: Metric, from: NaiveDate, to: NaiveDate, priority: &[String]) -> Result<Vec<DayValue>, CallToolResult> {
+    fn days(
+        &self,
+        m: Metric,
+        from: NaiveDate,
+        to: NaiveDate,
+        priority: &[String],
+    ) -> Result<Vec<DayValue>, CallToolResult> {
         let samples = self.store.lock().unwrap().samples(m, &fmt(from), &fmt(to)).map_err(db_err)?;
         Ok(daily::daily(m, &samples, priority))
     }
@@ -157,9 +166,18 @@ impl Vitals {
 impl Vitals {
     #[tool(
         description = "Import an Apple Health export (export.zip or export.xml) or a vitals-format CSV into the local warehouse. Re-importing the same file adds nothing. Data never leaves this machine.",
-        annotations(title = "Import health data", read_only_hint = false, destructive_hint = false, idempotent_hint = true, open_world_hint = false)
+        annotations(
+            title = "Import health data",
+            read_only_hint = false,
+            destructive_hint = false,
+            idempotent_hint = true,
+            open_world_hint = false
+        )
     )]
-    pub fn import_health_data(&self, Parameters(a): Parameters<ImportArgs>) -> Result<CallToolResult, ErrorData> {
+    pub fn import_health_data(
+        &self,
+        Parameters(a): Parameters<ImportArgs>,
+    ) -> Result<CallToolResult, ErrorData> {
         let path = PathBuf::from(a.path.trim());
         let (format, parsed) = match import::load(&path) {
             Ok(v) => v,
@@ -167,7 +185,8 @@ impl Vitals {
         };
         let mut store = self.store.lock().unwrap();
         let inserted = try_tool!(store.insert(&parsed.samples).map_err(db_err));
-        let _ = store.record_import(&path.display().to_string(), &format!("{format:?}"), parsed.read, inserted);
+        let _ =
+            store.record_import(&path.display().to_string(), &format!("{format:?}"), parsed.read, inserted);
         structured(
             format!(
                 "Read {} records: {} new samples stored, {} already present, {} skipped (unsupported type or unit).",
@@ -232,14 +251,19 @@ impl Vitals {
             let removed = (days.iter().map(|d| d.deduplicated).sum::<f64>() * 100.0).round() / 100.0;
             out.push(MetricDays { metric: m, unit: m.unit(), days, double_counted_removed: removed });
         }
-        let removed_steps = out.iter().find(|m| m.metric == Metric::Steps).map_or(0.0, |m| m.double_counted_removed);
+        let removed_steps =
+            out.iter().find(|m| m.metric == Metric::Steps).map_or(0.0, |m| m.double_counted_removed);
         structured(
             format!(
                 "{} to {}: {} metric(s).{}",
                 fmt(from),
                 fmt(to),
                 out.len(),
-                if removed_steps > 0.0 { format!(" Removed {removed_steps:.0} double-counted steps.") } else { String::new() }
+                if removed_steps > 0.0 {
+                    format!(" Removed {removed_steps:.0} double-counted steps.")
+                } else {
+                    String::new()
+                }
             ),
             &out,
         )
@@ -263,7 +287,10 @@ impl Vitals {
             sleep_min: to_map(try_tool!(self.days(Metric::Sleep, from, day, p))),
             active_energy: to_map(try_tool!(self.days(Metric::ActiveEnergy, from, day, p))),
         };
-        let need = a.sleep_need_hours.filter(|h| (3.0..=14.0).contains(h)).map_or(readiness::DEFAULT_SLEEP_NEED_MIN, |h| h * 60.0);
+        let need = a
+            .sleep_need_hours
+            .filter(|h| (3.0..=14.0).contains(h))
+            .map_or(readiness::DEFAULT_SLEEP_NEED_MIN, |h| h * 60.0);
         let r = readiness::score(&series, day, need);
         let summary = match r.score {
             Some(s) => format!(
@@ -291,15 +318,23 @@ impl Vitals {
         let from = to - Duration::days(i64::from(n) - 1);
         let days = try_tool!(self.days(a.metric, from, to, &a.source_priority));
         if days.is_empty() {
-            return Ok(tool_error(format!("No {} data between {} and {}.", a.metric.id(), fmt(from), fmt(to))));
+            return Ok(tool_error(format!(
+                "No {} data between {} and {}.",
+                a.metric.id(),
+                fmt(from),
+                fmt(to)
+            )));
         }
         let values: Vec<f64> = days.iter().map(|d| d.value).collect();
-        let (min, max) = values.iter().fold((f64::INFINITY, f64::NEG_INFINITY), |(lo, hi), &v| (lo.min(v), hi.max(v)));
+        let (min, max) =
+            values.iter().fold((f64::INFINITY, f64::NEG_INFINITY), |(lo, hi), &v| (lo.min(v), hi.max(v)));
         let mean = values.iter().sum::<f64>() / values.len() as f64;
         let window_mean = |a: i64, b: i64| {
             let v: Vec<f64> = days
                 .iter()
-                .filter(|d| parse_day(&d.day).is_ok_and(|x| (to - x).num_days() >= a && (to - x).num_days() < b))
+                .filter(|d| {
+                    parse_day(&d.day).is_ok_and(|x| (to - x).num_days() >= a && (to - x).num_days() < b)
+                })
                 .map(|d| d.value)
                 .collect();
             (!v.is_empty()).then(|| v.iter().sum::<f64>() / v.len() as f64)
@@ -308,10 +343,13 @@ impl Vitals {
         let prior = window_mean(7, 14);
         let change = recent.zip(prior).filter(|(_, p)| *p != 0.0).map(|(r, p)| (r - p) / p * 100.0);
         const BARS: [char; 8] = ['▁', '▂', '▃', '▄', '▅', '▆', '▇', '█'];
-        let spark: String = values
-            .iter()
-            .map(|v| if max > min { BARS[(((v - min) / (max - min)) * 7.0).round() as usize] } else { BARS[3] })
-            .collect();
+        let spark: String =
+            values
+                .iter()
+                .map(|v| {
+                    if max > min { BARS[(((v - min) / (max - min)) * 7.0).round() as usize] } else { BARS[3] }
+                })
+                .collect();
         let unit = a.metric.unit();
         structured(
             format!(

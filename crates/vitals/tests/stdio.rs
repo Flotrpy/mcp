@@ -14,7 +14,10 @@ const BIN: &str = env!("CARGO_BIN_EXE_vitals-mcp");
 fn export_xml() -> String {
     let mut xml = String::from("<?xml version=\"1.0\"?>\n<HealthData>\n");
     let rec = |xml: &mut String, kind: &str, src: &str, unit: &str, start: &str, end: &str, value: &str| {
-        let _ = writeln!(xml, r#" <Record type="{kind}" sourceName="{src}" unit="{unit}" startDate="{start}" endDate="{end}" value="{value}"/>"#);
+        let _ = writeln!(
+            xml,
+            r#" <Record type="{kind}" sourceName="{src}" unit="{unit}" startDate="{start}" endDate="{end}" value="{value}"/>"#
+        );
     };
     for i in 0..35u32 {
         let day = 16 + i; // day-of-year offset from 2026-09-16
@@ -25,16 +28,57 @@ fn export_xml() -> String {
             let start = format!("{date} {h:02}:00:00 +0000");
             let end = format!("{date} {h:02}:30:00 +0000");
             rec(&mut xml, "HKQuantityTypeIdentifierStepCount", "Jo's iPhone", "count", &start, &end, "2000");
-            rec(&mut xml, "HKQuantityTypeIdentifierStepCount", "Jo's Apple Watch", "count", &start, &end, "1900");
+            rec(
+                &mut xml,
+                "HKQuantityTypeIdentifierStepCount",
+                "Jo's Apple Watch",
+                "count",
+                &start,
+                &end,
+                "1900",
+            );
         }
         let morning = format!("{date} 07:00:00 +0000");
-        rec(&mut xml, "HKQuantityTypeIdentifierHeartRateVariabilitySDNN", "Jo's Apple Watch", "ms", &morning, &morning, if last { "32" } else { "50" });
-        rec(&mut xml, "HKQuantityTypeIdentifierRestingHeartRate", "Jo's Apple Watch", "count/min", &morning, &morning, if last { "63" } else { "55" });
-        rec(&mut xml, "HKQuantityTypeIdentifierActiveEnergyBurned", "Jo's Apple Watch", "kcal", &morning, &morning, "500");
+        rec(
+            &mut xml,
+            "HKQuantityTypeIdentifierHeartRateVariabilitySDNN",
+            "Jo's Apple Watch",
+            "ms",
+            &morning,
+            &morning,
+            if last { "32" } else { "50" },
+        );
+        rec(
+            &mut xml,
+            "HKQuantityTypeIdentifierRestingHeartRate",
+            "Jo's Apple Watch",
+            "count/min",
+            &morning,
+            &morning,
+            if last { "63" } else { "55" },
+        );
+        rec(
+            &mut xml,
+            "HKQuantityTypeIdentifierActiveEnergyBurned",
+            "Jo's Apple Watch",
+            "kcal",
+            &morning,
+            &morning,
+            "500",
+        );
         let bed = if last { "02:00:00" } else { "23:00:00" };
-        let bed_date = if last { date.clone() } else { format!("2026-{m:02}-{:02}", d.saturating_sub(1).max(1)) };
+        let bed_date =
+            if last { date.clone() } else { format!("2026-{m:02}-{:02}", d.saturating_sub(1).max(1)) };
         if i > 0 {
-            rec(&mut xml, "HKCategoryTypeIdentifierSleepAnalysis", "Jo's Apple Watch", "", &format!("{bed_date} {bed} +0000"), &format!("{date} 07:00:00 +0000"), "HKCategoryValueSleepAnalysisAsleepCore");
+            rec(
+                &mut xml,
+                "HKCategoryTypeIdentifierSleepAnalysis",
+                "Jo's Apple Watch",
+                "",
+                &format!("{bed_date} {bed} +0000"),
+                &format!("{date} 07:00:00 +0000"),
+                "HKCategoryValueSleepAnalysisAsleepCore",
+            );
         }
     }
     xml.push_str("</HealthData>\n");
@@ -84,7 +128,13 @@ fn call(env: &Env, calls: &[(&str, Value)]) -> Vec<Value> {
 #[test]
 fn import_is_idempotent() {
     let env = setup("idempotent");
-    let r = call(&env, &[("import_health_data", json!({"path": env.export})), ("import_health_data", json!({"path": env.export}))]);
+    let r = call(
+        &env,
+        &[
+            ("import_health_data", json!({"path": env.export})),
+            ("import_health_data", json!({"path": env.export})),
+        ],
+    );
     let first = r[0]["structuredContent"]["inserted"].as_u64().unwrap();
     assert!(first > 300, "{}", r[0]);
     assert_eq!(r[1]["structuredContent"]["inserted"], 0);
@@ -93,10 +143,13 @@ fn import_is_idempotent() {
 #[test]
 fn daily_summary_removes_phone_watch_double_counting() {
     let env = setup("dedup");
-    let r = call(&env, &[
-        ("import_health_data", json!({"path": env.export})),
-        ("daily_summary", json!({"metrics": ["steps"], "from": "2026-10-10", "to": "2026-10-10"})),
-    ]);
+    let r = call(
+        &env,
+        &[
+            ("import_health_data", json!({"path": env.export})),
+            ("daily_summary", json!({"metrics": ["steps"], "from": "2026-10-10", "to": "2026-10-10"})),
+        ],
+    );
     let steps = &r[1]["structuredContent"][0];
     assert_eq!(steps["days"][0]["value"], 5700.0, "3 hours × 1900 from the watch, not 11700");
     assert_eq!(steps["double_counted_removed"], 6000.0);
@@ -106,11 +159,14 @@ fn daily_summary_removes_phone_watch_double_counting() {
 #[test]
 fn readiness_drops_after_a_short_night_and_explains_why() {
     let env = setup("readiness");
-    let r = call(&env, &[
-        ("import_health_data", json!({"path": env.export})),
-        ("readiness", json!({"day": "2026-10-19"})),
-        ("readiness", json!({"day": "2026-10-20"})),
-    ]);
+    let r = call(
+        &env,
+        &[
+            ("import_health_data", json!({"path": env.export})),
+            ("readiness", json!({"day": "2026-10-19"})),
+            ("readiness", json!({"day": "2026-10-20"})),
+        ],
+    );
     let normal = r[1]["structuredContent"]["score"].as_f64().unwrap();
     let rough = r[2]["structuredContent"]["score"].as_f64().unwrap();
     assert!(normal > 75.0, "{}", r[1]);
@@ -122,10 +178,13 @@ fn readiness_drops_after_a_short_night_and_explains_why() {
 #[test]
 fn redaction_hides_device_names() {
     let env = setup("redact");
-    let r = call(&env, &[
-        ("import_health_data", json!({"path": env.export})),
-        ("daily_summary", json!({"metrics": ["steps"], "to": "2026-10-20", "redact": true})),
-    ]);
+    let r = call(
+        &env,
+        &[
+            ("import_health_data", json!({"path": env.export})),
+            ("daily_summary", json!({"metrics": ["steps"], "to": "2026-10-20", "redact": true})),
+        ],
+    );
     let body = r[1].to_string();
     assert!(!body.contains("Jo's"), "{body}");
     assert!(body.contains("Source A"));

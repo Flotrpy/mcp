@@ -34,9 +34,9 @@ pub fn parse<R: BufRead>(input: R) -> Result<Parsed, ImportError> {
     let mut parsed = Parsed::default();
 
     loop {
-        let event = reader
-            .read_event_into(&mut buf)
-            .map_err(|e| ImportError::Malformed(format!("XML error at byte {}: {e}", reader.buffer_position())))?;
+        let event = reader.read_event_into(&mut buf).map_err(|e| {
+            ImportError::Malformed(format!("XML error at byte {}: {e}", reader.buffer_position()))
+        })?;
         match event {
             Event::Eof => break,
             Event::Start(ref e) | Event::Empty(ref e) if e.name().as_ref() == b"Record" => {
@@ -65,7 +65,9 @@ pub fn parse<R: BufRead>(input: R) -> Result<Parsed, ImportError> {
                     parsed.skipped += 1;
                     continue;
                 };
-                let (Some((start_ts, start_day)), Some((end_ts, end_day))) = (parse_date(&start), parse_date(&end)) else {
+                let (Some((start_ts, start_day)), Some((end_ts, end_day))) =
+                    (parse_date(&start), parse_date(&end))
+                else {
                     parsed.skipped += 1;
                     continue;
                 };

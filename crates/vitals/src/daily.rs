@@ -77,7 +77,11 @@ pub fn daily(metric: Metric, samples: &[Sample], priority: &[String]) -> Vec<Day
                 Aggregation::Sum => {
                     let mut hours: BTreeMap<i64, HashMap<&str, f64>> = BTreeMap::new();
                     for s in &day_samples {
-                        *hours.entry(s.start.div_euclid(3600)).or_default().entry(s.source.as_str()).or_default() += s.value;
+                        *hours
+                            .entry(s.start.div_euclid(3600))
+                            .or_default()
+                            .entry(s.source.as_str())
+                            .or_default() += s.value;
                     }
                     let mut kept = 0.0;
                     let mut dropped = 0.0;
@@ -106,7 +110,12 @@ pub fn daily(metric: Metric, samples: &[Sample], priority: &[String]) -> Vec<Day
                     (last.value, vec![last.source.clone()], 0.0)
                 }
             };
-            DayValue { day: day.to_string(), value: round2(value), sources, deduplicated: round2(deduplicated) }
+            DayValue {
+                day: day.to_string(),
+                value: round2(value),
+                sources,
+                deduplicated: round2(deduplicated),
+            }
         })
         .collect()
 }
@@ -127,7 +136,15 @@ mod tests {
     use super::*;
 
     fn s(metric: Metric, day: &str, start: i64, value: f64, source: &str) -> Sample {
-        Sample { metric, start, end: start + 600, day: day.into(), value, source: source.into(), device: None }
+        Sample {
+            metric,
+            start,
+            end: start + 600,
+            day: day.into(),
+            value,
+            source: source.into(),
+            device: None,
+        }
     }
 
     #[test]
@@ -146,7 +163,8 @@ mod tests {
 
     #[test]
     fn explicit_priority_overrides_the_heuristic() {
-        let samples = vec![s(Metric::Steps, "d", 0, 1000.0, "iPhone"), s(Metric::Steps, "d", 0, 950.0, "Apple Watch")];
+        let samples =
+            vec![s(Metric::Steps, "d", 0, 1000.0, "iPhone"), s(Metric::Steps, "d", 0, 950.0, "Apple Watch")];
         let d = daily(Metric::Steps, &samples, &["iphone".to_string()]);
         assert_eq!(d[0].value, 1000.0);
     }
@@ -167,7 +185,10 @@ mod tests {
     fn mean_min_and_last_aggregations() {
         let hr = vec![s(Metric::HeartRate, "d", 0, 60.0, "W"), s(Metric::HeartRate, "d", 1, 80.0, "W")];
         assert_eq!(daily(Metric::HeartRate, &hr, &[])[0].value, 70.0);
-        let rhr = vec![s(Metric::RestingHeartRate, "d", 0, 58.0, "W"), s(Metric::RestingHeartRate, "d", 1, 55.0, "W")];
+        let rhr = vec![
+            s(Metric::RestingHeartRate, "d", 0, 58.0, "W"),
+            s(Metric::RestingHeartRate, "d", 1, 55.0, "W"),
+        ];
         assert_eq!(daily(Metric::RestingHeartRate, &rhr, &[])[0].value, 55.0);
         let w = vec![s(Metric::Weight, "d", 10, 70.0, "Scale"), s(Metric::Weight, "d", 0, 71.0, "Scale")];
         assert_eq!(daily(Metric::Weight, &w, &[])[0].value, 70.0);

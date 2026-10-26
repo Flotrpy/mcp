@@ -65,7 +65,8 @@ fn day_str(d: NaiveDate) -> String {
 
 /// Mean of `series` over the `days` days before `day` (excluding `day`).
 fn prior_mean(series: &BTreeMap<String, f64>, day: NaiveDate, days: i64, min: usize) -> Option<f64> {
-    let values: Vec<f64> = (1..=days).filter_map(|i| series.get(&day_str(day - Duration::days(i))).copied()).collect();
+    let values: Vec<f64> =
+        (1..=days).filter_map(|i| series.get(&day_str(day - Duration::days(i))).copied()).collect();
     (values.len() >= min).then(|| values.iter().sum::<f64>() / values.len() as f64)
 }
 
@@ -87,10 +88,18 @@ pub fn score(series: &Series, day: NaiveDate, sleep_need_min: f64) -> Readiness 
             let ratio = v / base;
             let s = clamp(NEUTRAL + (ratio - 1.0) * 250.0);
             let pct = (ratio - 1.0) * 100.0;
-            raw.push(("hrv", 0.35, v, Some(base), s, format!(
-                "HRV {v:.0} ms is {:.0}% {} your 7-day average of {base:.0} ms.",
-                pct.abs(), if pct >= 0.0 { "above" } else { "below" }
-            )));
+            raw.push((
+                "hrv",
+                0.35,
+                v,
+                Some(base),
+                s,
+                format!(
+                    "HRV {v:.0} ms is {:.0}% {} your 7-day average of {base:.0} ms.",
+                    pct.abs(),
+                    if pct >= 0.0 { "above" } else { "below" }
+                ),
+            ));
         }
         _ => missing.push("hrv"),
     }
@@ -99,10 +108,18 @@ pub fn score(series: &Series, day: NaiveDate, sleep_need_min: f64) -> Readiness 
         (Some(&v), Some(base)) => {
             let delta = v - base;
             let s = clamp(NEUTRAL - delta * 8.0);
-            raw.push(("resting_heart_rate", 0.20, v, Some(base), s, format!(
-                "Resting heart rate {v:.0} bpm is {:.1} bpm {} your 7-day average.",
-                delta.abs(), if delta <= 0.0 { "below" } else { "above" }
-            )));
+            raw.push((
+                "resting_heart_rate",
+                0.20,
+                v,
+                Some(base),
+                s,
+                format!(
+                    "Resting heart rate {v:.0} bpm is {:.1} bpm {} your 7-day average.",
+                    delta.abs(),
+                    if delta <= 0.0 { "below" } else { "above" }
+                ),
+            ));
         }
         _ => missing.push("resting_heart_rate"),
     }
@@ -110,10 +127,19 @@ pub fn score(series: &Series, day: NaiveDate, sleep_need_min: f64) -> Readiness 
     match series.sleep_min.get(&key) {
         Some(&v) => {
             let s = clamp(100.0 * v / sleep_need_min);
-            raw.push(("sleep", 0.30, v, Some(sleep_need_min), s, format!(
-                "Slept {}h {:02}m of a {:.0}h need.",
-                (v / 60.0).floor() as i64, (v % 60.0).round() as i64, sleep_need_min / 60.0
-            )));
+            raw.push((
+                "sleep",
+                0.30,
+                v,
+                Some(sleep_need_min),
+                s,
+                format!(
+                    "Slept {}h {:02}m of a {:.0}h need.",
+                    (v / 60.0).floor() as i64,
+                    (v % 60.0).round() as i64,
+                    sleep_need_min / 60.0
+                ),
+            ));
         }
         None => missing.push("sleep"),
     }
@@ -136,9 +162,14 @@ pub fn score(series: &Series, day: NaiveDate, sleep_need_min: f64) -> Readiness 
                 r if r < 0.8 => "below your usual — fine for recovery, detraining if it lasts",
                 _ => "in the 0.8–1.3 sweet spot",
             };
-            raw.push(("training_load", 0.15, round1(acwr * 100.0) / 100.0, Some(1.0), s, format!(
-                "Acute:chronic load {acwr:.2} ({a:.0} vs {c:.0} kcal/day) is {verdict}."
-            )));
+            raw.push((
+                "training_load",
+                0.15,
+                round1(acwr * 100.0) / 100.0,
+                Some(1.0),
+                s,
+                format!("Acute:chronic load {acwr:.2} ({a:.0} vs {c:.0} kcal/day) is {verdict}."),
+            ));
         }
         _ => missing.push("training_load"),
     }
