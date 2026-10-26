@@ -39,6 +39,7 @@ pub enum View {
 
 #[derive(Debug, Deserialize, JsonSchema)]
 pub struct InspectArgs {
+    /// Path to an ELF, PE or Mach-O file.
     pub path: String,
     /// Which list to return.
     pub view: View,
@@ -53,6 +54,7 @@ pub struct InspectArgs {
 
 #[derive(Debug, Deserialize, JsonSchema)]
 pub struct HexArgs {
+    /// Path to any file.
     pub path: String,
     /// Byte offset into the file.
     pub offset: u64,
@@ -62,8 +64,11 @@ pub struct HexArgs {
 
 #[derive(Debug, Deserialize, JsonSchema)]
 pub struct DiffArgs {
+    /// The earlier build.
     pub old_path: String,
+    /// The later build.
     pub new_path: String,
+    /// Approximate output budget for the symbol lists. Default 2000.
     pub max_tokens: Option<usize>,
 }
 
