@@ -66,7 +66,9 @@ pub struct SagArgs {
     pub span: f64,
     /// Front-to-back depth of the shelf.
     pub depth: f64,
+    /// Shelf thickness.
     pub thickness: f64,
+    /// Unit for every length. Default `mm`.
     #[serde(default)]
     pub units: Units,
     /// Species id, e.g. `red-oak`, `birch-ply`, `mdf`.
@@ -79,10 +81,13 @@ pub struct SagArgs {
 
 #[derive(Debug, Deserialize, JsonSchema)]
 pub struct PartInput {
+    /// Label shown on the cut diagram.
     pub name: String,
     /// Along the grain.
     pub length: f64,
+    /// Across the grain.
     pub width: f64,
+    /// How many to cut. Default 1.
     #[serde(default = "one")]
     pub quantity: u32,
     /// Keep grain along the sheet length (no rotation). Default true.
@@ -99,6 +104,7 @@ fn yes() -> bool {
 
 #[derive(Debug, Deserialize, JsonSchema)]
 pub struct NestArgs {
+    /// Parts to cut; each needs a name, length (along the grain) and width.
     pub parts: Vec<PartInput>,
     /// Sheet length (along the face grain). Default 2440 mm / 96 in.
     pub sheet_length: Option<f64>,
