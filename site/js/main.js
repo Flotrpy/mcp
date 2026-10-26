@@ -5,6 +5,7 @@ import { initReplay } from "./replay.js";
 import { initReveal } from "./reveal.js";
 import { initSag } from "./sag-widget.js";
 import { initBuilder } from "./builder.js";
+import { initPalette } from "./palette.js";
 
 const isMac = /Mac|iPhone|iPad/.test(navigator.platform || navigator.userAgent);
 
@@ -26,5 +27,6 @@ initReplay();
 initReveal();
 initSag();
 initBuilder();
+initPalette();
 
 export { isMac };

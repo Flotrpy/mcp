@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="styles/layout.css">
   <link rel="stylesheet" href="styles/sections.css">
   <link rel="stylesheet" href="styles/builder.css">
+  <link rel="stylesheet" href="styles/palette.css">
   <link rel="preload" href="data/transcripts.json" as="fetch" type="application/json" crossorigin>
 </head>
 <body>
@@ -244,6 +245,17 @@
       </div>
     </section>
   </main>
+
+  <dialog class="palette" data-palette aria-label="Search">
+    <form method="dialog" class="palette__form" role="search">
+      <svg class="palette__glass" viewBox="0 0 20 20" aria-hidden="true"><circle cx="8.5" cy="8.5" r="5.5"/><path d="m13 13 4 4"/></svg>
+      <input class="palette__input" type="search" name="q" placeholder="Search servers, tools and sections…" autocomplete="off" spellcheck="false"
+        role="combobox" aria-expanded="true" aria-controls="palette-list" aria-autocomplete="list">
+      <kbd class="palette__esc">esc</kbd>
+    </form>
+    <ul class="palette__list" id="palette-list" role="listbox" aria-label="Results"></ul>
+    <p class="palette__empty" hidden>No matches. Try a tool name like <code>nest_parts</code>.</p>
+  </dialog>
 
   <script type="module" src="js/main.js"></script>
 </body>
