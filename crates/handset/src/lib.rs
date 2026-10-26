@@ -6,4 +6,5 @@
 //! snapshots, and answers every action with only what changed.
 
 pub mod android;
+pub mod ios;
 pub mod node;
