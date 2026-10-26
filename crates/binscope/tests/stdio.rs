@@ -7,9 +7,7 @@ use serde_json::json;
 const BIN: &str = env!("CARGO_BIN_EXE_binscope-mcp");
 
 fn fixture() -> Option<&'static str> {
-    ["/bin/true", "/usr/bin/true", "/bin/ls"]
-        .into_iter()
-        .find(|p| std::path::Path::new(p).exists())
+    ["/bin/true", "/usr/bin/true", "/bin/ls"].into_iter().find(|p| std::path::Path::new(p).exists())
 }
 
 #[test]
@@ -53,7 +51,9 @@ fn hexdump_starts_with_the_magic_number() {
     let Some(path) = fixture() else { return };
     let r = call_tool(BIN, "hexdump", json!({"path": path, "offset": 0, "length": 16}));
     let dump = r["structuredContent"]["dump"].as_str().unwrap();
-    assert!(dump.starts_with("00000000  7f 45 4c 46") || dump.contains("|MZ") || dump.contains("cf fa ed fe"));
+    assert!(
+        dump.starts_with("00000000  7f 45 4c 46") || dump.contains("|MZ") || dump.contains("cf fa ed fe")
+    );
 }
 
 #[test]

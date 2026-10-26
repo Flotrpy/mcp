@@ -80,7 +80,16 @@ fn slice(bytes: &[u8], offset: u64, size: u64) -> &[u8] {
     &bytes[start..end]
 }
 
-fn section(bytes: &[u8], name: String, offset: u64, size: u64, vaddr: u64, r: bool, w: bool, x: bool) -> Section {
+fn section(
+    bytes: &[u8],
+    name: String,
+    offset: u64,
+    size: u64,
+    vaddr: u64,
+    r: bool,
+    w: bool,
+    x: bool,
+) -> Section {
     Section {
         name,
         file_offset: offset,

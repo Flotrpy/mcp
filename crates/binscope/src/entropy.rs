@@ -62,10 +62,7 @@ pub fn windows(bytes: &[u8], window: usize) -> Vec<f64> {
 /// Render entropy values as a one-line sparkline (▁ … █), cheap in tokens.
 pub fn sparkline(values: &[f64]) -> String {
     const BARS: [char; 8] = ['▁', '▂', '▃', '▄', '▅', '▆', '▇', '█'];
-    values
-        .iter()
-        .map(|v| BARS[((v / 8.0) * 7.0).round().clamp(0.0, 7.0) as usize])
-        .collect()
+    values.iter().map(|v| BARS[((v / 8.0) * 7.0).round().clamp(0.0, 7.0) as usize]).collect()
 }
 
 #[cfg(test)]

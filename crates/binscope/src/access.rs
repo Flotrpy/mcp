@@ -25,9 +25,7 @@ pub enum AccessError {
 /// Resolve `requested` and check it against `root` and the size limit.
 pub fn resolve(requested: &str, root: Option<&Path>) -> Result<PathBuf, AccessError> {
     let path = Path::new(requested.trim());
-    let real = path
-        .canonicalize()
-        .map_err(|_| AccessError::NotFound(requested.to_string()))?;
+    let real = path.canonicalize().map_err(|_| AccessError::NotFound(requested.to_string()))?;
     if let Some(root) = root {
         let root = root.canonicalize().unwrap_or_else(|_| root.to_path_buf());
         if !real.starts_with(&root) {

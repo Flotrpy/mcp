@@ -51,10 +51,7 @@ pub struct Counts {
 }
 
 fn perms(r: bool, w: bool, x: bool) -> String {
-    [(r, 'r'), (w, 'w'), (x, 'x')]
-        .iter()
-        .map(|&(on, c)| if on { c } else { '-' })
-        .collect()
+    [(r, 'r'), (w, 'w'), (x, 'x')].iter().map(|&(on, c)| if on { c } else { '-' }).collect()
 }
 
 pub fn overview(bin: &Binary, bytes: &[u8]) -> Overview {
@@ -105,10 +102,15 @@ pub fn overview(bin: &Binary, bytes: &[u8]) -> Overview {
         ));
     }
     if !bin.exports.is_empty() {
-        next_steps.push(format!("inspect view=exports — {} exported symbol(s): the public API.", bin.exports.len()));
+        next_steps.push(format!(
+            "inspect view=exports — {} exported symbol(s): the public API.",
+            bin.exports.len()
+        ));
     }
     next_steps.push("inspect view=strings — URLs, paths, version banners and messages ranked first.".into());
-    if let Some(packed) = bin.sections.iter().find(|s| entropy::band(s.entropy) == Band::Packed && s.file_size > 0) {
+    if let Some(packed) =
+        bin.sections.iter().find(|s| entropy::band(s.entropy) == Band::Packed && s.file_size > 0)
+    {
         next_steps.push(format!(
             "hexdump offset={} — peek at the start of high-entropy section {}.",
             packed.file_offset, packed.name
@@ -142,10 +144,8 @@ pub fn hexdump(bytes: &[u8], base_offset: u64) -> String {
     let mut out = String::new();
     for (i, chunk) in bytes.chunks(16).enumerate() {
         let hex: Vec<String> = chunk.iter().map(|b| format!("{b:02x}")).collect();
-        let ascii: String = chunk
-            .iter()
-            .map(|&b| if (0x20..0x7f).contains(&b) { char::from(b) } else { '.' })
-            .collect();
+        let ascii: String =
+            chunk.iter().map(|&b| if (0x20..0x7f).contains(&b) { char::from(b) } else { '.' }).collect();
         out.push_str(&format!("{:08x}  {:<47}  |{ascii}|\n", base_offset + (i as u64) * 16, hex.join(" ")));
     }
     out

@@ -100,9 +100,7 @@ impl Binscope {
 }
 
 fn matches(filter: &Option<String>, text: &str) -> bool {
-    filter
-        .as_ref()
-        .is_none_or(|f| text.to_ascii_lowercase().contains(&f.to_ascii_lowercase()))
+    filter.as_ref().is_none_or(|f| text.to_ascii_lowercase().contains(&f.to_ascii_lowercase()))
 }
 
 macro_rules! try_tool {
@@ -129,7 +127,14 @@ impl Binscope {
         let o = report::overview(&bin, &bytes);
         let summary = format!(
             "{} {} {}-bit, {} bytes, {} sections, {} imports, {} exports. Entropy: {}",
-            o.format, o.architecture, o.bits, o.file_size, o.counts.sections, o.counts.imports, o.counts.exports, o.entropy_map
+            o.format,
+            o.architecture,
+            o.bits,
+            o.file_size,
+            o.counts.sections,
+            o.counts.imports,
+            o.counts.exports,
+            o.entropy_map
         );
         structured(summary, &o)
     }
@@ -143,24 +148,30 @@ impl Binscope {
         let budget = a.max_tokens.unwrap_or(DEFAULT_MAX_TOKENS);
         let value = match a.view {
             View::Sections => {
-                let mut items: Vec<_> = bin.sections.into_iter().filter(|s| matches(&a.filter, &s.name)).collect();
+                let mut items: Vec<_> =
+                    bin.sections.into_iter().filter(|s| matches(&a.filter, &s.name)).collect();
                 items.sort_by_key(|s| std::cmp::Reverse(s.file_size));
                 serde_json::to_value(fit(items, budget))
             }
-            View::Libraries => {
-                serde_json::to_value(fit(bin.libraries.into_iter().filter(|l| matches(&a.filter, l)).collect(), budget))
-            }
+            View::Libraries => serde_json::to_value(fit(
+                bin.libraries.into_iter().filter(|l| matches(&a.filter, l)).collect(),
+                budget,
+            )),
             View::Imports => {
                 let items: Vec<_> = bin
                     .imports
                     .into_iter()
-                    .filter(|i| matches(&a.filter, &i.name) || i.library.as_deref().is_some_and(|l| matches(&a.filter, l)))
+                    .filter(|i| {
+                        matches(&a.filter, &i.name)
+                            || i.library.as_deref().is_some_and(|l| matches(&a.filter, l))
+                    })
                     .collect();
                 serde_json::to_value(fit(items, budget))
             }
-            View::Exports => {
-                serde_json::to_value(fit(bin.exports.into_iter().filter(|e| matches(&a.filter, e)).collect(), budget))
-            }
+            View::Exports => serde_json::to_value(fit(
+                bin.exports.into_iter().filter(|e| matches(&a.filter, e)).collect(),
+                budget,
+            )),
             View::Strings => {
                 let found: Vec<_> = strings::extract(&bytes, &bin.sections, a.min_length.unwrap_or(6))
                     .into_iter()
@@ -173,7 +184,9 @@ impl Binscope {
         let shown = value["items"].as_array().map_or(0, Vec::len);
         let omitted = value["omitted"].as_u64().unwrap_or(0);
         let summary = if omitted > 0 {
-            format!("{shown} shown, {omitted} more omitted to stay under ~{budget} tokens; narrow with `filter` or raise `max_tokens`.")
+            format!(
+                "{shown} shown, {omitted} more omitted to stay under ~{budget} tokens; narrow with `filter` or raise `max_tokens`."
+            )
         } else {
             format!("{shown} entries.")
         };
@@ -190,7 +203,11 @@ impl Binscope {
         let start = a.offset.min(bytes.len() as u64) as usize;
         let end = (start + len as usize).min(bytes.len());
         if start >= bytes.len() {
-            return Ok(tool_error(format!("Offset {} is past the end of the file ({} bytes).", a.offset, bytes.len())));
+            return Ok(tool_error(format!(
+                "Offset {} is past the end of the file ({} bytes).",
+                a.offset,
+                bytes.len()
+            )));
         }
         let dump = report::hexdump(&bytes[start..end], start as u64);
         structured(dump.clone(), &json!({"offset": start, "length": end - start, "dump": dump}))
@@ -210,7 +227,8 @@ impl Binscope {
         } else {
             format!("Size delta {:+} bytes. {}", d.size_delta, d.highlights.join(" "))
         };
-        let mut value = serde_json::to_value(&d).map_err(|e| ErrorData::internal_error(e.to_string(), None))?;
+        let mut value =
+            serde_json::to_value(&d).map_err(|e| ErrorData::internal_error(e.to_string(), None))?;
         // Long symbol lists are the bulk of a diff; fit each to a share of the budget.
         for key in ["imports", "exports"] {
             for side in ["added", "removed"] {

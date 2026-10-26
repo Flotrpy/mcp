@@ -59,7 +59,12 @@ pub fn classify(s: &str) -> Category {
     let has_version_number = s
         .split(|c: char| !(c.is_ascii_digit() || c == '.'))
         .any(|t| t.matches('.').count() >= 1 && t.split('.').filter(|p| !p.is_empty()).count() >= 2);
-    if has_version_number && (lower.contains("version") || lower.contains(" v") || lower.starts_with('v') || lower.contains("build")) {
+    if has_version_number
+        && (lower.contains("version")
+            || lower.contains(" v")
+            || lower.starts_with('v')
+            || lower.contains("build"))
+    {
         return Category::Version;
     }
     if s.contains('%') && s.chars().any(|c| "sdxufplc".contains(c)) && s.matches('%').count() <= 8 {
@@ -105,7 +110,13 @@ pub fn extract(bytes: &[u8], sections: &[Section], min_len: usize) -> Vec<Found>
     for (i, &b) in bytes.iter().chain(std::iter::once(&0)).enumerate() {
         if !(i < bytes.len() && printable(b)) {
             if i - start >= min_len {
-                push(&mut out, sections, start, Encoding::Ascii, String::from_utf8_lossy(&bytes[start..i]).into_owned());
+                push(
+                    &mut out,
+                    sections,
+                    start,
+                    Encoding::Ascii,
+                    String::from_utf8_lossy(&bytes[start..i]).into_owned(),
+                );
             }
             start = i + 1;
         }
@@ -128,7 +139,9 @@ pub fn extract(bytes: &[u8], sections: &[Section], min_len: usize) -> Vec<Found>
         }
     }
 
-    out.sort_by(|a, b| a.category.cmp(&b.category).then(b.text.len().cmp(&a.text.len())).then(a.offset.cmp(&b.offset)));
+    out.sort_by(|a, b| {
+        a.category.cmp(&b.category).then(b.text.len().cmp(&a.text.len())).then(a.offset.cmp(&b.offset))
+    });
     out
 }
 

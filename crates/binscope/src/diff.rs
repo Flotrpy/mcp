@@ -37,10 +37,7 @@ pub struct Diff {
 }
 
 fn set_diff<T: Ord + Clone>(old: &BTreeSet<T>, new: &BTreeSet<T>) -> Added<T> {
-    Added {
-        added: new.difference(old).cloned().collect(),
-        removed: old.difference(new).cloned().collect(),
-    }
+    Added { added: new.difference(old).cloned().collect(), removed: old.difference(new).cloned().collect() }
 }
 
 fn import_label(i: &Import) -> String {
@@ -102,21 +99,20 @@ pub fn diff(old: &Binary, new: &Binary) -> Diff {
         }
     }
 
-    let libraries = set_diff(
-        &old.libraries.iter().cloned().collect(),
-        &new.libraries.iter().cloned().collect(),
-    );
+    let libraries =
+        set_diff(&old.libraries.iter().cloned().collect(), &new.libraries.iter().cloned().collect());
     if !libraries.added.is_empty() {
-        highlights.push(format!("Links {} new librar(y/ies): {}.", libraries.added.len(), libraries.added.join(", ")));
+        highlights.push(format!(
+            "Links {} new librar(y/ies): {}.",
+            libraries.added.len(),
+            libraries.added.join(", ")
+        ));
     }
     let imports = set_diff(
         &old.imports.iter().map(import_label).collect(),
         &new.imports.iter().map(import_label).collect(),
     );
-    let exports = set_diff(
-        &old.exports.iter().cloned().collect(),
-        &new.exports.iter().cloned().collect(),
-    );
+    let exports = set_diff(&old.exports.iter().cloned().collect(), &new.exports.iter().cloned().collect());
     if !exports.removed.is_empty() {
         highlights.push(format!(
             "{} exported symbol(s) removed — callers linking against them will break.",
@@ -172,9 +168,17 @@ mod tests {
 
     #[test]
     fn reports_added_libraries_removed_exports_and_packed_sections() {
-        let old = bin(vec![sec(".text", 1000, 6.0, false, true), sec(".data", 100, 3.0, true, false)], &["libc.so.6"], &["api_v1", "api_v2"]);
+        let old = bin(
+            vec![sec(".text", 1000, 6.0, false, true), sec(".data", 100, 3.0, true, false)],
+            &["libc.so.6"],
+            &["api_v1", "api_v2"],
+        );
         let new = bin(
-            vec![sec(".text", 1500, 6.1, false, true), sec(".data", 4000, 7.9, true, false), sec(".jit", 10, 1.0, true, true)],
+            vec![
+                sec(".text", 1500, 6.1, false, true),
+                sec(".data", 4000, 7.9, true, false),
+                sec(".jit", 10, 1.0, true, true),
+            ],
             &["libc.so.6", "libcurl.so.4"],
             &["api_v2"],
         );
