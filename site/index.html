@@ -77,13 +77,18 @@
           <li class="tile tile--wide reveal accent-joinery" id="joinery">
             <svg class="tile__icon" viewBox="0 0 32 32" aria-hidden="true"><path d="M5 26 26 5M9 26h17V9"/><path d="M14 26v-4M18 26v-3M22 26v-4M26 22h-4M26 18h-3M26 14h-4"/></svg>
             <h3 class="tile__name" translate="no">joinery</h3>
-            <p class="tile__pitch">Woodworking that survives contact with the saw. Parametric furniture, cut lists, sheet nesting and shelf-sag physics.</p>
+            <p class="tile__pitch">Woodworking that survives contact with the saw. Parametric furniture, cut lists, sheet nesting and shelf‑sag physics.</p>
             <ul class="tile__points">
               <li>Beam-theory sag check with species stiffness and creep</li>
               <li>Guillotine nesting that respects kerf and grain</li>
               <li>Glue-up order derived from the joint graph</li>
             </ul>
             <p class="tile__meta tabular"><span>4 tools</span><span>3.2&nbsp;MB</span><a href="https://github.com/Flotrpy/mcp/tree/claude/vibrant-gauss-ej6mfz/crates/joinery">README</a></p>
+            <figure class="tile__figure">
+              <img src="data/joinery-layout.svg" width="2460" height="2540" loading="lazy" decoding="async"
+                alt="Cut diagram for the bookcase: two 2440 by 1220 mm plywood sheets holding the back, two sides, top, bottom and four shelves.">
+              <figcaption>Real <code translate="no">nest_parts</code> output for the bookcase above: 2&nbsp;sheets, 72.6% yield.</figcaption>
+            </figure>
           </li>
           <li class="tile reveal accent-binscope" id="binscope">
             <svg class="tile__icon" viewBox="0 0 32 32" aria-hidden="true"><rect x="5" y="5" width="22" height="22" rx="4"/><path d="M10 12h4M10 16h8M10 20h6M20 12h2M22 20h0"/></svg>

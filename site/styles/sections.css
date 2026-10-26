@@ -506,3 +506,45 @@ input[type="range"] {
   padding: 0;
   list-style: none;
 }
+
+/* The joinery tile carries a genuine cut diagram beside its copy. */
+.tile--wide:has(.tile__figure) {
+  display: grid;
+  grid-template-columns: 1fr minmax(12rem, 16rem);
+  grid-template-rows: repeat(5, auto) 1fr;
+  column-gap: var(--s-8);
+}
+
+.tile--wide:has(.tile__figure) > :not(.tile__figure) {
+  grid-column: 1;
+}
+
+.tile__figure {
+  grid-column: 2;
+  grid-row: 1 / -1;
+  align-self: center;
+  margin: 0;
+}
+
+.tile__figure img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--r-sm);
+  box-shadow: var(--shadow-2);
+}
+
+.tile__figure figcaption {
+  margin-top: var(--s-3);
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-small);
+  color: var(--ink-3);
+}
+
+@media (max-width: 60rem) {
+  .tile--wide:has(.tile__figure) {
+    display: flex;
+  }
+  .tile__figure {
+    max-width: 18rem;
+  }
+}
