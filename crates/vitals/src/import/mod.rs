@@ -1,6 +1,7 @@
 //! Importers. Each returns parsed samples plus counts for the import log.
 
 pub mod apple;
+pub mod csv;
 
 use crate::store::Sample;
 
