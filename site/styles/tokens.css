@@ -141,3 +141,10 @@
     --glass: var(--bg);
   }
 }
+
+/* Accent hooks (classes rather than inline styles, so the CSP can forbid them). */
+.accent-joinery { --accent: var(--joinery); }
+.accent-binscope { --accent: var(--binscope); }
+.accent-lighthouse { --accent: var(--lighthouse); }
+.accent-vitals { --accent: var(--vitals); }
+.accent-handset { --accent: var(--handset); }

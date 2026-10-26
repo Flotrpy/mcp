@@ -29,10 +29,11 @@ function ring(points, grade) {
     "svg",
     { class: "ring", viewBox: "0 0 80 80", role: "img", "aria-label": `Grade ${grade}, ${points} out of 100` },
     svg("circle", { class: "ring__track", cx: 40, cy: 40, r }),
-    svg("circle", {
-      class: "ring__value", cx: 40, cy: 40, r,
-      "stroke-dasharray": c, "stroke-dashoffset": c * (1 - points / 100), style: `--circumference: ${c}`,
-    }),
+    (() => {
+      const value = svg("circle", { class: "ring__value", cx: 40, cy: 40, r, "stroke-dasharray": c, "stroke-dashoffset": c * (1 - points / 100) });
+      value.style.setProperty("--circumference", String(c)); // CSSOM is CSP-safe; a style attribute is not
+      return value;
+    })(),
     svg("text", { class: "ring__grade", x: 40, y: 41, "text-anchor": "middle", "dominant-baseline": "middle" }, grade),
   );
 }

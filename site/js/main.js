@@ -24,6 +24,11 @@ if (nav) {
   new IntersectionObserver(([e]) => nav.toggleAttribute("data-scrolled", !e.isIntersecting)).observe(sentinel);
 }
 
+// Interactive forms never navigate; Enter in a text field must not reload.
+for (const form of document.querySelectorAll("[data-sag] form, [data-builder] form")) {
+  form.addEventListener("submit", (e) => e.preventDefault());
+}
+
 initReplay();
 initReveal();
 initSag();
