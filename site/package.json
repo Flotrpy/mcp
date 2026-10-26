@@ -1,0 +1,11 @@
+{
+  "name": "flotrpy-mcp-site",
+  "private": true,
+  "type": "module",
+  "description": "Static site for the Flotrpy MCP servers. No build step.",
+  "scripts": {
+    "test": "node --test tests/*.test.mjs",
+    "record": "python3 tools/record.py",
+    "serve": "python3 -m http.server 8000"
+  }
+}
