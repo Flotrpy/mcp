@@ -6,6 +6,7 @@ import { initReveal } from "./reveal.js";
 import { initSag } from "./sag-widget.js";
 import { initBuilder } from "./builder.js";
 import { initPalette } from "./palette.js";
+import { initScoreboard } from "./scoreboard.js";
 
 const isMac = /Mac|iPhone|iPad/.test(navigator.platform || navigator.userAgent);
 
@@ -28,5 +29,6 @@ initReveal();
 initSag();
 initBuilder();
 initPalette();
+initScoreboard();
 
 export { isMac };

@@ -390,3 +390,104 @@ input[type="range"] {
 .sag__verdict strong[data-tone="bad"] {
   color: var(--bad);
 }
+
+/* ---------- Scoreboard strip ---------- */
+.section--tight {
+  padding-block: var(--s-16);
+}
+
+.scoreboard {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: var(--s-12);
+  align-items: center;
+  padding: var(--s-12);
+  border-radius: var(--r-lg);
+  background: var(--bg-sunken);
+}
+
+@media (max-width: 52rem) {
+  .scoreboard {
+    grid-template-columns: 1fr;
+    padding: var(--s-8);
+  }
+}
+
+.scoreboard__title {
+  font-size: var(--text-xl);
+}
+
+.scoreboard__lede {
+  max-width: 34rem;
+  margin: var(--s-3) 0 var(--s-4);
+  color: var(--ink-2);
+}
+
+.scoreboard__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-3);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.scoreboard__list li {
+  display: grid;
+  justify-items: center;
+  gap: var(--s-1);
+  min-width: 5.5rem;
+  padding: var(--s-4) var(--s-3);
+  border-radius: var(--r-md);
+  background: var(--bg-elevated);
+  box-shadow: var(--shadow-1);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--ink-3);
+}
+
+.scoreboard__list b {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  line-height: 1;
+  color: var(--accent);
+}
+
+/* apple.com's "Learn more ›" link. */
+.chevron {
+  font-weight: 500;
+}
+
+.chevron::after {
+  content: "›";
+  display: inline-block;
+  margin-left: 0.3em;
+  transition: transform var(--dur-fast) var(--ease-out);
+}
+
+.chevron:hover::after {
+  transform: translateX(3px);
+}
+
+/* ---------- Footer ---------- */
+.footer {
+  padding-block: var(--s-12);
+  border-top: 1px solid var(--hairline);
+  font-size: var(--text-sm);
+  color: var(--ink-3);
+}
+
+.footer__inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--s-4);
+}
+
+.footer__links {
+  display: flex;
+  gap: var(--s-6);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}

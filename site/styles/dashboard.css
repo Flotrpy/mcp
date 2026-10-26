@@ -335,13 +335,6 @@
   border-bottom: 1px solid var(--hairline);
 }
 
-.footer {
-  padding-block: var(--s-12);
-  border-top: 1px solid var(--hairline);
-  font-size: var(--text-sm);
-  color: var(--ink-3);
-}
-
 .nav__links a[aria-current="page"] {
   color: var(--ink);
   font-weight: 600;

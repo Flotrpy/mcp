@@ -28,6 +28,7 @@
         <li><a href="#servers">Servers</a></li>
         <li><a href="#sag">Try&nbsp;it</a></li>
         <li><a href="#install">Install</a></li>
+        <li><a href="dashboard.html">Dashboard</a></li>
         <li><a href="https://github.com/Flotrpy/mcp">GitHub</a></li>
       </ul>
       <button class="nav__search" type="button" data-palette-open aria-keyshortcuts="Meta+K Control+K">
@@ -244,7 +245,34 @@
         </div>
       </div>
     </section>
+    <section class="section section--tight" aria-labelledby="grades-title">
+      <div class="wrap scoreboard">
+        <div>
+          <h2 id="grades-title" class="scoreboard__title">Graded by its own auditor.</h2>
+          <p class="scoreboard__lede">Every server is audited by <code translate="no">lighthouse</code> on each push and pinned to an <code translate="no">mcp.lock</code>. CI fails below an A or on any silent tool change.</p>
+          <a class="chevron" href="dashboard.html">Open the dashboard</a>
+        </div>
+        <ul class="scoreboard__list" role="list" data-scoreboard aria-label="Current grades">
+          <li style="--accent: var(--joinery)"><span translate="no">joinery</span><b>A</b></li>
+          <li style="--accent: var(--binscope)"><span translate="no">binscope</span><b>A</b></li>
+          <li style="--accent: var(--lighthouse)"><span translate="no">lighthouse</span><b>A</b></li>
+          <li style="--accent: var(--vitals)"><span translate="no">vitals</span><b>A</b></li>
+          <li style="--accent: var(--handset)"><span translate="no">handset</span><b>A</b></li>
+        </ul>
+      </div>
+    </section>
   </main>
+
+  <footer class="footer">
+    <div class="wrap footer__inner">
+      <p>Five MCP servers by <a href="https://github.com/Flotrpy">Flotrpy</a>. MIT licensed.</p>
+      <ul class="footer__links" role="list">
+        <li><a href="https://github.com/Flotrpy/mcp/blob/claude/vibrant-gauss-ej6mfz/docs/DESIGN.md">Design decisions</a></li>
+        <li><a href="https://github.com/Flotrpy/mcp/blob/claude/vibrant-gauss-ej6mfz/docs/UI-RESEARCH.md">UI research</a></li>
+        <li><a href="dashboard.html">Dashboard</a></li>
+      </ul>
+    </div>
+  </footer>
 
   <dialog class="palette" data-palette aria-label="Search">
     <form method="dialog" class="palette__form" role="search">
