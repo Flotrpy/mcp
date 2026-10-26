@@ -1,0 +1,35 @@
+{
+  "lockfile_version": 1,
+  "server_name": "lighthouse",
+  "server_version": "0.1.0",
+  "tools": {
+    "audit_server": {
+      "description": "Launch a stdio MCP server and audit it: 2026-07-28 stateless and 2025-11-25 handshake support, tool-definition lint, per-tool token cost, and an A–F grade with the reasons points were lost. Starts the given command.",
+      "description_hash": "sha256:cf08a816882b593baf7ef17bf7430070338195e614fa14205f9b145631ca8487",
+      "input_schema_hash": "sha256:123963841f9facc0c780ca7af193ad8608d4b02fbd3b3fe21906c43ca8811821",
+      "annotations_hash": "sha256:f618c0fb4bd0342d7efc2ca86db2ad0cec50c9881b0ee0ee49f0180c66feba32",
+      "definition_hash": "sha256:aed1871d41ccdd5e1fa14ba3c17eab5305e57c9b662dd6f86746027e33634c6d"
+    },
+    "lint_tools": {
+      "description": "Lint tool definitions you already have (a pasted tools/list result) without launching anything; returns findings and token cost.",
+      "description_hash": "sha256:d8484010189079ad2c99413004de958f34cddb275d3690a41917adb5622bc509",
+      "input_schema_hash": "sha256:6603c1529c2aa4ab80e228a1284c45b08cf5a2c5c7657ef9a3ab9de04a4b58b9",
+      "annotations_hash": "sha256:0416af9e664c9b0a1c6080aacb598b0a0feac224883398eaa20c260303551b74",
+      "definition_hash": "sha256:6baeae545c6fa650db6024ae9197d4ae62cfb8f46bafcfeb0f536e3557b522df"
+    },
+    "pin_server": {
+      "description": "Write mcp.lock pinning a server's current tool names, descriptions and schema hashes. Commit the file; verify_server then catches silent changes.",
+      "description_hash": "sha256:a99ab603bb01e247d5d656601d5749db842f74d00dae99caf2e1a9e0ad896c3b",
+      "input_schema_hash": "sha256:faa6b2a33cbc12bb964da8e2df094927a1e41a3c3af29847e0ec045b8a468728",
+      "annotations_hash": "sha256:2fd958c768c1c70580fd3f6437d83f52d5fe15b58ec0bbac68ea2eea135ffa52",
+      "definition_hash": "sha256:fc0156b4f6304e959fa56b4c3962bec1c5036f3dec838218ee51630835a6d680"
+    },
+    "verify_server": {
+      "description": "Compare a server's live tools against mcp.lock and report tools added, removed or changed (description, inputSchema, annotations), showing old and new descriptions.",
+      "description_hash": "sha256:9ea547fbab99518e423581fec6b1ae975b780c30ce315972029a88d08948dc6e",
+      "input_schema_hash": "sha256:faa6b2a33cbc12bb964da8e2df094927a1e41a3c3af29847e0ec045b8a468728",
+      "annotations_hash": "sha256:b2ed8ab0ca585c2f51735e06b186efba638b9981681047e27765f3fc2db51bb3",
+      "definition_hash": "sha256:4f6bcb86b380152b93735735c2507a5e235e53ba93711ccca84ac69279c84ee2"
+    }
+  }
+}

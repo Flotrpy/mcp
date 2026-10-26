@@ -1,0 +1,35 @@
+{
+  "lockfile_version": 1,
+  "server_name": "binscope",
+  "server_version": "0.1.0",
+  "tools": {
+    "diff": {
+      "description": "Compare two builds of a program: size change, sections added/removed/resized, entropy jumps, linked libraries, imports and exports, with headline highlights first.",
+      "description_hash": "sha256:4567157581c2270a36c8fc0c2353761a8f51292fc86160f618610dd2c36d9d91",
+      "input_schema_hash": "sha256:dcfde297fcc22e27d899928134e0273d3464330e9a13002e0da30fd59365996a",
+      "annotations_hash": "sha256:7dfb652befe46ecdaa33bd8cae5f9e60604f5edba02140236bb409e2cd82289a",
+      "definition_hash": "sha256:80c0f4e48a26e4791499b836c983a1c44079702e48ddb51beff0fd9eb361ac9a"
+    },
+    "hexdump": {
+      "description": "Hex and ASCII view of up to 4096 bytes at a file offset (e.g. a section start from overview). Read-only.",
+      "description_hash": "sha256:008c0c3ec2c7f6192b61d82dab81aa1abd60b894229b383af00f76cb7a1af896",
+      "input_schema_hash": "sha256:be030a0850289362b2dee5a9b1721eb72a333f649ba25dc20f478f97b755c55d",
+      "annotations_hash": "sha256:ef46762033ebe78eb45d58254d2bf4f1b17cde6204bb02494af2a193b5fc137f",
+      "definition_hash": "sha256:6f55e4f6515d9e08ba55228ee5328cbdf6b0bd4e1fb6df7713432c3c3bbed648"
+    },
+    "inspect": {
+      "description": "List one aspect of a binary — sections, libraries, imports, exports or strings — filtered and trimmed to a token budget, most informative entries first.",
+      "description_hash": "sha256:4949e9bfcccd400dcc9e57241f245133b80db82ffbedbf1855d1da9f645dd5af",
+      "input_schema_hash": "sha256:e007d1bf44298bf9ce973574f26542158a42e651224847b22ab0cd17d877c956",
+      "annotations_hash": "sha256:3a09fefc0526097adc8ba3144e91fc79177865513dcf07dbd3a0e8df6b0098ba",
+      "definition_hash": "sha256:edc45011ead6a2b7254d21531b02b982e910174426540895c871d5235f6b4c33"
+    },
+    "overview": {
+      "description": "First look at an executable or library: format, architecture, entry point, stripped or not, counts, a whole-file entropy map, the largest sections and suggested next calls. Read-only.",
+      "description_hash": "sha256:c2a4f277a291a789747ff7b87c540a539b252bb5bf02dd104f042b8ba10b6418",
+      "input_schema_hash": "sha256:b9fbaf1dd529ebcf6c5d015afc8f107afd94e335c710269a422441347ced705e",
+      "annotations_hash": "sha256:e37619f98f428fdb7029cff4dbad3272318fac803799f15f200a6d3f8adcace3",
+      "definition_hash": "sha256:a786d8476506d0d12009c85f2dc7f90633417f2ce8575507c1f50958b38a5bd4"
+    }
+  }
+}

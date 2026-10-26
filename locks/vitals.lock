@@ -1,0 +1,42 @@
+{
+  "lockfile_version": 1,
+  "server_name": "vitals",
+  "server_version": "0.1.0",
+  "tools": {
+    "daily_summary": {
+      "description": "One value per day for each requested metric, with phone/watch/ring overlap de-duplicated (per hour for steps and energy, per night for sleep). Reports how much double-counting was removed.",
+      "description_hash": "sha256:c8422d2e2351aa4d1c1b927b8d98eb2259a6d33d5ce5f99e012ac3a8821abdd0",
+      "input_schema_hash": "sha256:1d1636a7cf5723bfd41246f1e14654ae440839aa5a4fe2ae49df0feded0d1ccf",
+      "annotations_hash": "sha256:8b0a6699db87fe5306edf60ade1b8a7f8a60fee93a6c2d8f68f757b4e7b9ac07",
+      "definition_hash": "sha256:ad330e1c862412d8ce19db896690ba3bc27a1f63db9bb418fc4418c319061e5e"
+    },
+    "data_overview": {
+      "description": "What is in the local warehouse: each metric with its unit, sample count, first/last day and contributing sources.",
+      "description_hash": "sha256:a5ad68d0ee2465b9f76962c1f8079df6a7ef3fe6f9804710960daff3211079e1",
+      "input_schema_hash": "sha256:efddc7bd8bbcef73a14eb1ace1ffdaec81e518ef1e13c1e9271d0b8acb694a49",
+      "annotations_hash": "sha256:c2b2fe2c114d0a0bf9907d73c32529d3ecc40d95359671faad3b5342555ab2de",
+      "definition_hash": "sha256:64e526af22855ed70c0a84e2ea2e7e1d6d4426acd45c74bd8ad8f2f8c73798b1"
+    },
+    "import_health_data": {
+      "description": "Import an Apple Health export (export.zip or export.xml) or a vitals-format CSV into the local warehouse. Re-importing the same file adds nothing. Data never leaves this machine.",
+      "description_hash": "sha256:4efa8662f8d41849a3b86b224f34aee5da5fd5876cdaca2a6aa2e552e0af83cd",
+      "input_schema_hash": "sha256:f004b35f3df780e36f41a23148e7e94475f819c5d694555912fd78459f8990b0",
+      "annotations_hash": "sha256:a786a9337f6e4507dd53dd131d1acb74c9da1edd5ed44e8e85a9c7c9ed872442",
+      "definition_hash": "sha256:a1c50d825c91a4dfef52415e201eb72ed90e9bceb0110857a532f2b4f7c0ef3f"
+    },
+    "readiness": {
+      "description": "Explainable readiness for a day (0–100): HRV and resting heart rate vs your 7-day baseline, sleep vs need, and acute:chronic training load, each with its value, baseline, weight and contribution. A wellbeing heuristic, not medical advice.",
+      "description_hash": "sha256:965237b815a7ff841e5fecae0d0cb44d063840bebc67951ab20d050be46ee601",
+      "input_schema_hash": "sha256:8b1a4d8812de46c0f6943887d596280153e54557277051e33942096b0d9253ec",
+      "annotations_hash": "sha256:f54133032badc12c281a196069f7bac9b592b50fe4beb2433e633030e0c3ec71",
+      "definition_hash": "sha256:09202421d17a604ebfd9c37b4af0e03477efed6064b630ab2715ad3c32add6bb"
+    },
+    "trend": {
+      "description": "Trend of one metric over recent days: a sparkline, min/max/mean, and the change of the last 7 days vs the 7 before.",
+      "description_hash": "sha256:1d0ec4b2e964bb355d75a27a6fccc32b97c26e35c10e1be2d80e363b9ffab11c",
+      "input_schema_hash": "sha256:b756bc2a4fadc6cf12df24931f70b2c93b9228b5ab81846ddc461d4eb2b4183e",
+      "annotations_hash": "sha256:585f9bcc64b541eda22bdf6041098addeafe2328b36d5f3b327842c3e87c9475",
+      "definition_hash": "sha256:6a267f279111081efb84f950541bf1e3f6eccd9964f4bb66ddfbcc6bab750f7c"
+    }
+  }
+}
