@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-"""Record real MCP exchanges from the built servers into site/data/transcripts.json.
+"""Record real MCP exchanges from the built servers into site/data/transcripts.json,
+and audit every server with lighthouse into site/data/dashboard.json.
 
 The website replays these, so every example on it is genuine output.
 
@@ -47,6 +48,36 @@ def session(server, calls, env=None, pause=0.6):
     return [{"tool": t, "args": a, "reply": replies.get(i, "")} for i, (t, a) in enumerate(calls, 1)]
 
 
+SERVERS = ["joinery", "binscope", "lighthouse", "vitals", "handset"]
+
+
+def dashboard(tmp):
+    """Audit every server with lighthouse and check its committed mcp.lock."""
+    lh = os.path.join(BIN, "lighthouse-mcp")
+    env = {**os.environ, "VITALS_DB": os.path.join(tmp, "dash.sqlite")}
+    rows = []
+    for s in SERVERS:
+        exe = os.path.join(BIN, f"{s}-mcp")
+        audit = json.loads(subprocess.run([lh, "audit", "--json", "--", exe], capture_output=True, text=True, env=env, timeout=120).stdout)
+        verify = subprocess.run([lh, "verify", "--lock", os.path.join(ROOT, "locks", f"{s}.lock"), "--", exe],
+                                capture_output=True, text=True, env=env, timeout=120)
+        rows.append({
+            "server": s,
+            "version": audit.get("server_version"),
+            "grade": audit["score"]["grade"],
+            "points": audit["score"]["points"],
+            "deductions": audit["score"]["deductions"],
+            "migration": audit["migration"],
+            "handshake_ms": {"stateless": audit["stateless"].get("handshake_ms"), "legacy": audit["legacy"].get("handshake_ms")},
+            "tools": [{"tool": t["tool"], "tokens": t["tokens"]} for t in audit["cost"]["tools"]],
+            "total_tokens": audit["cost"]["total_tokens"],
+            "findings": len(audit["findings"]),
+            "lock": {"clean": verify.returncode == 0, "summary": verify.stdout.strip().splitlines()[0] if verify.stdout else ""},
+            "binary_bytes": os.path.getsize(exe),
+        })
+    return {"generated": time.strftime("%Y-%m-%d"), "servers": rows}
+
+
 def main():
     tmp = tempfile.mkdtemp(prefix="mcp-site-")
     fixtures = os.path.join(ROOT, "crates", "handset", "tests", "fixtures")
@@ -84,6 +115,9 @@ def main():
     out = os.path.join(ROOT, "site", "data", "transcripts.json")
     with open(out, "w") as f:
         f.write(text + "\n")
+    dash = dashboard(tmp)
+    with open(os.path.join(ROOT, "site", "data", "dashboard.json"), "w") as f:
+        f.write(json.dumps(dash, indent=1) + "\n")
     empty = [s for s, calls in transcripts.items() for c in calls if not c["reply"]]
     print(f"wrote {out}" + (f" (empty replies from: {', '.join(empty)})" if empty else ""))
     return 1 if empty else 0
