@@ -89,7 +89,10 @@ impl Lighthouse {
         description = "Launch a stdio MCP server and audit it: 2026-07-28 stateless and 2025-11-25 handshake support, tool-definition lint, per-tool token cost, and an A–F grade with the reasons points were lost. Starts the given command.",
         annotations(title = "Audit an MCP server", read_only_hint = true, open_world_hint = true)
     )]
-    pub async fn audit_server(&self, Parameters(a): Parameters<TargetArgs>) -> Result<CallToolResult, ErrorData> {
+    pub async fn audit_server(
+        &self,
+        Parameters(a): Parameters<TargetArgs>,
+    ) -> Result<CallToolResult, ErrorData> {
         let report = audit::run(&a.target()).await;
         let summary = format!(
             "Grade {} ({}/100) for {} — migration: {}, {} tools, ~{} tokens per turn, {} finding(s).",
@@ -106,7 +109,12 @@ impl Lighthouse {
 
     #[tool(
         description = "Write mcp.lock pinning a server's current tool names, descriptions and schema hashes. Commit the file; verify_server then catches silent changes.",
-        annotations(title = "Pin tools to mcp.lock", read_only_hint = false, destructive_hint = false, open_world_hint = true)
+        annotations(
+            title = "Pin tools to mcp.lock",
+            read_only_hint = false,
+            destructive_hint = false,
+            open_world_hint = true
+        )
     )]
     pub async fn pin_server(&self, Parameters(a): Parameters<LockArgs>) -> Result<CallToolResult, ErrorData> {
         let lockfile = match current_lock(&a.target.target()).await {
@@ -117,14 +125,20 @@ impl Lighthouse {
         if let Err(e) = std::fs::write(&path, lockfile.to_pretty_json()) {
             return Ok(tool_error(format!("Could not write {path}: {e}")));
         }
-        structured(format!("Pinned {} tool(s) to {path}.", lockfile.tools.len()), &json!({"path": path, "lockfile": lockfile}))
+        structured(
+            format!("Pinned {} tool(s) to {path}.", lockfile.tools.len()),
+            &json!({"path": path, "lockfile": lockfile}),
+        )
     }
 
     #[tool(
         description = "Compare a server's live tools against mcp.lock and report tools added, removed or changed (description, inputSchema, annotations), showing old and new descriptions.",
         annotations(title = "Verify against mcp.lock", read_only_hint = true, open_world_hint = true)
     )]
-    pub async fn verify_server(&self, Parameters(a): Parameters<LockArgs>) -> Result<CallToolResult, ErrorData> {
+    pub async fn verify_server(
+        &self,
+        Parameters(a): Parameters<LockArgs>,
+    ) -> Result<CallToolResult, ErrorData> {
         let path = a.lock_path.clone().unwrap_or_else(|| lock::DEFAULT_PATH.into());
         let pinned: Lockfile = match std::fs::read_to_string(&path).map(|s| serde_json::from_str(&s)) {
             Ok(Ok(l)) => l,
@@ -154,7 +168,12 @@ impl Lighthouse {
         }
         let (findings, cost) = audit::offline(&tools);
         structured(
-            format!("{} tool(s), {} finding(s), ~{} tokens per turn.", tools.len(), findings.len(), cost.total_tokens),
+            format!(
+                "{} tool(s), {} finding(s), ~{} tokens per turn.",
+                tools.len(),
+                findings.len(),
+                cost.total_tokens
+            ),
             &json!({"findings": findings, "cost": cost}),
         )
     }

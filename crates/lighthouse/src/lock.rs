@@ -95,7 +95,8 @@ impl Drift {
             parts.push(format!("{} removed ({})", self.removed.len(), self.removed.join(", ")));
         }
         if !self.changed.is_empty() {
-            let list: Vec<String> = self.changed.iter().map(|c| format!("{} [{}]", c.tool, c.fields.join(", "))).collect();
+            let list: Vec<String> =
+                self.changed.iter().map(|c| format!("{} [{}]", c.tool, c.fields.join(", "))).collect();
             parts.push(format!("{} changed: {}", self.changed.len(), list.join("; ")));
         }
         format!("Drift detected — {}.", parts.join("; "))

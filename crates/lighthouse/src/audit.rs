@@ -46,7 +46,11 @@ pub fn letter(points: u32) -> char {
 pub fn score(stateless: &Generation, legacy: &Generation, findings: &[Finding], cost: &CostReport) -> Score {
     let mut d: Vec<(String, u32)> = Vec::new();
     if !stateless.supported && !legacy.supported {
-        return Score { points: 0, grade: 'F', deductions: vec![("Server did not answer on either protocol generation".into(), 100)] };
+        return Score {
+            points: 0,
+            grade: 'F',
+            deductions: vec![("Server did not answer on either protocol generation".into(), 100)],
+        };
     }
     if !stateless.supported {
         d.push(("No 2026-07-28 stateless support (server/discover)".into(), 15));

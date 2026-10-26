@@ -90,12 +90,14 @@ async fn run_cli(cli: Cli) -> Result<ExitCode, String> {
             }
             let current = lock::Lockfile::from_tools(g.server_name, g.server_version, &g.tools);
             if cli.sub == "pin" {
-                std::fs::write(&cli.lock, current.to_pretty_json()).map_err(|e| format!("{}: {e}", cli.lock))?;
+                std::fs::write(&cli.lock, current.to_pretty_json())
+                    .map_err(|e| format!("{}: {e}", cli.lock))?;
                 println!("pinned {} tool(s) to {}", current.tools.len(), cli.lock);
                 return Ok(ExitCode::SUCCESS);
             }
             let text = std::fs::read_to_string(&cli.lock).map_err(|e| format!("{}: {e}", cli.lock))?;
-            let pinned: lock::Lockfile = serde_json::from_str(&text).map_err(|e| format!("{}: {e}", cli.lock))?;
+            let pinned: lock::Lockfile =
+                serde_json::from_str(&text).map_err(|e| format!("{}: {e}", cli.lock))?;
             let drift = lock::compare(&pinned, &current);
             println!("{}", drift.summary());
             for c in &drift.changed {

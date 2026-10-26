@@ -10,10 +10,7 @@ const BIN: &str = env!("CARGO_BIN_EXE_lighthouse-mcp");
 const FAKE: &str = concat!(env!("CARGO_MANIFEST_DIR"), "/tests/fixtures/legacy_server.sh");
 
 fn tmp(name: &str) -> String {
-    std::env::temp_dir()
-        .join(format!("lighthouse-{}-{name}", std::process::id()))
-        .display()
-        .to_string()
+    std::env::temp_dir().join(format!("lighthouse-{}-{name}", std::process::id())).display().to_string()
 }
 
 #[test]
@@ -24,12 +21,8 @@ fn audit_json_flags_legacy_only_and_stray_stdout() {
     assert_eq!(report["migration"], "legacy-only");
     assert_eq!(report["server_name"], "fake");
     assert_eq!(report["tool_count"], 1);
-    let reasons: Vec<&str> = report["score"]["deductions"]
-        .as_array()
-        .unwrap()
-        .iter()
-        .map(|d| d[0].as_str().unwrap())
-        .collect();
+    let reasons: Vec<&str> =
+        report["score"]["deductions"].as_array().unwrap().iter().map(|d| d[0].as_str().unwrap()).collect();
     assert!(reasons.iter().any(|r| r.contains("stateless")), "{reasons:?}");
     assert!(reasons.iter().any(|r| r.contains("stdout")), "{reasons:?}");
 }
