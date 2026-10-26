@@ -38,6 +38,17 @@ fn verb(kind: JointKind) -> &'static str {
     }
 }
 
+/// "the side", "both sides" or "all 4 legs", depending on how many there are.
+fn host_phrase(design: &Design, host: &str) -> String {
+    let qty = design.parts.iter().find(|p| p.name == host).map_or(1, |p| p.quantity);
+    match qty {
+        _ if host.contains('/') => format!("the {host}"),
+        0 | 1 => format!("the {host}"),
+        2 => format!("both {host}s"),
+        n => format!("all {n} {host}s"),
+    }
+}
+
 /// Produce numbered assembly steps for `design`.
 pub fn steps(design: &Design) -> Vec<Step> {
     let mut joints: Vec<_> = design.joints.iter().collect();
@@ -56,7 +67,7 @@ pub fn steps(design: &Design) -> Vec<Step> {
         }
         let glue = if j.kind == JointKind::ShelfPins { "" } else { "Glue and fit " };
         let what = if glue.is_empty() { "Set the " } else { "the " };
-        lines.push(format!("{glue}{what}{} {} the {}.", j.member, verb(j.kind), j.host));
+        lines.push(format!("{glue}{what}{} {} {}.", j.member, verb(j.kind), host_phrase(design, &j.host)));
     }
     if !squared {
         lines.push("Check both diagonals match before the glue sets.".into());
@@ -91,6 +102,7 @@ mod tests {
         assert!(index_of(&s, "the back") < index_of(&s, "finish"));
         assert_eq!(index_of(&s, "shelf pins"), s.len() - 1);
         assert!(s.iter().enumerate().all(|(i, st)| st.number == i + 1));
+        assert!(s.iter().any(|st| st.instruction == "Glue and fit the top into the dados in both sides."));
     }
 
     #[test]
