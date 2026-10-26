@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
+<hierarchy rotation="0">
+  <node class="android.widget.FrameLayout" bounds="[0,0][1080,2400]">
+    <node text="Welcome back" class="android.widget.TextView" bounds="[96,300][984,400]" />
+    <node text="" content-desc="Email" resource-id="com.example:id/email" class="android.widget.EditText" clickable="true" focusable="true" enabled="true" bounds="[96,500][984,640]" />
+    <node text="" class="android.widget.FrameLayout" clickable="true" enabled="true" bounds="[96,1000][984,1140]">
+      <node text="Sign in" class="android.widget.TextView" bounds="[400,1040][680,1100]" />
+    </node>
+  </node>
+</hierarchy>
