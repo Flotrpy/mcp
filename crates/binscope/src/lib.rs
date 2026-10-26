@@ -7,3 +7,4 @@
 
 pub mod entropy;
 pub mod inspect;
+pub mod strings;
