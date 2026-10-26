@@ -80,24 +80,23 @@ fn slice(bytes: &[u8], offset: u64, size: u64) -> &[u8] {
     &bytes[start..end]
 }
 
-fn section(
-    bytes: &[u8],
-    name: String,
-    offset: u64,
-    size: u64,
-    vaddr: u64,
-    r: bool,
-    w: bool,
-    x: bool,
-) -> Section {
+/// Memory protection of a section once loaded.
+#[derive(Debug, Clone, Copy)]
+struct Perms {
+    read: bool,
+    write: bool,
+    exec: bool,
+}
+
+fn section(bytes: &[u8], name: String, offset: u64, size: u64, vaddr: u64, perms: Perms) -> Section {
     Section {
         name,
         file_offset: offset,
         file_size: size,
         virtual_address: vaddr,
-        readable: r,
-        writable: w,
-        executable: x,
+        readable: perms.read,
+        writable: perms.write,
+        executable: perms.exec,
         entropy: entropy::shannon(slice(bytes, offset, size)),
     }
 }
@@ -121,9 +120,11 @@ pub fn parse(bytes: &[u8]) -> Result<Binary, InspectError> {
                         sh.sh_offset,
                         stored,
                         sh.sh_addr,
-                        sh.sh_flags & u64::from(SHF_ALLOC) != 0,
-                        sh.sh_flags & u64::from(SHF_WRITE) != 0,
-                        sh.sh_flags & u64::from(SHF_EXECINSTR) != 0,
+                        Perms {
+                            read: sh.sh_flags & u64::from(SHF_ALLOC) != 0,
+                            write: sh.sh_flags & u64::from(SHF_WRITE) != 0,
+                            exec: sh.sh_flags & u64::from(SHF_EXECINSTR) != 0,
+                        },
                     )
                 })
                 .collect();
@@ -166,9 +167,11 @@ pub fn parse(bytes: &[u8]) -> Result<Binary, InspectError> {
                         u64::from(s.pointer_to_raw_data),
                         u64::from(s.size_of_raw_data),
                         u64::from(s.virtual_address),
-                        s.characteristics & IMAGE_SCN_MEM_READ != 0,
-                        s.characteristics & IMAGE_SCN_MEM_WRITE != 0,
-                        s.characteristics & IMAGE_SCN_MEM_EXECUTE != 0,
+                        Perms {
+                            read: s.characteristics & IMAGE_SCN_MEM_READ != 0,
+                            write: s.characteristics & IMAGE_SCN_MEM_WRITE != 0,
+                            exec: s.characteristics & IMAGE_SCN_MEM_EXECUTE != 0,
+                        },
                     )
                 })
                 .collect();
@@ -236,9 +239,7 @@ fn mach(
                 u64::from(s.offset),
                 if s.offset == 0 { 0 } else { s.size },
                 s.addr,
-                prot & 1 != 0,
-                prot & 2 != 0,
-                prot & 4 != 0,
+                Perms { read: prot & 1 != 0, write: prot & 2 != 0, exec: prot & 4 != 0 },
             ));
         }
     }
