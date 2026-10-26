@@ -70,6 +70,27 @@ CREATE TABLE IF NOT EXISTS imports (
 );
 ";
 
+/// Run `f`, retrying for up to five seconds while SQLite reports the
+/// database busy or locked by another connection.
+fn retry_busy<T>(mut f: impl FnMut() -> rusqlite::Result<T>) -> rusqlite::Result<T> {
+    let deadline = std::time::Instant::now() + std::time::Duration::from_secs(5);
+    let mut wait = std::time::Duration::from_millis(5);
+    loop {
+        match f() {
+            Err(rusqlite::Error::SqliteFailure(e, _))
+                if matches!(
+                    e.code,
+                    rusqlite::ErrorCode::DatabaseBusy | rusqlite::ErrorCode::DatabaseLocked
+                ) && std::time::Instant::now() < deadline =>
+            {
+                std::thread::sleep(wait);
+                wait = (wait * 2).min(std::time::Duration::from_millis(100));
+            }
+            other => return other,
+        }
+    }
+}
+
 impl Store {
     pub fn open(path: &Path) -> Result<Self, StoreError> {
         if let Some(dir) = path.parent() {
@@ -83,8 +104,12 @@ impl Store {
     }
 
     fn init(conn: Connection) -> Result<Self, StoreError> {
-        conn.execute_batch("PRAGMA journal_mode = WAL; PRAGMA synchronous = NORMAL;")?;
-        conn.execute_batch(SCHEMA)?;
+        // Two clients may open the same new file at once. The busy timeout
+        // covers ordinary lock waits; switching a fresh database to WAL can
+        // still report SQLITE_BUSY without consulting it, so setup retries.
+        conn.busy_timeout(std::time::Duration::from_secs(5))?;
+        retry_busy(|| conn.execute_batch("PRAGMA journal_mode = WAL; PRAGMA synchronous = NORMAL;"))?;
+        retry_busy(|| conn.execute_batch(SCHEMA))?;
         Ok(Self { conn })
     }
 
@@ -184,6 +209,30 @@ mod tests {
 
     pub fn sample(metric: Metric, day: &str, start: i64, value: f64, source: &str) -> Sample {
         Sample { metric, start, end: start + 60, day: day.into(), value, source: source.into(), device: None }
+    }
+
+    #[test]
+    fn many_processes_can_open_a_fresh_database_at_once() {
+        // Two clients starting together (or lighthouse probing both protocol
+        // generations) open the same new file concurrently.
+        for round in 0..20 {
+            let dir = std::env::temp_dir().join(format!("vitals-open-race-{}-{round}", std::process::id()));
+            let _ = std::fs::remove_dir_all(&dir);
+            let path = dir.join("v.sqlite");
+            let barrier = std::sync::Arc::new(std::sync::Barrier::new(12));
+            let handles: Vec<_> = (0..12)
+                .map(|_| {
+                    let (path, barrier) = (path.clone(), barrier.clone());
+                    std::thread::spawn(move || {
+                        barrier.wait();
+                        Store::open(&path).map(|_| ()).map_err(|e| e.to_string())
+                    })
+                })
+                .collect();
+            for h in handles {
+                h.join().unwrap().expect("open must not fail under contention");
+            }
+        }
     }
 
     #[test]
