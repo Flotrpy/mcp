@@ -46,14 +46,14 @@ crates/
 locks/          mcp.lock for each server (checked in CI)
 site/           static website and dashboard (no build step)
 docs/           design decisions and UI research
-research/       the market research that chose these five ideas
+research/       the Hacker News search script behind the research
 examples/       a 35-day multi-device vitals dataset
 ```
 
 ## Docs
 - [Design decisions](docs/DESIGN.md): protocol layer, transport, stack, and what makes each server different.
 - [UI research](docs/UI-RESEARCH.md): what the Apple HIG, Apple's kits, Emil Kowalski and Dribbble each recommend, and which won.
-- [Research](research/mcp-ideas-master.md): the 34 ideas these were chosen from.
+- [Research](https://github.com/Flotrpy/mcp/blob/claude/mcp-research/research/mcp-ideas-master.md): the 34 ideas these were chosen from (on the `claude/mcp-research` branch).
 
 ## License
 
