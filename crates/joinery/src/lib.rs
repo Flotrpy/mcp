@@ -4,6 +4,7 @@
 //! and this crate does the arithmetic woodworkers get wrong at 11 pm —
 //! part sizes, cut lists, sheet yield and whether a shelf will sag.
 
+pub mod cutlist;
 pub mod furniture;
 pub mod model;
 pub mod sag;
