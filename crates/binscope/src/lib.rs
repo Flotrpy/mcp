@@ -5,6 +5,7 @@
 //! libraries, imported and exported symbols, embedded strings and a diff
 //! between two versions. It never executes, patches or unpacks anything.
 
+pub mod diff;
 pub mod entropy;
 pub mod inspect;
 pub mod strings;
