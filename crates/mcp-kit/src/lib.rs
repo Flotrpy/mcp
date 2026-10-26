@@ -5,6 +5,7 @@
 //! that they behave consistently from an agent's point of view.
 
 pub mod budget;
+pub mod cli;
 pub mod result;
 pub mod testing;
 
