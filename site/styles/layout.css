@@ -1,0 +1,187 @@
+/* Page layout: navigation, hero and shared controls. */
+
+/* ---------- Navigation: frosted glass that never hides focus ---------- */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--glass);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  backdrop-filter: saturate(180%) blur(20px);
+  border-bottom: 1px solid var(--hairline);
+}
+
+.nav__inner {
+  display: flex;
+  align-items: center;
+  gap: var(--s-6);
+  height: 3.25rem;
+}
+
+.nav__brand {
+  font-weight: 600;
+  letter-spacing: var(--tracking-tight);
+  color: var(--ink);
+  margin-right: auto;
+}
+
+.nav__brand span {
+  color: var(--ink-3);
+}
+
+.nav__links {
+  display: flex;
+  gap: var(--s-6);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: var(--text-sm);
+}
+
+.nav__links a {
+  color: var(--ink-2);
+}
+
+.nav__links a:hover {
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.nav__search {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-2);
+  min-height: 2rem;
+  padding: 0 var(--s-2) 0 var(--s-3);
+  border: 1px solid var(--hairline-strong);
+  border-radius: var(--r-pill);
+  background: transparent;
+  color: var(--ink-3);
+  font-size: var(--text-sm);
+  cursor: pointer;
+  transition: color var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out);
+}
+
+.nav__search:hover {
+  color: var(--ink);
+  border-color: var(--ink-3);
+}
+
+.nav__search kbd {
+  padding: 0.05rem 0.4rem;
+  border-radius: 6px;
+  background: var(--bg-sunken);
+  font-size: var(--text-xs);
+}
+
+@media (max-width: 40rem) {
+  .nav__links {
+    display: none;
+  }
+}
+
+/* ---------- Buttons ---------- */
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--s-2);
+  min-height: 2.75rem;
+  padding: 0 var(--s-6);
+  border-radius: var(--r-pill);
+  border: 1px solid transparent;
+  font-size: var(--text-base);
+  font-weight: 500;
+  cursor: pointer;
+  transition: transform var(--dur-fast) var(--ease-out), background-color var(--dur-fast) var(--ease-out),
+    border-color var(--dur-fast) var(--ease-out);
+}
+
+.button:hover {
+  text-decoration: none;
+}
+
+.button:active {
+  transform: scale(0.97);
+}
+
+.button--primary {
+  background: var(--ink);
+  color: var(--bg);
+}
+
+.button--primary:hover {
+  background: color-mix(in srgb, var(--ink) 86%, var(--bg));
+}
+
+.button--ghost {
+  color: var(--ink);
+  border-color: var(--hairline-strong);
+}
+
+.button--ghost:hover {
+  border-color: var(--ink-3);
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  padding-block: clamp(var(--s-16), 12vh, var(--s-32)) var(--s-16);
+  text-align: center;
+}
+
+.hero__inner {
+  display: grid;
+  justify-items: center;
+  gap: var(--s-6);
+}
+
+.eyebrow {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: var(--ink-3);
+}
+
+.hero__title {
+  font-size: var(--text-hero);
+  letter-spacing: var(--tracking-display);
+  line-height: 1.02;
+}
+
+.hero__lede {
+  max-width: var(--measure);
+  font-size: var(--text-lg);
+  line-height: 1.38;
+  color: var(--ink-2);
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--s-3);
+  margin-top: var(--s-2);
+}
+
+/* Entrance: one staggered fade-up on load, nothing after. */
+@media (prefers-reduced-motion: no-preference) {
+  .hero__inner > * {
+    animation: rise var(--dur-slow) var(--ease-out) both;
+  }
+  .hero__inner > :nth-child(2) {
+    animation-delay: 60ms;
+  }
+  .hero__inner > :nth-child(3) {
+    animation-delay: 120ms;
+  }
+  .hero__inner > :nth-child(4) {
+    animation-delay: 180ms;
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+}
