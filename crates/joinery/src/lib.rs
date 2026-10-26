@@ -10,3 +10,4 @@ pub mod furniture;
 pub mod model;
 pub mod nesting;
 pub mod sag;
+pub mod svg;
