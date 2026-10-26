@@ -8,4 +8,5 @@
 pub mod canonical;
 pub mod cost;
 pub mod lint;
+pub mod lock;
 pub mod probe;
