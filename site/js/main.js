@@ -3,6 +3,7 @@
 
 import { initReplay } from "./replay.js";
 import { initReveal } from "./reveal.js";
+import { initSag } from "./sag-widget.js";
 
 const isMac = /Mac|iPhone|iPad/.test(navigator.platform || navigator.userAgent);
 
@@ -22,5 +23,6 @@ if (nav) {
 
 initReplay();
 initReveal();
+initSag();
 
 export { isMac };

@@ -170,3 +170,223 @@
     transform: translateY(24px) scale(0.985);
   }
 }
+
+/* ---------- Full-bleed dark band (apple.com's alternating sections) ---------- */
+.band {
+  --band-bg: #000;
+  --band-ink: #f5f5f7;
+  --band-ink-2: #a1a1a6;
+  --band-surface: #161617;
+  --band-hairline: rgb(255 255 255 / 0.12);
+  padding-block: var(--s-24);
+  background: var(--band-bg);
+  color: var(--band-ink);
+  color-scheme: dark;
+}
+
+.band .eyebrow,
+.band .section__lede {
+  color: var(--band-ink-2);
+}
+
+/* ---------- Sag widget ---------- */
+.sag {
+  display: grid;
+  grid-template-columns: minmax(16rem, 22rem) 1fr;
+  gap: var(--s-8);
+  align-items: start;
+}
+
+@media (max-width: 52rem) {
+  .sag {
+    grid-template-columns: 1fr;
+  }
+}
+
+.sag__controls {
+  display: grid;
+  gap: var(--s-6);
+  padding: var(--s-6);
+  border-radius: var(--r-lg);
+  background: var(--band-surface);
+  border: 1px solid var(--band-hairline);
+}
+
+.field {
+  display: grid;
+  gap: var(--s-2);
+  margin: 0;
+  padding: 0;
+  border: 0;
+  min-width: 0;
+}
+
+.field__label {
+  display: flex;
+  justify-content: space-between;
+  padding: 0;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  letter-spacing: var(--tracking-small);
+  color: var(--band-ink-2);
+}
+
+.field__label output {
+  color: var(--band-ink);
+  font-weight: 500;
+}
+
+.field select {
+  min-height: 2.5rem;
+  padding: 0 var(--s-3);
+  border-radius: var(--r-sm);
+  border: 1px solid var(--band-hairline);
+  background-color: #1d1d1f;
+  color: var(--band-ink);
+}
+
+input[type="range"] {
+  width: 100%;
+  accent-color: var(--joinery);
+  cursor: pointer;
+}
+
+/* Segmented control: native radios, one generous hit target per option. */
+.segmented {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+  padding: 3px;
+  border-radius: var(--r-sm);
+  background: rgb(255 255 255 / 0.08);
+}
+
+.segmented label {
+  position: relative;
+  cursor: pointer;
+}
+
+.segmented input {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.segmented span {
+  display: grid;
+  place-items: center;
+  min-height: 2rem;
+  border-radius: calc(var(--r-sm) - 3px);
+  font-size: var(--text-sm);
+  color: var(--band-ink-2);
+  transition: background-color var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out);
+}
+
+.segmented input:checked + span {
+  background: rgb(255 255 255 / 0.18);
+  color: var(--band-ink);
+  box-shadow: 0 1px 2px rgb(0 0 0 / 0.4);
+}
+
+.segmented input:focus-visible + span {
+  outline: 2px solid var(--joinery);
+  outline-offset: 1px;
+}
+
+.sag__stage {
+  display: grid;
+  gap: var(--s-6);
+  padding: var(--s-6);
+  border-radius: var(--r-lg);
+  background: radial-gradient(120% 80% at 50% 0%, #1b1b1d, #0a0a0b);
+  border: 1px solid var(--band-hairline);
+}
+
+.sag__svg {
+  width: 100%;
+  height: auto;
+  touch-action: none;
+  user-select: none;
+}
+
+.sag__wall {
+  stroke: rgb(255 255 255 / 0.12);
+  stroke-width: 2;
+}
+
+.sag__shelf {
+  fill: none;
+  stroke: var(--joinery);
+  stroke-width: 16;
+  stroke-linecap: round;
+  transition: stroke var(--dur) var(--ease-out);
+}
+
+.sag[data-state="warn"] .sag__shelf {
+  stroke: var(--warn);
+}
+
+.sag[data-state="bad"] .sag__shelf {
+  stroke: var(--bad);
+}
+
+.sag__pin rect {
+  fill: #3a3a3c;
+}
+
+.sag__pin--drag {
+  cursor: ew-resize;
+}
+
+.sag__pin--drag circle {
+  fill: transparent;
+}
+
+.sag__pin--drag:hover rect,
+.sag__pin--drag[data-dragging] rect {
+  fill: #636366;
+}
+
+.sag__scale {
+  fill: var(--band-ink-2);
+  font-size: 22px;
+  letter-spacing: 0.02em;
+}
+
+.sag__readout {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--s-4);
+  margin: 0;
+}
+
+.sag__readout dt {
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-small);
+  color: var(--band-ink-2);
+}
+
+.sag__readout dd {
+  margin: 0;
+  font-size: var(--text-xl);
+  font-weight: 600;
+  letter-spacing: var(--tracking-tight);
+}
+
+.sag__verdict {
+  font-size: var(--text-lg);
+  font-weight: 500;
+}
+
+.sag__verdict strong[data-tone="ok"] {
+  color: var(--ok);
+}
+
+.sag__verdict strong[data-tone="warn"] {
+  color: var(--warn);
+}
+
+.sag__verdict strong[data-tone="bad"] {
+  color: var(--bad);
+}

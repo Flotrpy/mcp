@@ -129,6 +129,62 @@
         </ul>
       </div>
     </section>
+    <section class="band" id="sag" aria-labelledby="sag-title">
+      <div class="wrap band__inner">
+        <header class="section__head">
+          <p class="eyebrow">Try joinery</p>
+          <h2 id="sag-title" class="section__title">Will your shelf sag?</h2>
+          <p class="section__lede">The same beam-theory check the server runs — species stiffness, long-term creep and the 1/32″&nbsp;per&nbsp;foot limit. Drag the right-hand support or use the controls.</p>
+        </header>
+
+        <div class="sag" data-sag>
+          <form class="sag__controls" onsubmit="return false">
+            <label class="field">
+              <span class="field__label">Span <output class="tabular" data-out="span">900&nbsp;mm</output></span>
+              <input type="range" name="span" min="300" max="1600" step="10" value="900">
+            </label>
+            <fieldset class="field">
+              <legend class="field__label">Thickness</legend>
+              <div class="segmented" role="radiogroup">
+                <label><input type="radio" name="thickness" value="12"><span>12&nbsp;mm</span></label>
+                <label><input type="radio" name="thickness" value="15"><span>15&nbsp;mm</span></label>
+                <label><input type="radio" name="thickness" value="18" checked><span>18&nbsp;mm</span></label>
+                <label><input type="radio" name="thickness" value="25"><span>25&nbsp;mm</span></label>
+              </div>
+            </fieldset>
+            <label class="field">
+              <span class="field__label">Material</span>
+              <select name="species" data-species></select>
+            </label>
+            <fieldset class="field">
+              <legend class="field__label">Holding</legend>
+              <div class="segmented" role="radiogroup">
+                <label><input type="radio" name="load" value="decor"><span>Decor</span></label>
+                <label><input type="radio" name="load" value="books" checked><span>Books</span></label>
+                <label><input type="radio" name="load" value="dishes"><span>Dishes</span></label>
+                <label><input type="radio" name="load" value="records"><span>Records</span></label>
+              </div>
+            </fieldset>
+          </form>
+
+          <div class="sag__stage">
+            <svg class="sag__svg" viewBox="0 0 1000 300" role="img" aria-labelledby="sag-verdict">
+              <line class="sag__wall" x1="0" y1="250" x2="1000" y2="250"/>
+              <path class="sag__shelf" data-shelf d="M50 120 Q500 120 950 120"/>
+              <g class="sag__pin" data-pin="left"><rect x="38" y="128" width="24" height="122" rx="6"/></g>
+              <g class="sag__pin sag__pin--drag" data-pin="right" tabindex="-1"><rect x="938" y="128" width="24" height="122" rx="6"/><circle cx="950" cy="190" r="34"/></g>
+              <text class="sag__scale" x="500" y="40" text-anchor="middle">sag drawn ×40</text>
+            </svg>
+            <dl class="sag__readout tabular">
+              <div><dt>Long-term sag</dt><dd data-out="sag">–</dd></div>
+              <div><dt>Limit</dt><dd data-out="limit">–</dd></div>
+              <div><dt>Of limit</dt><dd data-out="util">–</dd></div>
+            </dl>
+            <p class="sag__verdict" id="sag-verdict" aria-live="polite" data-out="verdict">–</p>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
   <script type="module" src="js/main.js"></script>
