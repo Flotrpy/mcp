@@ -10,4 +10,5 @@
 pub mod daily;
 pub mod import;
 pub mod metric;
+pub mod readiness;
 pub mod store;
