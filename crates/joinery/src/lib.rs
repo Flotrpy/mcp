@@ -5,3 +5,4 @@
 //! part sizes, cut lists, sheet yield and whether a shelf will sag.
 
 pub mod model;
+pub mod sag;
