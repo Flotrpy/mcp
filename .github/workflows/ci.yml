@@ -1,0 +1,42 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  rust:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+      - uses: Swatinem/rust-cache@v2
+      - name: Format
+        run: cargo fmt --all -- --check
+      - name: Clippy
+        run: cargo clippy --workspace --all-targets -- -D warnings
+      - name: Test
+        run: cargo test --workspace
+
+  dogfood:
+    # Every server must keep an A from lighthouse and match its committed mcp.lock.
+    runs-on: ubuntu-latest
+    needs: rust
+    env:
+      VITALS_DB: ${{ runner.temp }}/vitals.sqlite
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
+      - run: cargo build --release --workspace
+      - name: Audit and verify each server
+        run: |
+          for s in joinery binscope lighthouse vitals handset; do
+            ./target/release/lighthouse-mcp audit --min-grade A -- ./target/release/$s-mcp
+            ./target/release/lighthouse-mcp verify --lock locks/$s.lock -- ./target/release/$s-mcp
+          done
