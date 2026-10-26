@@ -11,4 +11,5 @@ pub mod daily;
 pub mod import;
 pub mod metric;
 pub mod readiness;
+pub mod redact;
 pub mod store;
