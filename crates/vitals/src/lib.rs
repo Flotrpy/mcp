@@ -12,4 +12,5 @@ pub mod import;
 pub mod metric;
 pub mod readiness;
 pub mod redact;
+pub mod server;
 pub mod store;
