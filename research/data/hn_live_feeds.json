@@ -1,0 +1,3319 @@
+[
+  {
+    "id": 50183892,
+    "title": "Show HN: Omnara \u2013 Open-source alternative to Claude Managed Agents",
+    "url": "https://github.com/omnara-ai/omnara",
+    "score": 114,
+    "comments": 34,
+    "time": "2026-10-21T16:44:53+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50183892",
+    "matches": {
+      "mcp": [
+        "mcp"
+      ],
+      "claude": [
+        "anthropic",
+        "claude",
+        "claude code"
+      ],
+      "codex": [
+        "codex",
+        "opencode"
+      ],
+      "tools": [
+        "ai agent",
+        "skills",
+        "tool call"
+      ],
+      "open-source": [
+        "github.com",
+        "open source",
+        "open-source"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50167583,
+    "title": "Launch HN: Respan (YC W24) \u2013 Open-source Rust AI gateway built around plugins",
+    "url": null,
+    "score": 53,
+    "comments": 22,
+    "time": "2026-10-20T15:09:29+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50167583",
+    "matches": {
+      "mcp": [
+        "mcp"
+      ],
+      "claude": [
+        "anthropic",
+        "claude"
+      ],
+      "tools": [
+        "plugin",
+        "sdk",
+        "tool call"
+      ],
+      "open-source": [
+        "github.com",
+        "open source",
+        "open-source"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50237291,
+    "title": "Show HN: A 3D mesh playground for coding agents (three.js + manifold-3d)",
+    "url": "https://sketchagent.dev/s/yfYU6LhT",
+    "score": 4,
+    "comments": 1,
+    "time": "2026-10-26T00:02:39+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50237291",
+    "matches": {
+      "mcp": [
+        "mcp"
+      ],
+      "codex": [
+        "coding agent"
+      ],
+      "tools": [
+        "plugin"
+      ],
+      "open-source": [
+        "github.com"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50236380,
+    "title": "Show HN: A Blender addon that makes Claude twice as efficient at using nodes",
+    "url": "https://github.com/carson-katri/geometry-script",
+    "score": 1,
+    "comments": 1,
+    "time": "2026-10-25T21:50:46+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50236380",
+    "matches": {
+      "mcp": [
+        "mcp"
+      ],
+      "claude": [
+        "claude",
+        "opus"
+      ],
+      "codex": [
+        "coding agent"
+      ],
+      "open-source": [
+        "github.com"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50234643,
+    "title": "Show HN: Optio \u2013 A self-hosted orchestration platform for AI agents",
+    "url": "https://optio.host/",
+    "score": 1,
+    "comments": 0,
+    "time": "2026-10-25T18:37:48+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50234643",
+    "matches": {
+      "claude": [
+        "claude code"
+      ],
+      "codex": [
+        "codex",
+        "coding agent"
+      ],
+      "tools": [
+        "ai agent"
+      ],
+      "open-source": [
+        "github.com",
+        "open source",
+        "self-hosted"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50201860,
+    "title": "Show HN: CATT 0.2.1: Test agents/services against a Muse/Instinct-alike, in CI",
+    "url": "https://github.com/Coverage-Cat/consumer-agent-testing-tool",
+    "score": 9,
+    "comments": 2,
+    "time": "2026-10-22T22:18:40+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50201860",
+    "matches": {
+      "mcp": [
+        "mcp"
+      ],
+      "tools": [
+        "tool call"
+      ],
+      "open-source": [
+        "github.com",
+        "open source"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50237533,
+    "title": "One gateway for your AI agents, APIs and MCP servers",
+    "url": "https://github.com/Clivern/Sloth",
+    "score": 2,
+    "comments": 0,
+    "time": "2026-10-26T00:38:22+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50237533",
+    "matches": {
+      "mcp": [
+        "mcp server"
+      ],
+      "tools": [
+        "ai agent"
+      ],
+      "open-source": [
+        "github.com"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50234412,
+    "title": "Show HN: Open Accountant \u2013 AI-customizable budgeting app for freelancers",
+    "url": "https://github.com/finereli/open-accountant",
+    "score": 2,
+    "comments": 1,
+    "time": "2026-10-25T18:18:13+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50234412",
+    "matches": {
+      "mcp": [
+        "mcp"
+      ],
+      "tools": [
+        "agentic"
+      ],
+      "open-source": [
+        "github.com"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50233447,
+    "title": "Show HN: Radian, an agent puts development workflow on autopilot",
+    "url": "https://getrad.dev",
+    "score": 2,
+    "comments": 0,
+    "time": "2026-10-25T16:41:36+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50233447",
+    "matches": {
+      "mcp": [
+        "mcp"
+      ],
+      "tools": [
+        "plugin",
+        "skills"
+      ],
+      "open-source": [
+        "github.com",
+        "open source"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50238751,
+    "title": "Show HN: Nodecode, open-source living agent in Lisp that rewrites itself for you",
+    "url": "https://github.com/nodecode-ai/nodecode",
+    "score": 1,
+    "comments": 0,
+    "time": "2026-10-26T03:30:18+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50238751",
+    "matches": {
+      "mcp": [
+        "mcp"
+      ],
+      "tools": [
+        "extension",
+        "skills"
+      ],
+      "open-source": [
+        "github.com",
+        "mit license",
+        "open-source",
+        "oss"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50235425,
+    "title": "Show HN: Hycli \u2013 reverse-engineer websites into CLI and MCP tools for AI agents",
+    "url": "https://github.com/Hybirdss/Hycli",
+    "score": 1,
+    "comments": 0,
+    "time": "2026-10-25T19:51:45+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50235425",
+    "matches": {
+      "mcp": [
+        "mcp"
+      ],
+      "tools": [
+        "ai agent"
+      ],
+      "open-source": [
+        "github.com"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50234491,
+    "title": "Show HN: Muxer \u2013 Control cmux terminals from Android",
+    "url": "https://github.com/gantoine/muxer/",
+    "score": 1,
+    "comments": 0,
+    "time": "2026-10-25T18:25:22+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50234491",
+    "matches": {
+      "claude": [
+        "claude code"
+      ],
+      "codex": [
+        "codex"
+      ],
+      "open-source": [
+        "github.com"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50231724,
+    "title": "Show HN: The fastest, most token-efficient iOS Simulator MCP for AI agents",
+    "url": "https://github.com/NoMac-app/simulator-use",
+    "score": 1,
+    "comments": 0,
+    "time": "2026-10-25T14:05:18+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50231724",
+    "matches": {
+      "mcp": [
+        "mcp"
+      ],
+      "tools": [
+        "ai agent"
+      ],
+      "open-source": [
+        "github.com"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50198675,
+    "title": "OpenShell \u2013 A safe, private runtime for fleets of autonomous AI agents",
+    "url": "https://github.com/NVIDIA/OpenShell",
+    "score": 501,
+    "comments": 218,
+    "time": "2026-10-22T17:44:06+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50198675",
+    "matches": {
+      "tools": [
+        "ai agent"
+      ],
+      "open-source": [
+        "github.com"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50195488,
+    "title": "Show HN: OnKey \u2013 I'm a bad singer, so I built an app to show where I'm off-key",
+    "url": "https://github.com/dsmurrell/onkey",
+    "score": 234,
+    "comments": 91,
+    "time": "2026-10-22T14:04:44+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50195488",
+    "matches": {
+      "claude": [
+        "claude code"
+      ],
+      "open-source": [
+        "github.com",
+        "mit license",
+        "open source"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50171966,
+    "title": "Anthropic logged net loss of over $80B in first half of 2026",
+    "url": "https://www.reuters.com/business/anthropic-recorded-net-loss-over-80-billion-first-half-this-year-wsj-reports-2026-10-20/",
+    "score": 192,
+    "comments": 101,
+    "time": "2026-10-20T20:09:46+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50171966",
+    "matches": {
+      "claude": [
+        "anthropic"
+      ],
+      "open-source": [
+        "oss"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50214373,
+    "title": "Show HN: Corgi, a helpful {agent, terminal} multiplexer",
+    "url": "https://corgi.computer/",
+    "score": 137,
+    "comments": 46,
+    "time": "2026-10-23T19:46:38+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50214373",
+    "matches": {
+      "claude": [
+        "claude code",
+        "haiku"
+      ],
+      "codex": [
+        "codex"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50167617,
+    "title": "Show HN: Jev Cards, Can you beat a vision model at a picture quiz?",
+    "url": "https://jevcards.com",
+    "score": 72,
+    "comments": 54,
+    "time": "2026-10-20T15:11:56+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50167617",
+    "matches": {
+      "claude": [
+        "claude code"
+      ],
+      "open-source": [
+        "github.com",
+        "open source"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50176908,
+    "title": "Launch HN: Alter (YC S25) \u2013 Access control for multi-user agents",
+    "url": "https://alterauth.com/",
+    "score": 68,
+    "comments": 52,
+    "time": "2026-10-21T06:42:12+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50176908",
+    "matches": {
+      "tools": [
+        "plugin"
+      ],
+      "open-source": [
+        "github.com"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50167604,
+    "title": "Show HN: Penmentor \u2013 Claude marks up your handwritten math like a teacher",
+    "url": "https://github.com/AbdullahAlhariri/penmentor",
+    "score": 66,
+    "comments": 9,
+    "time": "2026-10-20T15:10:54+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50167604",
+    "matches": {
+      "claude": [
+        "claude"
+      ],
+      "open-source": [
+        "github.com"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50198936,
+    "title": "Show HN: agent-usage-guard \u2013 a Claude Code mod to protect your usage window",
+    "url": "https://github.com/rbartoli/agent-usage-guard",
+    "score": 28,
+    "comments": 12,
+    "time": "2026-10-22T18:02:38+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50198936",
+    "matches": {
+      "claude": [
+        "claude code"
+      ],
+      "open-source": [
+        "github.com"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50225748,
+    "title": "Argus \u2013 a free, open-source agentic security operations platform \u2013 MIT",
+    "url": "https://thomasunise.com/argus",
+    "score": 27,
+    "comments": 9,
+    "time": "2026-10-24T21:54:16+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50225748",
+    "matches": {
+      "tools": [
+        "agentic"
+      ],
+      "open-source": [
+        "open-source"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50223201,
+    "title": "Show HN: Argus- open source security platform to protect against agentic attacks",
+    "url": "https://github.com/thomasunise/argus",
+    "score": 17,
+    "comments": 4,
+    "time": "2026-10-24T17:13:57+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50223201",
+    "matches": {
+      "tools": [
+        "agentic"
+      ],
+      "open-source": [
+        "github.com",
+        "open source"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50194762,
+    "title": "Show HN: Replacing CAPTCHAs with adaptive proof-of-work in WordPress",
+    "url": "https://wordpress.org/plugins/gdpr-compliant-recaptcha-for-all-forms/",
+    "score": 15,
+    "comments": 9,
+    "time": "2026-10-22T13:03:14+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50194762",
+    "matches": {
+      "tools": [
+        "plugin"
+      ],
+      "open-source": [
+        "oss"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50231486,
+    "title": "Show HN: Open-Source Cybersecurity Platform Uses AI Agents to Protect Businesses",
+    "url": "https://medium.com/@thomasunise/this-open-source-cybersecurity-platform-uses-ai-agents-to-detect-threats-and-protect-businesses-762e65392b42",
+    "score": 15,
+    "comments": 4,
+    "time": "2026-10-25T13:41:19+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50231486",
+    "matches": {
+      "tools": [
+        "ai agent"
+      ],
+      "open-source": [
+        "open-source"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50233325,
+    "title": "Jukebox-OS: Deterministic time-travel replay and ACID tool sandbox for AI agents",
+    "url": "https://github.com/socrates6969/jukebox-os",
+    "score": 10,
+    "comments": 0,
+    "time": "2026-10-25T16:29:46+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50233325",
+    "matches": {
+      "tools": [
+        "ai agent"
+      ],
+      "open-source": [
+        "github.com"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50227041,
+    "title": "Show HN: ADRs for AI \u2013 Deliberation records for human\u2013AI work, versioned in Git",
+    "url": "https://adrs.systems",
+    "score": 9,
+    "comments": 7,
+    "time": "2026-10-25T00:43:47+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50227041",
+    "matches": {
+      "claude": [
+        "anthropic"
+      ],
+      "tools": [
+        "plugin"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50224373,
+    "title": "Show HN: Narro \u2013 Read web pages and Kindle books using local AI voices",
+    "url": "https://github.com/swrdfish/narro",
+    "score": 9,
+    "comments": 1,
+    "time": "2026-10-24T19:37:32+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50224373",
+    "matches": {
+      "tools": [
+        "extension"
+      ],
+      "open-source": [
+        "github.com",
+        "open source"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50235909,
+    "title": "Show HN: AgentTrust \u2013 Zero-trust security and human approvals for AI agents",
+    "url": "https://github.com/SRN0129/Agenttrust",
+    "score": 6,
+    "comments": 0,
+    "time": "2026-10-25T20:46:50+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50235909",
+    "matches": {
+      "tools": [
+        "ai agent"
+      ],
+      "open-source": [
+        "github.com"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50222093,
+    "title": "Ask HN: Kimi Code hit its 5-hour limit after $1.37 of API usage",
+    "url": null,
+    "score": 5,
+    "comments": 3,
+    "time": "2026-10-24T15:16:04+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50222093",
+    "matches": {
+      "claude": [
+        "claude code",
+        "opus"
+      ],
+      "codex": [
+        "coding agent"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50235670,
+    "title": "Show HN: MuscleMemory \u2013 procedural memory for coding agents, proven by tests",
+    "url": "https://github.com/TheWariend/MuscleMemory",
+    "score": 5,
+    "comments": 0,
+    "time": "2026-10-25T20:19:47+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50235670",
+    "matches": {
+      "codex": [
+        "coding agent"
+      ],
+      "open-source": [
+        "github.com"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50237813,
+    "title": "Show HN: Freehire, open-source search 3M+ tech jobs from company career boards",
+    "url": "https://freehire.me/",
+    "score": 4,
+    "comments": 0,
+    "time": "2026-10-26T01:13:43+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50237813",
+    "matches": {
+      "tools": [
+        "skills"
+      ],
+      "open-source": [
+        "github.com",
+        "open-source"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50231567,
+    "title": "Show HN: Kolo \u2013 share your AI coding sessions with anyone",
+    "url": "https://github.com/komovaar/kolo",
+    "score": 4,
+    "comments": 0,
+    "time": "2026-10-25T13:49:15+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50231567",
+    "matches": {
+      "codex": [
+        "ai coding"
+      ],
+      "open-source": [
+        "github.com"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50236628,
+    "title": "Stop resetting privacy settings to default on updates #17107",
+    "url": "https://github.com/anthropics/claude-code/issues/17107",
+    "score": 2,
+    "comments": 0,
+    "time": "2026-10-25T22:22:37+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50236628",
+    "matches": {
+      "claude": [
+        "anthropic",
+        "claude"
+      ],
+      "open-source": [
+        "github.com"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50235230,
+    "title": "Reclaim disk space with an AI agent",
+    "url": "https://github.com/riza/ai-disk-cleanup",
+    "score": 2,
+    "comments": 0,
+    "time": "2026-10-25T19:31:08+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50235230",
+    "matches": {
+      "tools": [
+        "ai agent"
+      ],
+      "open-source": [
+        "github.com"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50238739,
+    "title": "PaperPilot \u2013 Zero-Cloud, Pure-Rust PDF Engine with WASM and MCP",
+    "url": "https://github.com/KrushnaVardhanReddy/PaperPilot",
+    "score": 1,
+    "comments": 0,
+    "time": "2026-10-26T03:29:05+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50238739",
+    "matches": {
+      "mcp": [
+        "mcp"
+      ],
+      "open-source": [
+        "github.com"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50237185,
+    "title": "Show HN: Limitbreak \u2013 Claude Code switches accounts mid-session on a limit",
+    "url": "https://github.com/radu2lupu/limitbreak",
+    "score": 1,
+    "comments": 0,
+    "time": "2026-10-25T23:43:55+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50237185",
+    "matches": {
+      "claude": [
+        "claude code"
+      ],
+      "open-source": [
+        "github.com"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50236627,
+    "title": "Show HN: Glitchrupt: Glitch your desktop when your AI agent needs your attention",
+    "url": "https://github.com/elbee19/glitchrupt",
+    "score": 1,
+    "comments": 0,
+    "time": "2026-10-25T22:22:32+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50236627",
+    "matches": {
+      "tools": [
+        "ai agent"
+      ],
+      "open-source": [
+        "github.com"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50236250,
+    "title": "Show HN: I added stacked subgraphs to Mermaid flowcharts",
+    "url": "https://ramraj07.github.io/ra-mermaid/",
+    "score": 1,
+    "comments": 0,
+    "time": "2026-10-25T21:32:01+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50236250",
+    "matches": {
+      "claude": [
+        "claude"
+      ],
+      "open-source": [
+        "github.com"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50236098,
+    "title": "Crawlerpeek \u2013 check which AI crawlers your site lets in (CLI, MCP)",
+    "url": "https://github.com/crawlerpeek/crawlerpeek",
+    "score": 1,
+    "comments": 0,
+    "time": "2026-10-25T21:11:05+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50236098",
+    "matches": {
+      "mcp": [
+        "mcp"
+      ],
+      "open-source": [
+        "github.com"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50234005,
+    "title": "FirstTake \u2013 an open-source Claude Code skill for video shoots, offload to master",
+    "url": "https://github.com/emersonsklar/firsttake",
+    "score": 1,
+    "comments": 0,
+    "time": "2026-10-25T17:40:42+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50234005",
+    "matches": {
+      "claude": [
+        "claude code"
+      ],
+      "open-source": [
+        "github.com",
+        "open-source"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50233375,
+    "title": "Siga: Progress bars in Claude Code that keep filling after printing",
+    "url": "https://github.com/souvlakeee/siga",
+    "score": 1,
+    "comments": 0,
+    "time": "2026-10-25T16:33:12+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50233375",
+    "matches": {
+      "claude": [
+        "claude code"
+      ],
+      "open-source": [
+        "github.com"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50231824,
+    "title": "Decision models in Skills. Saving 70% tokens, going 5 times faster",
+    "url": "https://www.reddit.com/r/claude/s/BoV9JLMZvA",
+    "score": 1,
+    "comments": 0,
+    "time": "2026-10-25T14:14:01+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50231824",
+    "matches": {
+      "claude": [
+        "claude"
+      ],
+      "tools": [
+        "skills"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50231787,
+    "title": "Devin agent skills that patch the GitLab CVSS 10.0, PHP and Node.js RCEs",
+    "url": "https://github.com/cognitionai/devin-vuln-fixes",
+    "score": 1,
+    "comments": 0,
+    "time": "2026-10-25T14:11:13+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50231787",
+    "matches": {
+      "tools": [
+        "skills"
+      ],
+      "open-source": [
+        "github.com"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50180873,
+    "title": "PHP 8.2.35",
+    "url": "https://github.com/php/php-src/releases/tag/php-8.2.35",
+    "score": 1107,
+    "comments": 580,
+    "time": "2026-10-21T13:45:33+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50180873",
+    "matches": {
+      "open-source": [
+        "github.com"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50212065,
+    "title": "Kimi K3.1 Pro and K3.1 Pro Highspeed",
+    "url": "https://www.kimi.ai/blog/kimi-k3-1-pro",
+    "score": 1081,
+    "comments": 671,
+    "time": "2026-10-23T16:59:08+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50212065",
+    "matches": {
+      "open-source": [
+        "open-source"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50200997,
+    "title": "Ask HN: If the models are so good, why doesn't OpenAI just start 100 companies?",
+    "url": null,
+    "score": 670,
+    "comments": 743,
+    "time": "2026-10-22T21:03:55+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50200997",
+    "matches": {
+      "claude": [
+        "anthropic"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50189232,
+    "title": "mitmproxy adds --emudhra option",
+    "url": "https://github.com/mitmproxy/mitmproxy/commit/169234499088fc2c414644a67efaed3d64ae2e3b",
+    "score": 623,
+    "comments": 146,
+    "time": "2026-10-21T23:51:37+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50189232",
+    "matches": {
+      "open-source": [
+        "github.com"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50186037,
+    "title": "Claude Duet",
+    "url": "https://claude.com/product/claude-duet",
+    "score": 566,
+    "comments": 534,
+    "time": "2026-10-21T19:14:01+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50186037",
+    "matches": {
+      "claude": [
+        "claude"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50196718,
+    "title": "Run full iOS 16.5 firmware on Android Devices",
+    "url": "https://github.com/oosexgang/hackios-xnu-kernel",
+    "score": 535,
+    "comments": 194,
+    "time": "2026-10-22T15:26:22+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50196718",
+    "matches": {
+      "open-source": [
+        "github.com"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50218430,
+    "title": "OBS Studio 33",
+    "url": "https://github.com/obsproject/obs-studio/releases/tag/33.0.0",
+    "score": 468,
+    "comments": 178,
+    "time": "2026-10-24T04:49:58+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50218430",
+    "matches": {
+      "open-source": [
+        "github.com"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50202217,
+    "title": "LLMs are making formal software verification feasible at a much larger scale",
+    "url": "https://www.anthropic.com/research/formal-verification",
+    "score": 460,
+    "comments": 310,
+    "time": "2026-10-22T22:54:43+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50202217",
+    "matches": {
+      "claude": [
+        "anthropic"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50234474,
+    "title": "Dolly Parton's Imagination Library",
+    "url": "https://imaginationlibrary.com/",
+    "score": 439,
+    "comments": 83,
+    "time": "2026-10-25T18:23:54+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50234474",
+    "matches": {
+      "open-source": [
+        "oss"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50169053,
+    "title": "Google open-sources TorchTPU, a native PyTorch back end for TPUs",
+    "url": "https://github.com/google-pytorch/torch_tpu",
+    "score": 379,
+    "comments": 92,
+    "time": "2026-10-20T16:40:24+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50169053",
+    "matches": {
+      "open-source": [
+        "github.com",
+        "open-source"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50219700,
+    "title": "GPU-unlock: FP/BF16 instruction issue rate on Nvidia 3000's cards",
+    "url": "https://github.com/Zagitta/gpu-unlock",
+    "score": 338,
+    "comments": 80,
+    "time": "2026-10-24T09:58:27+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50219700",
+    "matches": {
+      "open-source": [
+        "github.com"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50191507,
+    "title": "OpenAI CLI",
+    "url": "https://github.com/openai/openai-cli",
+    "score": 244,
+    "comments": 111,
+    "time": "2026-10-22T05:23:11+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50191507",
+    "matches": {
+      "open-source": [
+        "github.com"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50199389,
+    "title": "Hedra is a 3D open world game I wrote from scratch while in highschool",
+    "url": "https://github.com/maxilevi/project-hedra/tree/pre-ai",
+    "score": 238,
+    "comments": 48,
+    "time": "2026-10-22T18:44:36+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50199389",
+    "matches": {
+      "open-source": [
+        "github.com"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50223844,
+    "title": "Danish Government silently drops plan to dump MS Office",
+    "url": "https://www.computerworld.dk/art/297226/digitaliseringsministeriet-har-i-al-stilhed-droppet-stort-anlagt-forsoeg-med-open-source-alternativ-til-microsoft",
+    "score": 228,
+    "comments": 189,
+    "time": "2026-10-24T18:31:48+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50223844",
+    "matches": {
+      "open-source": [
+        "open-source"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50230384,
+    "title": "fheroes2: A recreation of Heroes of Might and Magic II game engine",
+    "url": "https://github.com/ihhub/fheroes2",
+    "score": 204,
+    "comments": 71,
+    "time": "2026-10-25T11:09:12+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50230384",
+    "matches": {
+      "open-source": [
+        "github.com"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50236102,
+    "title": "OpenAI and Anthropic cut their LLM prices by up to 80% within a few months. Why?",
+    "url": "https://minimaxir.com/2026/10/cheap-llms/",
+    "score": 195,
+    "comments": 220,
+    "time": "2026-10-25T21:11:31+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50236102",
+    "matches": {
+      "claude": [
+        "anthropic"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50205816,
+    "title": "Remove pgrust: the entry is cheating (per-query kernels and result caching)",
+    "url": "https://github.com/ClickHouse/ClickBench/pull/2165",
+    "score": 193,
+    "comments": 160,
+    "time": "2026-10-23T08:05:33+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50205816",
+    "matches": {
+      "open-source": [
+        "github.com"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50233294,
+    "title": "JetBrains Thinkrail",
+    "url": "https://github.com/JetBrains/thinkrail",
+    "score": 191,
+    "comments": 141,
+    "time": "2026-10-25T16:27:12+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50233294",
+    "matches": {
+      "open-source": [
+        "github.com"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50208099,
+    "title": "OpenSSL 4.1.0",
+    "url": "https://github.com/openssl/openssl/releases/tag/openssl-4.1.0",
+    "score": 188,
+    "comments": 67,
+    "time": "2026-10-23T12:42:44+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50208099",
+    "matches": {
+      "open-source": [
+        "github.com"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50167286,
+    "title": "Show HN: VoidAccess \u2013 open-source dark web OSINT, from query to a graph",
+    "url": "https://github.com/KatrielMoses/voidaccess",
+    "score": 188,
+    "comments": 13,
+    "time": "2026-10-20T14:49:33+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50167286",
+    "matches": {
+      "open-source": [
+        "github.com",
+        "open source",
+        "open-source"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50206840,
+    "title": "Job loss and cortisone mania",
+    "url": "https://tilschuenemann.de/job-loss-cortisone-mania",
+    "score": 184,
+    "comments": 138,
+    "time": "2026-10-23T10:31:24+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50206840",
+    "matches": {
+      "open-source": [
+        "oss"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50228167,
+    "title": "Five Qwen3.8-27B models match Fable 5 Using GVS5H Harness",
+    "url": "https://github.com/slee-persis/GVS5H",
+    "score": 183,
+    "comments": 71,
+    "time": "2026-10-25T03:56:01+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50228167",
+    "matches": {
+      "open-source": [
+        "github.com"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50197108,
+    "title": "Overgrown, when plants invade your abandoned tabs",
+    "url": "https://charliegerard.dev/blog/overgrown-extension/",
+    "score": 175,
+    "comments": 53,
+    "time": "2026-10-22T15:52:21+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50197108",
+    "matches": {
+      "tools": [
+        "extension"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50230917,
+    "title": "Tool book of a Nuremberg knight from 1505",
+    "url": "https://loeffelholz-codex.org/en/",
+    "score": 162,
+    "comments": 82,
+    "time": "2026-10-25T12:37:54+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50230917",
+    "matches": {
+      "codex": [
+        "codex"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50175510,
+    "title": "C# now beats Rust on WASM size",
+    "url": "https://github.com/zion-sati/NetWasm",
+    "score": 161,
+    "comments": 108,
+    "time": "2026-10-21T02:53:47+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50175510",
+    "matches": {
+      "open-source": [
+        "github.com"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50180752,
+    "title": "Using thousands of AI agents to uncover new leads in biological data",
+    "url": "https://openai.com/index/scaling-ai-research-for-complex-biological-data/",
+    "score": 160,
+    "comments": 106,
+    "time": "2026-10-21T13:37:00+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50180752",
+    "matches": {
+      "tools": [
+        "ai agent"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50175779,
+    "title": "Using Claude to reduce the attack surface of code",
+    "url": "https://www.anthropic.com/research/attack-surface-reduction",
+    "score": 137,
+    "comments": 91,
+    "time": "2026-10-21T03:36:43+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50175779",
+    "matches": {
+      "claude": [
+        "anthropic",
+        "claude"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50194522,
+    "title": "Semantic search across major museums",
+    "url": "https://lastmuseum.com/",
+    "score": 129,
+    "comments": 33,
+    "time": "2026-10-22T12:40:04+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50194522",
+    "matches": {
+      "open-source": [
+        "oss"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50180257,
+    "title": "Show HN: Uberblok \u2013 an interactive museum of ZFS internals",
+    "url": "https://uberblok.storagebits.workers.dev/",
+    "score": 126,
+    "comments": 36,
+    "time": "2026-10-21T13:04:25+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50180257",
+    "matches": {
+      "open-source": [
+        "github.com"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50170021,
+    "title": "Claude designed protein binders against scorpion neurotoxins",
+    "url": "https://www.anthropic.com/research/claude-scorpion-toxin-binder-design",
+    "score": 117,
+    "comments": 74,
+    "time": "2026-10-20T17:48:29+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50170021",
+    "matches": {
+      "claude": [
+        "anthropic",
+        "claude"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50202865,
+    "title": "Show HN: Making a smart TV dumb and then smart",
+    "url": "https://github.com/anubhavmalhotra/r2d2-tv",
+    "score": 109,
+    "comments": 79,
+    "time": "2026-10-23T00:10:45+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50202865",
+    "matches": {
+      "open-source": [
+        "github.com"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50180039,
+    "title": "Show HN: Sumi.css \u2013 CSS Framework",
+    "url": "https://github.com/vladocar/Sumi.css",
+    "score": 104,
+    "comments": 31,
+    "time": "2026-10-21T12:50:33+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50180039",
+    "matches": {
+      "open-source": [
+        "github.com"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50186455,
+    "title": "Claude Duet",
+    "url": "https://claude.com/resources/articles/claude-duet",
+    "score": 93,
+    "comments": 13,
+    "time": "2026-10-21T19:40:18+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50186455",
+    "matches": {
+      "claude": [
+        "claude"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50190357,
+    "title": "Claude Now Works with Google Docs, Sheets, and Slides",
+    "url": "https://claude.com/resources/articles/claude-now-works-in-google-docs-sheets-and-slides",
+    "score": 91,
+    "comments": 15,
+    "time": "2026-10-22T02:17:58+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50190357",
+    "matches": {
+      "claude": [
+        "claude"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50232682,
+    "title": "What Adobe v ArtCraft teaches us",
+    "url": "https://techbronerd.substack.com/p/openai-and-anthropic-wanted-to-replace",
+    "score": 87,
+    "comments": 97,
+    "time": "2026-10-25T15:34:44+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50232682",
+    "matches": {
+      "claude": [
+        "anthropic"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50204125,
+    "title": "Median product \"lifespan\" has fallen from ~4y down to ~1.5y",
+    "url": null,
+    "score": 86,
+    "comments": 32,
+    "time": "2026-10-23T03:20:38+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50204125",
+    "matches": {
+      "codex": [
+        "cline"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50231722,
+    "title": "R/open source bans all solo projects and projects using LLMs",
+    "url": "https://www.reddit.com/r/opensource/comments/1xelcuf/your_tokens_arent_valuable_no_more_ai",
+    "score": 82,
+    "comments": 108,
+    "time": "2026-10-25T14:05:03+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50231722",
+    "matches": {
+      "open-source": [
+        "open source"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50171936,
+    "title": "Symbolic Learning in Python and Julia",
+    "url": "https://github.com/astroautomata/PySR",
+    "score": 80,
+    "comments": 23,
+    "time": "2026-10-20T20:07:35+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50171936",
+    "matches": {
+      "open-source": [
+        "github.com"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50179857,
+    "title": "LayerFS: A filesystem for AI coding agents",
+    "url": "https://layerfs.ai/",
+    "score": 76,
+    "comments": 47,
+    "time": "2026-10-21T12:34:46+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50179857",
+    "matches": {
+      "codex": [
+        "ai coding"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50168075,
+    "title": "Rise of collagen-eating microbes may help explain gaps in the fossil record",
+    "url": "https://www.cam.ac.uk/research/news/rise-of-collagen-eating-microbes-may-help-explain-gaps-in-the-fossil-record",
+    "score": 75,
+    "comments": 12,
+    "time": "2026-10-20T15:41:28+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50168075",
+    "matches": {
+      "open-source": [
+        "foss"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50231349,
+    "title": "Show HN: Farol \u2013 A risk map of a pull request for the person who approves it",
+    "url": "https://github.com/winnin/farol",
+    "score": 60,
+    "comments": 37,
+    "time": "2026-10-25T13:28:06+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50231349",
+    "matches": {
+      "open-source": [
+        "github.com"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50177554,
+    "title": "A Bicycle Journey Across Brazil to Find a Vanishing Savanna",
+    "url": "https://e360.yale.edu/features/2026-film-contest-second-place-cerrado",
+    "score": 56,
+    "comments": 13,
+    "time": "2026-10-21T08:17:35+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50177554",
+    "matches": {
+      "open-source": [
+        "oss"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50227330,
+    "title": "Show HN: Hurston-1 open source TTS that speak Southern American and Afro-English",
+    "url": "https://huggingface.co/destined/hurston-1",
+    "score": 54,
+    "comments": 23,
+    "time": "2026-10-25T01:30:13+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50227330",
+    "matches": {
+      "open-source": [
+        "open source",
+        "oss"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50183253,
+    "title": "AI agent fixed the bug, but what else did it change?",
+    "url": "https://blog.trailofbits.com/2026/10/21/your-ai-agent-fixed-the-bug-but-what-else-did-it-change/",
+    "score": 54,
+    "comments": 6,
+    "time": "2026-10-21T16:03:32+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50183253",
+    "matches": {
+      "tools": [
+        "ai agent"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50169506,
+    "title": "Benchmarking Bot Detection Systems Against Modern AI Agents in 2026",
+    "url": "https://research.poh.org/bot-benchmarking-2026/",
+    "score": 49,
+    "comments": 8,
+    "time": "2026-10-20T17:10:31+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50169506",
+    "matches": {
+      "tools": [
+        "ai agent"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50185438,
+    "title": "Anthropic's Public Benefit Charter",
+    "url": "https://www.anthropic.com/public-benefit-charter",
+    "score": 49,
+    "comments": 63,
+    "time": "2026-10-21T18:29:54+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50185438",
+    "matches": {
+      "claude": [
+        "anthropic"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50221179,
+    "title": "One Must Fall 2097 Remastered",
+    "url": "https://github.com/Jared-woodruff/OMF-2097-Remastered/",
+    "score": 44,
+    "comments": 30,
+    "time": "2026-10-24T13:47:07+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50221179",
+    "matches": {
+      "open-source": [
+        "github.com"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50176298,
+    "title": "Battlezone Online: BZFlag in the Browser",
+    "url": "https://github.com/timriker/bzo",
+    "score": 40,
+    "comments": 29,
+    "time": "2026-10-21T05:05:19+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50176298",
+    "matches": {
+      "open-source": [
+        "github.com"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50207180,
+    "title": "Brotli vulnerability affects curl and Git",
+    "url": "https://github.com/advisories/GHSA-9v8h-qqgm-4m35",
+    "score": 37,
+    "comments": 13,
+    "time": "2026-10-23T11:10:53+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50207180",
+    "matches": {
+      "open-source": [
+        "github.com"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50225443,
+    "title": "Making My Blog Readable by AI Agents",
+    "url": "https://deallocatedobjects.com/posts/making-my-blog-readable-by-ai-agents",
+    "score": 35,
+    "comments": 9,
+    "time": "2026-10-24T21:21:33+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50225443",
+    "matches": {
+      "tools": [
+        "ai agent"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50215925,
+    "title": "HumanLayer is now Open Source",
+    "url": "https://www.hlyr.dev/blog/open-sourcing-humanlayer",
+    "score": 31,
+    "comments": 5,
+    "time": "2026-10-23T21:57:31+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50215925",
+    "matches": {
+      "open-source": [
+        "open source"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50185640,
+    "title": "gocryptfs: Encrypted overlay filesystem written in Go",
+    "url": "https://github.com/rfjakob/gocryptfs",
+    "score": 30,
+    "comments": 0,
+    "time": "2026-10-21T18:45:42+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50185640",
+    "matches": {
+      "open-source": [
+        "github.com"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50187659,
+    "title": "CleanFrame: A quieter home screen for Samsung The Frame",
+    "url": "https://github.com/nthnclrk/CleanFrame",
+    "score": 28,
+    "comments": 7,
+    "time": "2026-10-21T21:08:59+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50187659",
+    "matches": {
+      "open-source": [
+        "github.com"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50237379,
+    "title": "Steal My Bitcoin CTF PoC",
+    "url": "https://github.com/KillaBoi/StealMyBitcoin-PoC",
+    "score": 25,
+    "comments": 4,
+    "time": "2026-10-26T00:15:17+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50237379",
+    "matches": {
+      "open-source": [
+        "github.com"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50195535,
+    "title": "Parsing EDIFACT in Python with syntax trees",
+    "url": "https://github.com/AmadeusITGroup/Edison",
+    "score": 25,
+    "comments": 17,
+    "time": "2026-10-22T14:07:48+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50195535",
+    "matches": {
+      "open-source": [
+        "github.com"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50203519,
+    "title": "Offline FairPlay DRM Decryption",
+    "url": "https://github.com/EthanArbuckle/fairplay-decrypt",
+    "score": 25,
+    "comments": 2,
+    "time": "2026-10-23T01:39:17+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50203519",
+    "matches": {
+      "open-source": [
+        "github.com"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50221066,
+    "title": "Show HN: Enzyme \u2013 a programming language that compiles wikis for agents",
+    "url": "https://github.com/byenzyme/enzyme",
+    "score": 22,
+    "comments": 9,
+    "time": "2026-10-24T13:30:18+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50221066",
+    "matches": {
+      "open-source": [
+        "github.com"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50219875,
+    "title": "Claude Code slyly adding users' emails to outbound HTTP",
+    "url": "https://twitter.com/chrislakin/status/2113358733548081528",
+    "score": 21,
+    "comments": 5,
+    "time": "2026-10-24T10:26:30+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50219875",
+    "matches": {
+      "claude": [
+        "claude code"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50209939,
+    "title": "An alignment assessment of the UK AISI cybertesting incident",
+    "url": "https://www.anthropic.com/research/alignment-assessment-ukaisi",
+    "score": 19,
+    "comments": 3,
+    "time": "2026-10-23T14:44:50+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50209939",
+    "matches": {
+      "claude": [
+        "anthropic"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50216027,
+    "title": "A Fix for Softmax and Cross-Entropy",
+    "url": "https://jonbarron.info/softmaxfix/",
+    "score": 19,
+    "comments": 1,
+    "time": "2026-10-23T22:07:57+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50216027",
+    "matches": {
+      "open-source": [
+        "oss"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50213717,
+    "title": "Caffeine-like utility to keep you MacBook awake with its lid closed",
+    "url": "https://github.com/clashman/caffeinate-plus",
+    "score": 17,
+    "comments": 31,
+    "time": "2026-10-23T18:54:01+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50213717",
+    "matches": {
+      "open-source": [
+        "github.com"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50235915,
+    "title": "Show HN: CaseCite \u2013 Free RAG caselaw research and document analysis for lawyers",
+    "url": "https://github.com/thomasunise/casecite",
+    "score": 14,
+    "comments": 2,
+    "time": "2026-10-25T20:47:26+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50235915",
+    "matches": {
+      "open-source": [
+        "github.com"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50218975,
+    "title": "Show HN: Encarta 95 Web",
+    "url": "https://benwinding.github.io/encarta_95_web/#/article/Art",
+    "score": 12,
+    "comments": 8,
+    "time": "2026-10-24T07:18:37+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50218975",
+    "matches": {
+      "open-source": [
+        "github.com"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50218141,
+    "title": "CowAgent \u2013 Open-Source Super AI Assistant",
+    "url": "https://cowagent.ai/en/",
+    "score": 11,
+    "comments": 2,
+    "time": "2026-10-24T03:32:47+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50218141",
+    "matches": {
+      "open-source": [
+        "open-source"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50212292,
+    "title": "Show HN: Searching for optimal strategies in a puzzle game with chance (Drop7)",
+    "url": "https://drop7.dev",
+    "score": 11,
+    "comments": 2,
+    "time": "2026-10-23T17:13:27+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50212292",
+    "matches": {
+      "open-source": [
+        "github.com"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50184635,
+    "title": "Hertzon: Open-Source 3D Full-Wave FEM Solver",
+    "url": "https://github.com/c8501024/Hertzon",
+    "score": 11,
+    "comments": 4,
+    "time": "2026-10-21T17:32:40+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50184635",
+    "matches": {
+      "open-source": [
+        "github.com",
+        "open-source"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50222876,
+    "title": "Show HN: Orisuji, a maze you solve by folding your phone",
+    "url": "https://apps.apple.com/us/app/orisuji/id6817092898",
+    "score": 11,
+    "comments": 0,
+    "time": "2026-10-24T16:34:39+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50222876",
+    "matches": {
+      "tools": [
+        "agentic"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50237680,
+    "title": "Ask HN: Is it not possible to enroll for Apple Developer anymore?",
+    "url": null,
+    "score": 10,
+    "comments": 1,
+    "time": "2026-10-26T01:00:52+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50237680",
+    "matches": {
+      "codex": [
+        "cline"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50228311,
+    "title": "Weight-loss drug reduces sleep apnea in two late-stage trials",
+    "url": "https://medicalxpress.com/news/2026-10-triple-action-weekly-weight-loss.html",
+    "score": 10,
+    "comments": 4,
+    "time": "2026-10-25T04:25:35+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50228311",
+    "matches": {
+      "open-source": [
+        "oss"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50215997,
+    "title": "Birdwatching rewires the brain and slows cognitive decline",
+    "url": "https://www.bbc.com/future/article/20261019-birdwatching-rewires-the-brain-and-slows-cognitive-decline",
+    "score": 10,
+    "comments": 2,
+    "time": "2026-10-23T22:04:55+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50215997",
+    "matches": {
+      "codex": [
+        "cline"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50223759,
+    "title": "Show HN: Agentsh \u2013 A Decentralized, Scalable Multiagent Harness",
+    "url": "https://github.com/microsoft/Agensh",
+    "score": 9,
+    "comments": 1,
+    "time": "2026-10-24T18:19:35+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50223759",
+    "matches": {
+      "open-source": [
+        "github.com"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50222061,
+    "title": "DetectorScope: AI text detectors that show their work",
+    "url": "https://github.com/google-deepmind/detectorscope",
+    "score": 9,
+    "comments": 2,
+    "time": "2026-10-24T15:13:07+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50222061",
+    "matches": {
+      "open-source": [
+        "github.com"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50227527,
+    "title": "Show HN: ReVault \u2013 new secure archive format",
+    "url": null,
+    "score": 9,
+    "comments": 5,
+    "time": "2026-10-25T02:01:21+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50227527",
+    "matches": {
+      "open-source": [
+        "open-source"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50229645,
+    "title": "Anthropic Sued for Using Elvis Presley Music to Train AI Models",
+    "url": "https://www.hollywoodreporter.com/music/music-industry-news/anthropic-elvis-presley-lawsuit-ai-1236739617/",
+    "score": 8,
+    "comments": 0,
+    "time": "2026-10-25T09:15:56+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50229645",
+    "matches": {
+      "claude": [
+        "anthropic"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50234108,
+    "title": "Ask HN: What is the main bottleneck facing Agentic AI today?",
+    "url": null,
+    "score": 7,
+    "comments": 15,
+    "time": "2026-10-25T17:52:28+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50234108",
+    "matches": {
+      "tools": [
+        "agentic"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50228115,
+    "title": "Show HN: A Truly Modular Keyboard",
+    "url": "https://github.com/notaroomba/keybytes",
+    "score": 6,
+    "comments": 1,
+    "time": "2026-10-25T03:47:56+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50228115",
+    "matches": {
+      "open-source": [
+        "github.com"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50232703,
+    "title": "JPEG XL with WebGPU makes smaller files than libjxl in 150 KB JavaScript",
+    "url": "https://github.com/jackskip22/rapier-jxl",
+    "score": 6,
+    "comments": 0,
+    "time": "2026-10-25T15:36:34+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50232703",
+    "matches": {
+      "open-source": [
+        "github.com"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50210834,
+    "title": "Offline FairPlay App Store IPA decryption with independent key derivation",
+    "url": "https://github.com/EthanArbuckle/fairplay-decrypt",
+    "score": 6,
+    "comments": 0,
+    "time": "2026-10-23T15:39:17+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50210834",
+    "matches": {
+      "open-source": [
+        "github.com"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50209269,
+    "title": "Gaussian Splats part 3: There's always a bigger scene",
+    "url": "https://www.magnopus.com/blog/gaussiansplats-part-3-theres-always-a-bigger-scene",
+    "score": 5,
+    "comments": 1,
+    "time": "2026-10-23T14:07:21+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50209269",
+    "matches": {
+      "claude": [
+        "opus"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50219717,
+    "title": "Flow-state induction via raw mouse input (a working biohacking protocol)",
+    "url": null,
+    "score": 5,
+    "comments": 0,
+    "time": "2026-10-24T10:01:46+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50219717",
+    "matches": {
+      "open-source": [
+        "oss"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50235012,
+    "title": "Show HN: Zubspace.gg \u2013 remake of 30yo Subspace game, a space MMO in the browser",
+    "url": "https://zubspace.gg/",
+    "score": 5,
+    "comments": 4,
+    "time": "2026-10-25T19:10:41+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50235012",
+    "matches": {
+      "open-source": [
+        "github.com",
+        "open source"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50232324,
+    "title": "Anthropic sued for allegedly stealing from The King",
+    "url": "https://www.avclub.com/anthropic-sued-copyright-infringement-elvis",
+    "score": 4,
+    "comments": 0,
+    "time": "2026-10-25T15:06:28+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50232324",
+    "matches": {
+      "claude": [
+        "anthropic"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50210297,
+    "title": "I let Claude review the C code I wrote as a math intern in 2013",
+    "url": "https://mitsudomoe.github.io/Kinetic-Solver/",
+    "score": 4,
+    "comments": 1,
+    "time": "2026-10-23T15:05:53+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50210297",
+    "matches": {
+      "claude": [
+        "claude"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50202592,
+    "title": "WolfSentry: WolfSSL's Embedded Intrusion Detection and Prevention System (IDPS)",
+    "url": "https://github.com/wolfSSL/wolfsentry",
+    "score": 4,
+    "comments": 0,
+    "time": "2026-10-22T23:36:12+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50202592",
+    "matches": {
+      "open-source": [
+        "github.com"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50225005,
+    "title": "A Fix for Softmax and Cross-Entropy",
+    "url": "https://arxiv.org/abs/2610.31642",
+    "score": 4,
+    "comments": 0,
+    "time": "2026-10-24T20:39:01+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50225005",
+    "matches": {
+      "open-source": [
+        "oss"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50238561,
+    "title": "Anthropic sued for allegedly using 274 Elvis Presley songs to train AI models",
+    "url": "https://www.theguardian.com/us-news/2026/oct/25/elvis-presley-anthropic-lawsuit-ai-models-music",
+    "score": 4,
+    "comments": 2,
+    "time": "2026-10-26T03:04:17+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50238561",
+    "matches": {
+      "claude": [
+        "anthropic"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50235426,
+    "title": "It's a trap: testing coding agents on a language with surprising semantics",
+    "url": "https://blog.csongor.co.uk/loom/",
+    "score": 4,
+    "comments": 0,
+    "time": "2026-10-25T19:51:48+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50235426",
+    "matches": {
+      "codex": [
+        "coding agent"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50235408,
+    "title": "Show HN: SQLite-on-object storage using GCS Appendable Objects",
+    "url": "https://github.com/fatlotus/sqlite-on-gcs-rapid",
+    "score": 4,
+    "comments": 0,
+    "time": "2026-10-25T19:50:01+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50235408",
+    "matches": {
+      "open-source": [
+        "github.com"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50233576,
+    "title": "I'm creating my own OS, check it out, LimonOs no Unix no Linux",
+    "url": null,
+    "score": 4,
+    "comments": 3,
+    "time": "2026-10-25T16:54:21+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50233576",
+    "matches": {
+      "open-source": [
+        "github.com"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50233288,
+    "title": "Systemd merges support for programs written in Rust",
+    "url": "https://github.com/systemd/systemd/pull/44324",
+    "score": 4,
+    "comments": 0,
+    "time": "2026-10-25T16:26:44+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50233288",
+    "matches": {
+      "open-source": [
+        "github.com"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50233231,
+    "title": "Anthropic Sued for Stealing Elvis Presley Music to Train AI",
+    "url": "https://www.billboard.com/pro/elvis-presley-estate-sues-suno-anthropic/",
+    "score": 4,
+    "comments": 0,
+    "time": "2026-10-25T16:21:48+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50233231",
+    "matches": {
+      "claude": [
+        "anthropic"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50214961,
+    "title": "Turning VS Code into a control panel with custom extensions",
+    "url": "https://medium.com/@davidmonterocrespo24/turning-vs-code-into-the-control-panel-for-my-work-fcc674b28d6e",
+    "score": 3,
+    "comments": 0,
+    "time": "2026-10-23T20:35:17+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50214961",
+    "matches": {
+      "tools": [
+        "extension"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50236370,
+    "title": "Show HN: Jet Pilot \u2013 An open-source, native Kubernetes desktop client",
+    "url": "https://github.com/unxsist/jet-pilot",
+    "score": 3,
+    "comments": 0,
+    "time": "2026-10-25T21:48:48+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50236370",
+    "matches": {
+      "open-source": [
+        "github.com",
+        "open-source"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50236294,
+    "title": "Aster My HobbyOS with a custom C toolchain and network stack (runs on 128MB RAM)",
+    "url": "https://github.com/antoniodev84/Aster",
+    "score": 3,
+    "comments": 0,
+    "time": "2026-10-25T21:37:16+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50236294",
+    "matches": {
+      "open-source": [
+        "github.com"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50236197,
+    "title": "Git History the Future of Observability",
+    "url": "https://github.com/premtonx/statetrack",
+    "score": 3,
+    "comments": 1,
+    "time": "2026-10-25T21:24:27+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50236197",
+    "matches": {
+      "open-source": [
+        "github.com"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50236170,
+    "title": "Cross-Platform vs. Native Mobile Development: Empirical Study",
+    "url": "https://arxiv.org/abs/2609.21544",
+    "score": 3,
+    "comments": 0,
+    "time": "2026-10-25T21:21:06+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50236170",
+    "matches": {
+      "open-source": [
+        "oss"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50235759,
+    "title": "Show HN: MTA.rip: a train visualizer that shows congestion",
+    "url": "https://mta.rip/?station=127&route=1&view=trackmap",
+    "score": 3,
+    "comments": 0,
+    "time": "2026-10-25T20:29:22+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50235759",
+    "matches": {
+      "open-source": [
+        "github.com"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50234827,
+    "title": "Vibe coding is turning the music gear world upside down",
+    "url": "https://www.theverge.com/gadgets/1013493/vibe-coding-ai-music-gear-hacking-custom-firmware",
+    "score": 3,
+    "comments": 1,
+    "time": "2026-10-25T18:52:58+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50234827",
+    "matches": {
+      "codex": [
+        "vibe coding"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50234725,
+    "title": "OpenAI's isolated AI agents found ways to talk to each other through CPU cache",
+    "url": "https://the-decoder.com/openais-isolated-ai-agents-found-ways-to-talk-to-each-other-through-cpu-cache/",
+    "score": 3,
+    "comments": 1,
+    "time": "2026-10-25T18:44:11+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50234725",
+    "matches": {
+      "tools": [
+        "ai agent"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50234464,
+    "title": "Show HN: xcalidraw -a local-first desktop app for managing Excalidraw drawings",
+    "url": "https://github.com/xdagiz/xcalidraw",
+    "score": 3,
+    "comments": 0,
+    "time": "2026-10-25T18:23:20+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50234464",
+    "matches": {
+      "open-source": [
+        "github.com"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50233720,
+    "title": "Securing self-hosted services is exhausting, and I want to go back to SaaS",
+    "url": "https://blog.outv.im/2026/i-wanna-return-to-saas/en/",
+    "score": 3,
+    "comments": 0,
+    "time": "2026-10-25T17:08:26+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50233720",
+    "matches": {
+      "open-source": [
+        "self-hosted"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50233491,
+    "title": "Show HN: Junior \u2013 an open-source AI junior engineer that runs on your Mac",
+    "url": "https://github.com/usejunior-sh/junior",
+    "score": 3,
+    "comments": 0,
+    "time": "2026-10-25T16:45:33+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50233491",
+    "matches": {
+      "open-source": [
+        "github.com",
+        "open source",
+        "open-source"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50233466,
+    "title": "Impersonate-HTTP \u2013 byte-exact browser TLS fingerprints for Go's http.Client",
+    "url": "https://github.com/North-web-dev/impersonate-http",
+    "score": 3,
+    "comments": 0,
+    "time": "2026-10-25T16:43:50+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50233466",
+    "matches": {
+      "open-source": [
+        "github.com"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50232514,
+    "title": "MongoDB vs. FerretDB: When Open Source Compatibility Becomes a Patent Risk",
+    "url": "https://shujisado.org/2026/07/15/mongodb-v-ferretdb-when-open-source-compatibility-becomes-a-patent-risk/",
+    "score": 3,
+    "comments": 0,
+    "time": "2026-10-25T15:20:07+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50232514",
+    "matches": {
+      "open-source": [
+        "open source",
+        "open-source"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50231802,
+    "title": "Open source impeded by inconsistencies in the Office Open XML document format",
+    "url": "https://interoperable-europe.ec.europa.eu/collection/open-source-observatory-osor/document/complex-singularity-versus-openness",
+    "score": 3,
+    "comments": 3,
+    "time": "2026-10-25T14:12:26+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50231802",
+    "matches": {
+      "open-source": [
+        "open source",
+        "open-source"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50231744,
+    "title": "r/open source just banned AI, non-English speakers and more",
+    "url": "https://www.theverge.com/ai-artificial-intelligence/1018217/reddit-opensource-ai-ban",
+    "score": 3,
+    "comments": 3,
+    "time": "2026-10-25T14:06:54+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50231744",
+    "matches": {
+      "open-source": [
+        "open source"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50238514,
+    "title": "JaJa: Job Agency Harness",
+    "url": "https://github.com/Kahl-d/jaja",
+    "score": 2,
+    "comments": 0,
+    "time": "2026-10-26T02:55:06+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50238514",
+    "matches": {
+      "open-source": [
+        "github.com"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50238323,
+    "title": "Biff 2.0.4: LLM Skills",
+    "url": "https://biffweb.com/p/skills/",
+    "score": 2,
+    "comments": 0,
+    "time": "2026-10-26T02:18:09+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50238323",
+    "matches": {
+      "tools": [
+        "skills"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50238271,
+    "title": "Show HN: God \u2013 real-time control room for LLM agent societies (EMNLP 2026 demo)",
+    "url": "https://github.com/XiaoLuoLYG/GOD",
+    "score": 2,
+    "comments": 0,
+    "time": "2026-10-26T02:11:28+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50238271",
+    "matches": {
+      "open-source": [
+        "github.com"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50237360,
+    "title": "Claude model bypassed paywall to access voter info without human authorization",
+    "url": "https://www.axios.com/2026/10/25/anthropic-claude-georgia-voter-data",
+    "score": 2,
+    "comments": 1,
+    "time": "2026-10-26T00:12:00+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50237360",
+    "matches": {
+      "claude": [
+        "anthropic",
+        "claude"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50236813,
+    "title": "Show HN: simdown \u2013 use SIMD to parse Markdown at ~1 GB/s",
+    "url": "https://github.com/trevorah/simdown",
+    "score": 2,
+    "comments": 0,
+    "time": "2026-10-25T22:47:18+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50236813",
+    "matches": {
+      "open-source": [
+        "github.com"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50236422,
+    "title": "Show HN: Valence \u2013 Self-hosted media browser (Jellyfin/Plex alternative)",
+    "url": "https://www.getvalence.app/",
+    "score": 2,
+    "comments": 0,
+    "time": "2026-10-25T21:57:41+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50236422",
+    "matches": {
+      "open-source": [
+        "self-hosted"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50236396,
+    "title": "Show HN: I built an AI agent to find customers on Telegram while I sleep",
+    "url": "https://opensparta.com/en",
+    "score": 2,
+    "comments": 0,
+    "time": "2026-10-25T21:53:11+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50236396",
+    "matches": {
+      "tools": [
+        "ai agent"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50236262,
+    "title": "macOS Extensions Pack for the Apple Network Server v1.0",
+    "url": "http://oldvcr.blogspot.com/2026/10/macos-extensions-pack-for-apple-network.html",
+    "score": 2,
+    "comments": 0,
+    "time": "2026-10-25T21:33:14+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50236262",
+    "matches": {
+      "tools": [
+        "extension"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50235534,
+    "title": "Show HN: Ledge \u2013 an open-source app that puts the MacBook notch to work",
+    "url": "https://ledgeapp.dev/",
+    "score": 2,
+    "comments": 3,
+    "time": "2026-10-25T20:04:52+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50235534",
+    "matches": {
+      "open-source": [
+        "open-source"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50235522,
+    "title": "Show HN: Comparing SF Bay Area trash rates",
+    "url": "https://www.shasheene.com/bay-area-trash-rates/",
+    "score": 2,
+    "comments": 0,
+    "time": "2026-10-25T20:02:55+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50235522",
+    "matches": {
+      "open-source": [
+        "oss"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50235449,
+    "title": "Kauldron: Modular, scalable library to train ML models",
+    "url": "https://github.com/google-research/kauldron",
+    "score": 2,
+    "comments": 0,
+    "time": "2026-10-25T19:53:33+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50235449",
+    "matches": {
+      "open-source": [
+        "github.com"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50235376,
+    "title": "Hooke \u2013 Run agents on schedule or file changes with just one file",
+    "url": "https://github.com/aditya-azad/hooke",
+    "score": 2,
+    "comments": 1,
+    "time": "2026-10-25T19:46:50+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50235376",
+    "matches": {
+      "open-source": [
+        "github.com"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50235357,
+    "title": "NeuronDump: Open a local LLM as a 3D graph, cut parts, see what breaks",
+    "url": "https://github.com/aymen94/NeuronDump",
+    "score": 2,
+    "comments": 0,
+    "time": "2026-10-25T19:45:09+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50235357",
+    "matches": {
+      "open-source": [
+        "github.com"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50234861,
+    "title": "LimonOS new OS no Unix no Linux",
+    "url": null,
+    "score": 2,
+    "comments": 5,
+    "time": "2026-10-25T18:56:21+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50234861",
+    "matches": {
+      "open-source": [
+        "github.com"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50234607,
+    "title": "I added offline OCR and text extraction to pdfcpu",
+    "url": "https://github.com/huzpsb/pdfcpu2",
+    "score": 2,
+    "comments": 0,
+    "time": "2026-10-25T18:35:15+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50234607",
+    "matches": {
+      "open-source": [
+        "github.com"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50234509,
+    "title": "Show HN: hfmodem \u2013 open-source PACTOR-3 and VARA compatible waveform generator",
+    "url": "https://hfmodem.ssj.lol/",
+    "score": 2,
+    "comments": 0,
+    "time": "2026-10-25T18:26:55+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50234509",
+    "matches": {
+      "open-source": [
+        "open-source"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50233709,
+    "title": "Show HN: Benchmarking DSpark speculative decoding on a consumer GPU",
+    "url": "https://github.com/juraj-jumic/dspark-local-bench",
+    "score": 2,
+    "comments": 0,
+    "time": "2026-10-25T17:07:06+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50233709",
+    "matches": {
+      "open-source": [
+        "github.com"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50233138,
+    "title": "Neuron Explorer for Qwen 4B",
+    "url": "https://github.com/lyramakesmusic/neuron-explorer",
+    "score": 2,
+    "comments": 0,
+    "time": "2026-10-25T16:12:46+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50233138",
+    "matches": {
+      "open-source": [
+        "github.com"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50233059,
+    "title": "The 'else' keyword is probably a literal translation from German (2020)",
+    "url": "https://github.com/e-n-f/if-then-else/blob/master/if-then-else.md",
+    "score": 2,
+    "comments": 0,
+    "time": "2026-10-25T16:05:56+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50233059",
+    "matches": {
+      "open-source": [
+        "github.com"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50233024,
+    "title": "Show HN: FlashRaw \u2013 RAW image decoder in Rust, up to 15x faster than LibRaw",
+    "url": "https://github.com/ybouane/flashraw",
+    "score": 2,
+    "comments": 0,
+    "time": "2026-10-25T16:03:02+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50233024",
+    "matches": {
+      "open-source": [
+        "github.com"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50232818,
+    "title": "Show HN: My Kids TV \u2013 Calm, ad-free replacement home screen for Google TV",
+    "url": "https://github.com/suboss87/my-kids-tv",
+    "score": 2,
+    "comments": 0,
+    "time": "2026-10-25T15:46:54+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50232818",
+    "matches": {
+      "open-source": [
+        "github.com"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50231529,
+    "title": "GitHub Gists Flooded with Spam",
+    "url": "https://gist.github.com/discover",
+    "score": 2,
+    "comments": 2,
+    "time": "2026-10-25T13:45:40+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50231529",
+    "matches": {
+      "open-source": [
+        "github.com"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50238759,
+    "title": "Has Opus 5.5 gotten dumber for anyone else in the last few days?",
+    "url": null,
+    "score": 1,
+    "comments": 0,
+    "time": "2026-10-26T03:30:54+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50238759",
+    "matches": {
+      "claude": [
+        "anthropic",
+        "claude code",
+        "opus"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50238603,
+    "title": "Show HN: Drint \u2013 packaging dielines and 3D box mockups as an MCP server",
+    "url": "https://drint.io/help/mcp",
+    "score": 1,
+    "comments": 0,
+    "time": "2026-10-26T03:09:51+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50238603",
+    "matches": {
+      "mcp": [
+        "mcp",
+        "mcp server"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50238550,
+    "title": "Mantle \u2013 Agentic API Maintenance",
+    "url": "https://getmantle.dev/",
+    "score": 1,
+    "comments": 0,
+    "time": "2026-10-26T03:03:48+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50238550",
+    "matches": {
+      "tools": [
+        "agentic"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50237273,
+    "title": "Show HN: Calm Web \u2013 Print magazine style reader",
+    "url": "https://calmweb.app",
+    "score": 1,
+    "comments": 0,
+    "time": "2026-10-26T00:00:12+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50237273",
+    "matches": {
+      "open-source": [
+        "github.com"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50237170,
+    "title": "Bend: A fast language that blocks AI mistakes via proof",
+    "url": "https://github.com/bendlang/bend",
+    "score": 1,
+    "comments": 0,
+    "time": "2026-10-25T23:41:04+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50237170",
+    "matches": {
+      "open-source": [
+        "github.com"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50237084,
+    "title": "Octopus Pounces on Lasers in Papah\u0101naumoku\u0101kea [video]",
+    "url": "https://www.youtube.com/watch?v=UV0eBXtiovY",
+    "score": 1,
+    "comments": 0,
+    "time": "2026-10-25T23:27:54+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50237084",
+    "matches": {
+      "claude": [
+        "opus"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50237019,
+    "title": "Show HN: Glider 4.0 Unofficial Web Edition (Mac game port)",
+    "url": "https://dbohdan.github.io/glider/",
+    "score": 1,
+    "comments": 0,
+    "time": "2026-10-25T23:18:42+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50237019",
+    "matches": {
+      "open-source": [
+        "github.com"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50236765,
+    "title": "Tool to easily copy features from one desktop framework to another",
+    "url": "https://github.com/androslee/yoinkr",
+    "score": 1,
+    "comments": 0,
+    "time": "2026-10-25T22:41:04+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50236765",
+    "matches": {
+      "open-source": [
+        "github.com"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50236330,
+    "title": "A Strongly Worded Letter: Mistakes Claude Makes with Hardware in the Loop",
+    "url": "https://groundrun.io/blog/mistakes-claude-makes-with-hardware-in-the-loop/",
+    "score": 1,
+    "comments": 0,
+    "time": "2026-10-25T21:41:33+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50236330",
+    "matches": {
+      "claude": [
+        "claude"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50236145,
+    "title": "Show HN: Frontdoor: find who can assume into your cloud accounts",
+    "url": "https://github.com/secorvia/frontdoor",
+    "score": 1,
+    "comments": 0,
+    "time": "2026-10-25T21:17:22+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50236145",
+    "matches": {
+      "open-source": [
+        "github.com"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50235958,
+    "title": "Raspberry Pi PicoW + LeRobot SO-ARM100 controlled via a webpage/mqtt/openai",
+    "url": "https://github.com/AdrianCX/picohive-robotarm",
+    "score": 1,
+    "comments": 0,
+    "time": "2026-10-25T20:52:34+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50235958",
+    "matches": {
+      "open-source": [
+        "github.com"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50235551,
+    "title": "Mosaico tiling Window manager adds mouse support",
+    "url": "https://github.com/jmelosegui/mosaico",
+    "score": 1,
+    "comments": 0,
+    "time": "2026-10-25T20:07:26+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50235551",
+    "matches": {
+      "open-source": [
+        "github.com"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50235465,
+    "title": "Santree: Backlog, Shipped in Parallel",
+    "url": "https://github.com/santree-ai/santree",
+    "score": 1,
+    "comments": 0,
+    "time": "2026-10-25T19:55:37+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50235465",
+    "matches": {
+      "open-source": [
+        "github.com"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50235125,
+    "title": "YOD4COINS \u2013 Offline-first transaction protocol with adaptive consensus",
+    "url": "https://github.com/masondosibongakonke2-blip/yod4coins-core",
+    "score": 1,
+    "comments": 0,
+    "time": "2026-10-25T19:21:10+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50235125",
+    "matches": {
+      "open-source": [
+        "github.com"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50234591,
+    "title": "Show HN: OSS framework to launch Instinct like iMessage assistants",
+    "url": "https://github.com/flow-engineer/flow",
+    "score": 1,
+    "comments": 0,
+    "time": "2026-10-25T18:34:19+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50234591",
+    "matches": {
+      "open-source": [
+        "github.com",
+        "oss"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50233879,
+    "title": "Show HN: AppNetPlotter \u2013 See how your Windows apps' connections are performing",
+    "url": "https://github.com/winnie264/AppNetPlotter",
+    "score": 1,
+    "comments": 0,
+    "time": "2026-10-25T17:26:03+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50233879",
+    "matches": {
+      "open-source": [
+        "github.com"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50233784,
+    "title": "3D printable Commodore 64 keycaps, with a font recreated from my C64",
+    "url": "https://github.com/szabadkai/Ajazz-C64-Keycaps",
+    "score": 1,
+    "comments": 1,
+    "time": "2026-10-25T17:16:20+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50233784",
+    "matches": {
+      "open-source": [
+        "github.com"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50233561,
+    "title": "Show HN: Install-verification dataset for 312 self-hosted apps (CC BY 4.0)",
+    "url": "https://github.com/selfhostatlas/selfhost-atlas-data",
+    "score": 1,
+    "comments": 0,
+    "time": "2026-10-25T16:52:55+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50233561",
+    "matches": {
+      "open-source": [
+        "github.com",
+        "self-hosted"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50233315,
+    "title": "Show HN: Repotruck \u2013 Mirror and organize GitHub repos with a TUI and MCP server",
+    "url": "https://sametcn99.github.io/repotruck/",
+    "score": 1,
+    "comments": 0,
+    "time": "2026-10-25T16:29:05+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50233315",
+    "matches": {
+      "mcp": [
+        "mcp server"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50233213,
+    "title": "Bbtree: Fastest Concurrent Ordered Map",
+    "url": "https://github.com/XiangpengHao/bbtree",
+    "score": 1,
+    "comments": 1,
+    "time": "2026-10-25T16:20:13+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50233213",
+    "matches": {
+      "open-source": [
+        "github.com"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50233164,
+    "title": "Vibe Coding for Free: What $0 Gets You in 2026",
+    "url": "https://codingplans.dev/briefs/vibe-coding-for-free/",
+    "score": 1,
+    "comments": 0,
+    "time": "2026-10-25T16:15:37+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50233164",
+    "matches": {
+      "codex": [
+        "vibe coding"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50233097,
+    "title": "Show HN: QualityLayer, put the engineer back in the loop of your coding agent",
+    "url": "https://qualitylayer.dev/",
+    "score": 1,
+    "comments": 0,
+    "time": "2026-10-25T16:08:39+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50233097",
+    "matches": {
+      "codex": [
+        "coding agent"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50233076,
+    "title": "Show HN: I replaced tmux with sway workspaces",
+    "url": "https://github.com/artemave/hop",
+    "score": 1,
+    "comments": 1,
+    "time": "2026-10-25T16:07:03+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50233076",
+    "matches": {
+      "open-source": [
+        "github.com"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50232901,
+    "title": "Cap \u2013 Open-source, self-hosted CAPTCHA alternative to reCAPTCHA",
+    "url": "https://trycap.dev/",
+    "score": 1,
+    "comments": 0,
+    "time": "2026-10-25T15:53:10+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50232901",
+    "matches": {
+      "open-source": [
+        "open-source",
+        "self-hosted"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50232850,
+    "title": "Liella: A Glibc Reimplementation in Rust",
+    "url": "https://github.com/duskglow/liella",
+    "score": 1,
+    "comments": 3,
+    "time": "2026-10-25T15:49:10+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50232850",
+    "matches": {
+      "open-source": [
+        "github.com"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50232753,
+    "title": "Red-teaming AI agent monitors with an LLM that fakes tool outputs",
+    "url": "https://www.redwoodresearch.org/blog/simulated-control-evaluations",
+    "score": 1,
+    "comments": 0,
+    "time": "2026-10-25T15:41:09+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50232753",
+    "matches": {
+      "tools": [
+        "ai agent"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50232608,
+    "title": "Check it out. Especially The language greenServeFE",
+    "url": "https://github.com/MacoraOne/MacoraOne",
+    "score": 1,
+    "comments": 0,
+    "time": "2026-10-25T15:28:51+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50232608",
+    "matches": {
+      "open-source": [
+        "github.com"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50232537,
+    "title": "Knip: finds and fixes unused dependencies in JavaScript and TypeScript projects",
+    "url": "https://github.com/webpro-nl/knip",
+    "score": 1,
+    "comments": 0,
+    "time": "2026-10-25T15:22:08+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50232537",
+    "matches": {
+      "open-source": [
+        "github.com"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50232213,
+    "title": "Celebrate Your Herumt\u00fcfteln",
+    "url": "https://github.com/rommeld/cupel",
+    "score": 1,
+    "comments": 1,
+    "time": "2026-10-25T14:56:00+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50232213",
+    "matches": {
+      "open-source": [
+        "github.com"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50232171,
+    "title": "Show HN: Markdown Quick Look for macOS with a Rust core and no web engine",
+    "url": "https://github.com/armamut/md-quicklook",
+    "score": 1,
+    "comments": 0,
+    "time": "2026-10-25T14:52:42+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50232171",
+    "matches": {
+      "open-source": [
+        "github.com"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50232121,
+    "title": "Show HN: See how much revenue declined cards cost your SaaS",
+    "url": "https://declinekit.com/audit",
+    "score": 1,
+    "comments": 1,
+    "time": "2026-10-25T14:47:25+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50232121",
+    "matches": {
+      "codex": [
+        "cline"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50232061,
+    "title": "Show HN: Snaparser \u2013 a tool to browse your Snapchat exports",
+    "url": "https://github.com/vanillaiice/snaparser",
+    "score": 1,
+    "comments": 0,
+    "time": "2026-10-25T14:41:15+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50232061",
+    "matches": {
+      "open-source": [
+        "github.com"
+      ]
+    },
+    "comment_tree": []
+  },
+  {
+    "id": 50231698,
+    "title": "Show HN: My biggest C# project: Game engine and programming lang",
+    "url": "https://github.com/ArcadeMakerSources/ArcadeMaker/tree/master",
+    "score": 1,
+    "comments": 0,
+    "time": "2026-10-25T14:02:07+00:00",
+    "hn_link": "https://news.ycombinator.com/item?id=50231698",
+    "matches": {
+      "open-source": [
+        "github.com"
+      ]
+    },
+    "comment_tree": []
+  }
+]
