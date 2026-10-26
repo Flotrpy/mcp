@@ -7,4 +7,5 @@
 pub mod cutlist;
 pub mod furniture;
 pub mod model;
+pub mod nesting;
 pub mod sag;
