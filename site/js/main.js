@@ -11,6 +11,15 @@ for (const el of document.querySelectorAll("[data-shortcut]")) {
   el.textContent = isMac ? "⌘ K" : "Ctrl K";
 }
 
+// Show the nav's scroll-edge fade only while content is under it.
+const nav = document.querySelector(".nav");
+if (nav) {
+  const sentinel = document.createElement("div");
+  sentinel.setAttribute("aria-hidden", "true");
+  document.body.prepend(sentinel);
+  new IntersectionObserver(([e]) => nav.toggleAttribute("data-scrolled", !e.isIntersecting)).observe(sentinel);
+}
+
 initReplay();
 initReveal();
 
