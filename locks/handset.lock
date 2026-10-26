@@ -1,0 +1,35 @@
+{
+  "lockfile_version": 1,
+  "server_name": "handset",
+  "server_version": "0.1.0",
+  "tools": {
+    "act": {
+      "description": "Tap, type, scroll, press a key or launch an app, then return only what changed on screen (+ added, - removed, ~ changed). Target by `ref` (best), `target_text`, or `x`/`y`.",
+      "description_hash": "sha256:e1486e57b24b71bbfe1ed75615c0ca55fef15b5ca712e5281d984da38c420508",
+      "input_schema_hash": "sha256:2ba920e795e9f4c2a7f9594bc9f2a94dccf10b702931986c82cc1d1683c0ff4c",
+      "annotations_hash": "sha256:47c011f0e91efd99daaf6a644c8c38b7d889281dcc3f7b730eb19e5c1befbf17",
+      "definition_hash": "sha256:2d955c601ecdf4ad209105155515c529546fb822739f77a345d6dc4ba9a3fd48"
+    },
+    "list_devices": {
+      "description": "List connected Android devices/emulators (adb) and booted iOS Simulators, with the ids to pass as `device`.",
+      "description_hash": "sha256:b4e3cd3390be73c02b98cc6ebea60f6578ef709a61e79d5f5991757712913458",
+      "input_schema_hash": "sha256:efddc7bd8bbcef73a14eb1ace1ffdaec81e518ef1e13c1e9271d0b8acb694a49",
+      "annotations_hash": "sha256:1b67fa4af27fac05a165596fbb82a16c157b2c37259eb523765ece2b7fbb718a",
+      "definition_hash": "sha256:34723d205481266dabc1286081c74c45bf32f4478a37af7bc6970d227939df60"
+    },
+    "snapshot": {
+      "description": "Read the screen as compact lines, one per meaningful element: `e7 button \"Sign in\" (disabled)`. Refs stay stable across snapshots; act on them with `act`.",
+      "description_hash": "sha256:c5a50913742a03f071d00f90714c48e5c40c263d10422ed2134262bd413b9a36",
+      "input_schema_hash": "sha256:dec1d1e7d542600baa63fc88e85218674f545cd4cf9cbf844338ba48284eefea",
+      "annotations_hash": "sha256:678bbd4599c242307a750ef3972e161fccf3975373d4364de7430357244d7017",
+      "definition_hash": "sha256:55ea98d6e3cebb0808e3d10ff0107fd8da70a569a6d4cec3a174e22c254c8056"
+    },
+    "wait_for": {
+      "description": "Wait until text, a label, an id or a ref appears (or with gone=true, disappears), polling the screen. Returns the screen when it does. Use instead of sleeping.",
+      "description_hash": "sha256:29b5fe595a0691cd932006820bb2dc5bf02fb442c27a7bbbff40a7dce7c5eac8",
+      "input_schema_hash": "sha256:f93174128ac84e5067181fb6b3a641c582b1074ba6a97c89864117cf0e12fd2f",
+      "annotations_hash": "sha256:849e933b2fd42b164db995776914943e54585f2850f5e759053ba588988cecd3",
+      "definition_hash": "sha256:180a316826e75c696dfa97310a6f9ae987b0dda9f89f846f7df7cb321fe4e83a"
+    }
+  }
+}

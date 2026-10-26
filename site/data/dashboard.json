@@ -1,0 +1,194 @@
+{
+ "generated": "2026-10-26",
+ "servers": [
+  {
+   "server": "joinery",
+   "version": "0.1.0",
+   "grade": "A",
+   "points": 100,
+   "deductions": [],
+   "migration": "ready",
+   "handshake_ms": {
+    "stateless": 2,
+    "legacy": 2
+   },
+   "tools": [
+    {
+     "tool": "design_furniture",
+     "tokens": 592
+    },
+    {
+     "tool": "nest_parts",
+     "tokens": 439
+    },
+    {
+     "tool": "check_shelf_sag",
+     "tokens": 438
+    },
+    {
+     "tool": "list_species",
+     "tokens": 67
+    }
+   ],
+   "total_tokens": 1536,
+   "findings": 0,
+   "lock": {
+    "clean": true,
+    "summary": "No drift: every tool matches mcp.lock."
+   },
+   "binary_bytes": 3350496
+  },
+  {
+   "server": "binscope",
+   "version": "0.1.0",
+   "grade": "A",
+   "points": 100,
+   "deductions": [],
+   "migration": "ready",
+   "handshake_ms": {
+    "stateless": 2,
+    "legacy": 1
+   },
+   "tools": [
+    {
+     "tool": "inspect",
+     "tokens": 273
+    },
+    {
+     "tool": "diff",
+     "tokens": 174
+    },
+    {
+     "tool": "hexdump",
+     "tokens": 159
+    },
+    {
+     "tool": "overview",
+     "tokens": 126
+    }
+   ],
+   "total_tokens": 732,
+   "findings": 0,
+   "lock": {
+    "clean": true,
+    "summary": "No drift: every tool matches mcp.lock."
+   },
+   "binary_bytes": 3762944
+  },
+  {
+   "server": "lighthouse",
+   "version": "0.1.0",
+   "grade": "A",
+   "points": 100,
+   "deductions": [],
+   "migration": "ready",
+   "handshake_ms": {
+    "stateless": 2,
+    "legacy": 1
+   },
+   "tools": [
+    {
+     "tool": "pin_server",
+     "tokens": 292
+    },
+    {
+     "tool": "verify_server",
+     "tokens": 292
+    },
+    {
+     "tool": "audit_server",
+     "tokens": 272
+    },
+    {
+     "tool": "lint_tools",
+     "tokens": 115
+    }
+   ],
+   "total_tokens": 971,
+   "findings": 0,
+   "lock": {
+    "clean": true,
+    "summary": "No drift: every tool matches mcp.lock."
+   },
+   "binary_bytes": 3705056
+  },
+  {
+   "server": "vitals",
+   "version": "0.1.0",
+   "grade": "A",
+   "points": 100,
+   "deductions": [],
+   "migration": "ready",
+   "handshake_ms": {
+    "stateless": 5,
+    "legacy": 4
+   },
+   "tools": [
+    {
+     "tool": "daily_summary",
+     "tokens": 435
+    },
+    {
+     "tool": "trend",
+     "tokens": 344
+    },
+    {
+     "tool": "readiness",
+     "tokens": 208
+    },
+    {
+     "tool": "import_health_data",
+     "tokens": 148
+    },
+    {
+     "tool": "data_overview",
+     "tokens": 71
+    }
+   ],
+   "total_tokens": 1206,
+   "findings": 0,
+   "lock": {
+    "clean": true,
+    "summary": "No drift: every tool matches mcp.lock."
+   },
+   "binary_bytes": 5676024
+  },
+  {
+   "server": "handset",
+   "version": "0.1.0",
+   "grade": "A",
+   "points": 100,
+   "deductions": [],
+   "migration": "ready",
+   "handshake_ms": {
+    "stateless": 2,
+    "legacy": 2
+   },
+   "tools": [
+    {
+     "tool": "act",
+     "tokens": 423
+    },
+    {
+     "tool": "wait_for",
+     "tokens": 210
+    },
+    {
+     "tool": "snapshot",
+     "tokens": 131
+    },
+    {
+     "tool": "list_devices",
+     "tokens": 69
+    }
+   ],
+   "total_tokens": 833,
+   "findings": 0,
+   "lock": {
+    "clean": true,
+    "summary": "No drift: every tool matches mcp.lock."
+   },
+   "binary_bytes": 3502784
+  }
+ ]
+}

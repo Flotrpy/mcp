@@ -1,0 +1,151 @@
+/* Command palette: a functional glass layer (HIG Materials), so it may be
+   translucent; it dims the page behind it because it is modal. */
+
+.palette {
+  width: min(100% - 2rem, 38rem);
+  max-height: min(70vh, 32rem);
+  margin: 12vh auto auto;
+  padding: 0;
+  border: 1px solid var(--hairline-strong);
+  border-radius: var(--r-lg);
+  background: color-mix(in srgb, var(--bg-elevated) 82%, transparent);
+  -webkit-backdrop-filter: saturate(180%) blur(28px);
+  backdrop-filter: saturate(180%) blur(28px);
+  box-shadow: var(--shadow-3), inset 0 1px 0 rgb(255 255 255 / 0.35);
+  color: var(--ink);
+  overflow: hidden;
+  overscroll-behavior: contain;
+}
+
+.palette::backdrop {
+  background: rgb(0 0 0 / 0.28);
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .palette {
+    background: var(--bg-elevated);
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+}
+
+/* Opened by pointer: grow out of the search button and return to it. */
+.palette[data-animate][open] {
+  animation: palette-in var(--dur) var(--ease-out);
+}
+
+.palette[data-animate][data-closing] {
+  animation: palette-out var(--dur-fast) var(--ease-out) forwards;
+}
+
+.palette[data-animate][open]::backdrop {
+  animation: fade-in var(--dur) var(--ease-out);
+}
+
+@keyframes palette-in {
+  from {
+    opacity: 0;
+    transform: scale(0.94);
+  }
+}
+
+@keyframes palette-out {
+  to {
+    opacity: 0;
+    transform: scale(0.94);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}
+
+.palette__form {
+  display: flex;
+  align-items: center;
+  gap: var(--s-3);
+  padding: var(--s-4) var(--s-4) var(--s-4) var(--s-6);
+  border-bottom: 1px solid var(--hairline);
+}
+
+.palette__glass {
+  width: 1.1rem;
+  flex: none;
+  fill: none;
+  stroke: var(--ink-3);
+  stroke-width: 1.8;
+  stroke-linecap: round;
+}
+
+.palette__input {
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  background: transparent;
+  font-size: max(16px, var(--text-lg));
+  letter-spacing: var(--tracking-tight);
+  outline: none;
+}
+
+.palette__input::-webkit-search-cancel-button {
+  display: none;
+}
+
+.palette__esc {
+  padding: 0.1rem 0.45rem;
+  border-radius: 6px;
+  background: var(--bg-sunken);
+  color: var(--ink-3);
+  font-size: var(--text-xs);
+}
+
+.palette__list {
+  max-height: 24rem;
+  margin: 0;
+  padding: var(--s-2);
+  overflow-y: auto;
+  list-style: none;
+}
+
+.palette__item {
+  display: flex;
+  align-items: center;
+  gap: var(--s-3);
+  min-height: 2.75rem;
+  padding: 0 var(--s-4);
+  border-radius: calc(var(--r-lg) - var(--s-2));
+  cursor: pointer;
+}
+
+.palette__item[aria-selected="true"] {
+  background: color-mix(in srgb, var(--link) 14%, transparent);
+}
+
+.palette__dot {
+  width: 8px;
+  height: 8px;
+  flex: none;
+  border-radius: 50%;
+  background: var(--accent, var(--ink-3));
+}
+
+.palette__title {
+  font-weight: 500;
+}
+
+.palette__hint {
+  margin-left: auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: var(--text-sm);
+  color: var(--ink-3);
+}
+
+.palette__empty {
+  padding: var(--s-6);
+  color: var(--ink-3);
+  text-align: center;
+}

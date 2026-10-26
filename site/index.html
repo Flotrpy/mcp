@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Five MCP servers in Rust · Flotrpy</title>
+  <meta name="description" content="joinery, binscope, lighthouse, vitals and handset: five Model Context Protocol servers written in Rust, each doing one hard thing well.">
+  <meta name="theme-color" content="#fbfbfd" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
+  <meta property="og:title" content="Five MCP servers in Rust">
+  <meta property="og:description" content="Woodworking, binary inspection, server auditing, health data and phone control — over the 2026-07-28 Model Context Protocol.">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles/tokens.css">
+  <link rel="stylesheet" href="styles/base.css">
+  <link rel="stylesheet" href="styles/layout.css">
+  <link rel="stylesheet" href="styles/sections.css">
+  <link rel="stylesheet" href="styles/builder.css">
+  <link rel="stylesheet" href="styles/palette.css">
+  <link rel="preload" href="data/transcripts.json" as="fetch" type="application/json" crossorigin>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="nav" id="top">
+    <nav class="wrap nav__inner" aria-label="Primary">
+      <a class="nav__brand" href="#top" translate="no">flotrpy<span>/mcp</span></a>
+      <ul class="nav__links">
+        <li><a href="#servers">Servers</a></li>
+        <li><a href="#sag">Try&nbsp;it</a></li>
+        <li><a href="#install">Install</a></li>
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="https://github.com/Flotrpy/mcp">GitHub</a></li>
+      </ul>
+      <button class="nav__search" type="button" data-palette-open aria-keyshortcuts="Meta+K Control+K">
+        <span>Search</span><kbd data-shortcut>⌘&nbsp;K</kbd>
+      </button>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="wrap hero__inner">
+        <p class="eyebrow">Model Context Protocol · 2026-07-28 · Rust</p>
+        <h1 id="hero-title" class="hero__title">Five servers.<br>Each does one hard&nbsp;thing&nbsp;well.</h1>
+        <p class="hero__lede">Give your agent a woodshop calculator, a binary inspector, a protocol auditor, a private health warehouse and a pair of hands for your phone. Single static binaries. No accounts. Nothing leaves your machine unless you&nbsp;ask.</p>
+        <div class="hero__actions">
+          <a class="button button--primary" href="#install">Build your config</a>
+          <a class="button button--ghost" href="https://github.com/Flotrpy/mcp">View the source <span aria-hidden="true">→</span></a>
+        </div>
+      </div>
+
+      <figure class="wrap terminal" data-replay aria-label="Recorded MCP sessions">
+        <div class="terminal__bar">
+          <span class="terminal__lights" aria-hidden="true"><i></i><i></i><i></i></span>
+          <div class="terminal__tabs" role="tablist" aria-label="Server">
+            <button role="tab" type="button" data-server="joinery" aria-selected="true">joinery</button>
+            <button role="tab" type="button" data-server="binscope" aria-selected="false" tabindex="-1">binscope</button>
+            <button role="tab" type="button" data-server="lighthouse" aria-selected="false" tabindex="-1">lighthouse</button>
+            <button role="tab" type="button" data-server="vitals" aria-selected="false" tabindex="-1">vitals</button>
+            <button role="tab" type="button" data-server="handset" aria-selected="false" tabindex="-1">handset</button>
+          </div>
+          <button class="terminal__replay" type="button" data-replay-again aria-label="Replay session">↻</button>
+        </div>
+        <pre class="terminal__screen" role="tabpanel" aria-live="polite" tabindex="0"><code data-replay-screen>Loading recorded sessions…</code></pre>
+        <figcaption class="terminal__caption">Real output, recorded from the release builds by <code translate="no">site/tools/record.py</code>.</figcaption>
+      </figure>
+    </section>
+    <section class="section" id="servers" aria-labelledby="servers-title">
+      <div class="wrap">
+        <header class="section__head">
+          <p class="eyebrow">The servers</p>
+          <h2 id="servers-title" class="section__title">Built for what agents get&nbsp;wrong.</h2>
+          <p class="section__lede">Each server answers a whole question in one call, trims its own output to a token budget and explains its errors so the model can recover.</p>
+        </header>
+
+        <ul class="bento" role="list">
+          <li class="tile tile--wide reveal accent-joinery" id="joinery">
+            <svg class="tile__icon" viewBox="0 0 32 32" aria-hidden="true"><path d="M5 26 26 5M9 26h17V9"/><path d="M14 26v-4M18 26v-3M22 26v-4M26 22h-4M26 18h-3M26 14h-4"/></svg>
+            <h3 class="tile__name" translate="no">joinery</h3>
+            <p class="tile__pitch">Woodworking that survives contact with the saw. Parametric furniture, cut lists, sheet nesting and shelf‑sag physics.</p>
+            <ul class="tile__points">
+              <li>Beam-theory sag check with species stiffness and creep</li>
+              <li>Guillotine nesting that respects kerf and grain</li>
+              <li>Glue-up order derived from the joint graph</li>
+            </ul>
+            <p class="tile__meta tabular"><span>4 tools</span><span>3.2&nbsp;MB</span><a href="https://github.com/Flotrpy/mcp/tree/claude/vibrant-gauss-ej6mfz/crates/joinery">README</a></p>
+            <figure class="tile__figure">
+              <img src="data/joinery-layout.svg" width="2460" height="2540" loading="lazy" decoding="async"
+                alt="Cut diagram for the bookcase: two 2440 by 1220 mm plywood sheets holding the back, two sides, top, bottom and four shelves.">
+              <figcaption>Real <code translate="no">nest_parts</code> output for the bookcase above: 2&nbsp;sheets, 72.6% yield.</figcaption>
+            </figure>
+          </li>
+          <li class="tile reveal accent-binscope" id="binscope">
+            <svg class="tile__icon" viewBox="0 0 32 32" aria-hidden="true"><rect x="5" y="5" width="22" height="22" rx="4"/><path d="M10 12h4M10 16h8M10 20h6M20 12h2M22 20h0"/></svg>
+            <h3 class="tile__name" translate="no">binscope</h3>
+            <p class="tile__pitch">Read-only look inside ELF, PE and Mach‑O files — and what changed between two builds.</p>
+            <ul class="tile__points">
+              <li>4 coarse tools with next-step hints</li>
+              <li>Ranked strings, entropy map</li>
+              <li>Release diff flags breaking exports</li>
+            </ul>
+            <p class="tile__meta tabular"><span>4 tools</span><span>3.6&nbsp;MB</span><a href="https://github.com/Flotrpy/mcp/tree/claude/vibrant-gauss-ej6mfz/crates/binscope">README</a></p>
+          </li>
+          <li class="tile reveal accent-lighthouse" id="lighthouse">
+            <svg class="tile__icon" viewBox="0 0 32 32" aria-hidden="true"><path d="M13 27h6l-1-15h-4zM12 12h8M14 9h4l-2-4zM5 9l7 2M27 9l-7 2"/></svg>
+            <h3 class="tile__name" translate="no">lighthouse</h3>
+            <p class="tile__pitch">Audits any MCP server: both protocol generations, lint, token cost and an A–F&nbsp;grade.</p>
+            <ul class="tile__points">
+              <li><code>mcp.lock</code> catches silent tool edits</li>
+              <li>CI exit codes for grade and drift</li>
+              <li>Graded every server here 100/100</li>
+            </ul>
+            <p class="tile__meta tabular"><span>4 tools</span><span>3.6&nbsp;MB</span><a href="https://github.com/Flotrpy/mcp/tree/claude/vibrant-gauss-ej6mfz/crates/lighthouse">README</a></p>
+          </li>
+          <li class="tile reveal accent-vitals" id="vitals">
+            <svg class="tile__icon" viewBox="0 0 32 32" aria-hidden="true"><path d="M3 17h6l3-8 5 15 3-9 2 2h7"/></svg>
+            <h3 class="tile__name" translate="no">vitals</h3>
+            <p class="tile__pitch">Your Apple Health export and wearable CSVs in a local SQLite warehouse.</p>
+            <ul class="tile__points">
+              <li>Phone + watch steps counted once</li>
+              <li>Readiness score that shows its work</li>
+              <li>Redaction mode hides device names</li>
+            </ul>
+            <p class="tile__meta tabular"><span>5 tools</span><span>5.5&nbsp;MB</span><a href="https://github.com/Flotrpy/mcp/tree/claude/vibrant-gauss-ej6mfz/crates/vitals">README</a></p>
+          </li>
+          <li class="tile reveal accent-handset" id="handset">
+            <svg class="tile__icon" viewBox="0 0 32 32" aria-hidden="true"><rect x="9" y="3" width="14" height="26" rx="3.5"/><path d="M14 25h4"/></svg>
+            <h3 class="tile__name" translate="no">handset</h3>
+            <p class="tile__pitch">A pair of hands for Android and the iOS Simulator, without drowning the model in XML.</p>
+            <ul class="tile__points">
+              <li>≥10× smaller than a raw UI dump</li>
+              <li>Stable refs, change-only replies</li>
+              <li><code>wait_for</code> instead of sleep-and-retry</li>
+            </ul>
+            <p class="tile__meta tabular"><span>4 tools</span><span>3.4&nbsp;MB</span><a href="https://github.com/Flotrpy/mcp/tree/claude/vibrant-gauss-ej6mfz/crates/handset">README</a></p>
+          </li>
+        </ul>
+      </div>
+    </section>
+    <section class="band" id="sag" aria-labelledby="sag-title">
+      <div class="wrap band__inner">
+        <header class="section__head">
+          <p class="eyebrow">Try joinery</p>
+          <h2 id="sag-title" class="section__title">Will your shelf sag?</h2>
+          <p class="section__lede">The same beam-theory check the server runs — species stiffness, long-term creep and the 1/32″&nbsp;per&nbsp;foot limit. Drag the right-hand support or use the controls.</p>
+        </header>
+
+        <div class="sag" data-sag>
+          <form class="sag__controls">
+            <label class="field">
+              <span class="field__label">Span <output class="tabular" data-out="span">900&nbsp;mm</output></span>
+              <input type="range" name="span" min="300" max="1600" step="10" value="900">
+            </label>
+            <fieldset class="field">
+              <legend class="field__label">Thickness</legend>
+              <div class="segmented" role="radiogroup">
+                <label><input type="radio" name="thickness" value="12"><span>12&nbsp;mm</span></label>
+                <label><input type="radio" name="thickness" value="15"><span>15&nbsp;mm</span></label>
+                <label><input type="radio" name="thickness" value="18" checked><span>18&nbsp;mm</span></label>
+                <label><input type="radio" name="thickness" value="25"><span>25&nbsp;mm</span></label>
+              </div>
+            </fieldset>
+            <label class="field">
+              <span class="field__label">Material</span>
+              <select name="species" data-species></select>
+            </label>
+            <fieldset class="field">
+              <legend class="field__label">Holding</legend>
+              <div class="segmented" role="radiogroup">
+                <label><input type="radio" name="load" value="decor"><span>Decor</span></label>
+                <label><input type="radio" name="load" value="books" checked><span>Books</span></label>
+                <label><input type="radio" name="load" value="dishes"><span>Dishes</span></label>
+                <label><input type="radio" name="load" value="records"><span>Records</span></label>
+              </div>
+            </fieldset>
+          </form>
+
+          <div class="sag__stage">
+            <svg class="sag__svg" viewBox="0 0 1000 300" role="img" aria-labelledby="sag-verdict">
+              <line class="sag__wall" x1="0" y1="250" x2="1000" y2="250"/>
+              <path class="sag__shelf" data-shelf d="M50 120 Q500 120 950 120"/>
+              <g class="sag__pin" data-pin="left"><rect x="38" y="128" width="24" height="122" rx="6"/></g>
+              <g class="sag__pin sag__pin--drag" data-pin="right" tabindex="-1"><rect x="938" y="128" width="24" height="122" rx="6"/><circle cx="950" cy="190" r="34"/></g>
+            </svg>
+            <p class="sag__scale">Sag drawn ×40 so millimetres are visible.</p>
+            <dl class="sag__readout tabular">
+              <div><dt>Long-term sag</dt><dd data-out="sag">–</dd></div>
+              <div><dt>Limit</dt><dd data-out="limit">–</dd></div>
+              <div><dt>Of limit</dt><dd data-out="util">–</dd></div>
+            </dl>
+            <p class="sag__verdict" id="sag-verdict" aria-live="polite" data-out="verdict">–</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section" id="install" aria-labelledby="install-title">
+      <div class="wrap">
+        <header class="section__head">
+          <p class="eyebrow">Install</p>
+          <h2 id="install-title" class="section__title">Your config, ready to&nbsp;paste.</h2>
+          <p class="section__lede">Pick servers and a client. The link updates as you go, so you can send a teammate the exact setup.</p>
+        </header>
+
+        <div class="builder" data-builder>
+          <form class="builder__form">
+            <fieldset class="builder__group">
+              <legend>Servers</legend>
+              <div class="chips">
+                <label class="chip accent-joinery"><input type="checkbox" name="server" value="joinery" checked><span translate="no">joinery</span></label>
+                <label class="chip accent-binscope"><input type="checkbox" name="server" value="binscope"><span translate="no">binscope</span></label>
+                <label class="chip accent-lighthouse"><input type="checkbox" name="server" value="lighthouse" checked><span translate="no">lighthouse</span></label>
+                <label class="chip accent-vitals"><input type="checkbox" name="server" value="vitals"><span translate="no">vitals</span></label>
+                <label class="chip accent-handset"><input type="checkbox" name="server" value="handset"><span translate="no">handset</span></label>
+              </div>
+            </fieldset>
+            <fieldset class="builder__group">
+              <legend>Client</legend>
+              <div class="segmented segmented--light" role="radiogroup">
+                <label><input type="radio" name="client" value="claude-code" checked><span>Claude Code</span></label>
+                <label><input type="radio" name="client" value="claude-desktop"><span>Desktop</span></label>
+                <label><input type="radio" name="client" value="cursor"><span>Cursor</span></label>
+                <label><input type="radio" name="client" value="codex"><span>Codex</span></label>
+              </div>
+            </fieldset>
+            <fieldset class="builder__group" data-when="binscope vitals">
+              <legend>Options</legend>
+              <label class="option" data-when="binscope">
+                <span>Confine binscope to a folder</span>
+                <input type="text" name="binscopeRoot" placeholder="/path/to/builds…" autocomplete="off" spellcheck="false">
+              </label>
+              <label class="option option--toggle" data-when="vitals">
+                <input type="checkbox" name="vitalsRedact" role="switch">
+                <span>Hide device names in vitals results</span>
+              </label>
+            </fieldset>
+          </form>
+
+          <div class="builder__out">
+            <div class="code">
+              <div class="code__head"><span>1. Install</span><button type="button" class="code__copy" data-copy="install">Copy</button></div>
+              <pre><code data-out="install"></code></pre>
+            </div>
+            <div class="code">
+              <div class="code__head"><span data-out="file">2. Configure</span><button type="button" class="code__copy" data-copy="config">Copy</button></div>
+              <pre><code data-out="config"></code></pre>
+            </div>
+            <p class="builder__empty" data-out="empty" hidden>Choose at least one server to see its config.</p>
+            <p class="visually-hidden" aria-live="polite" data-out="status"></p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section section--tight" aria-labelledby="grades-title">
+      <div class="wrap scoreboard">
+        <div>
+          <h2 id="grades-title" class="scoreboard__title">Graded by its own auditor.</h2>
+          <p class="scoreboard__lede">Every server is audited by <code translate="no">lighthouse</code> on each push and pinned to an <code translate="no">mcp.lock</code>. CI fails below an A or on any silent tool change.</p>
+          <a class="chevron" href="dashboard.html">Open the dashboard</a>
+        </div>
+        <ul class="scoreboard__list" role="list" data-scoreboard aria-label="Current grades">
+          <li class="accent-joinery"><span translate="no">joinery</span><b>A</b></li>
+          <li class="accent-binscope"><span translate="no">binscope</span><b>A</b></li>
+          <li class="accent-lighthouse"><span translate="no">lighthouse</span><b>A</b></li>
+          <li class="accent-vitals"><span translate="no">vitals</span><b>A</b></li>
+          <li class="accent-handset"><span translate="no">handset</span><b>A</b></li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer__inner">
+      <p>Five MCP servers by <a href="https://github.com/Flotrpy">Flotrpy</a>. MIT licensed.</p>
+      <ul class="footer__links" role="list">
+        <li><a href="https://github.com/Flotrpy/mcp/blob/claude/vibrant-gauss-ej6mfz/docs/DESIGN.md">Design decisions</a></li>
+        <li><a href="https://github.com/Flotrpy/mcp/blob/claude/vibrant-gauss-ej6mfz/docs/UI-RESEARCH.md">UI research</a></li>
+        <li><a href="dashboard.html">Dashboard</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <dialog class="palette" data-palette aria-label="Search">
+    <form method="dialog" class="palette__form" role="search">
+      <svg class="palette__glass" viewBox="0 0 20 20" aria-hidden="true"><circle cx="8.5" cy="8.5" r="5.5"/><path d="m13 13 4 4"/></svg>
+      <input class="palette__input" type="search" name="q" placeholder="Search servers, tools and sections…" autocomplete="off" spellcheck="false"
+        role="combobox" aria-expanded="true" aria-controls="palette-list" aria-autocomplete="list">
+      <kbd class="palette__esc">esc</kbd>
+    </form>
+    <ul class="palette__list" id="palette-list" role="listbox" aria-label="Results"></ul>
+    <p class="palette__empty" hidden>No matches. Try a tool name like <code>nest_parts</code>.</p>
+  </dialog>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

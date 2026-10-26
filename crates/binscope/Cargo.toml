@@ -1,0 +1,23 @@
+[package]
+name = "binscope"
+description = "MCP server for read-only static inspection of ELF, PE and Mach-O binaries with token budgets"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+authors.workspace = true
+
+[[bin]]
+name = "binscope-mcp"
+path = "src/main.rs"
+
+[dependencies]
+mcp-kit.workspace = true
+rmcp.workspace = true
+tokio.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+schemars.workspace = true
+anyhow.workspace = true
+thiserror.workspace = true
+goblin = "0.10.7"

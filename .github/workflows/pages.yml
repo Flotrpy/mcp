@@ -1,0 +1,32 @@
+name: Pages
+
+# Republish the static site to the gh-pages branch, which GitHub Pages
+# serves at https://flotrpy.github.io/mcp/.
+on:
+  push:
+    branches: [main]
+    paths: ["site/**"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: sh site/tools/build-pages.sh dist
+      - name: Push to gh-pages
+        working-directory: dist
+        run: |
+          git init -q -b gh-pages
+          git config user.name "Flotrpy"
+          git config user.email "100040591+Flotrpy@users.noreply.github.com"
+          git add -A
+          git commit -q -m "Publish site from ${GITHUB_SHA::7}"
+          git push -f "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${GITHUB_REPOSITORY}.git" gh-pages

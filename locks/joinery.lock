@@ -1,0 +1,35 @@
+{
+  "lockfile_version": 1,
+  "server_name": "joinery",
+  "server_version": "0.1.0",
+  "tools": {
+    "check_shelf_sag": {
+      "description": "Check whether a shelf will sag visibly (limit 1/32\" per foot, including long-term creep). Returns deflection, utilisation and the longest span / thinnest stock that would pass.",
+      "description_hash": "sha256:8a70ccae4ed50b395d5afa4d8edbe0b3d5aede1dd9325ed8adf4ad46fe8e037a",
+      "input_schema_hash": "sha256:e22f669070fe208a1a367f3b195e72d0354139001859b93616f48080271fd8c0",
+      "annotations_hash": "sha256:ae561cdd6924620b319a87620710fa47261aa01289d1675e57a3eecf82f030c4",
+      "definition_hash": "sha256:c528cf18fed8dd11ac9f0ee5ed924e60dc913cd2ab40ee4fea7305c31fff6db9"
+    },
+    "design_furniture": {
+      "description": "Design a bookcase, cabinet or drawer from outside dimensions. Returns every part sized for its joinery, a merged cut list with board feet, a glue-up order, and a sag check for each shelf.",
+      "description_hash": "sha256:d14b720debfbc4c4dac4306bb94312bd93ead321df9722cc7699c06cde45b2ed",
+      "input_schema_hash": "sha256:5a223d0e5fcdbd8875c066e3e31e822e5bb221e4aeb90f14214099b5ef751d5d",
+      "annotations_hash": "sha256:0559ef4e54c0b1398b1ccd66e0c92f9778c7e6ccdef9c9bb74f8ddad9e08eee0",
+      "definition_hash": "sha256:4eb6b0613e166589f954d2680b90e4dfed34f9c23560ce28611635830ff0403a"
+    },
+    "list_species": {
+      "description": "List the wood species and sheet goods the sag check knows, with stiffness (MOE) and creep factor.",
+      "description_hash": "sha256:4ecd3778b37967112d9d678ceadfdab30255b81eed81cee0431360851ccb2093",
+      "input_schema_hash": "sha256:efddc7bd8bbcef73a14eb1ace1ffdaec81e518ef1e13c1e9271d0b8acb694a49",
+      "annotations_hash": "sha256:bf369e55d102705832b99313ea3f9cd0c7042bdb29696f1404ec873f27e0714a",
+      "definition_hash": "sha256:1b7ac279b6b6eec676f8eff6ebbe3757eb1df2626dd3225352f8ff7ca349c4c7"
+    },
+    "nest_parts": {
+      "description": "Nest rectangular parts onto stock sheets with saw kerf and grain direction respected. Returns placements, sheets used, yield % and an optional to-scale SVG cut diagram.",
+      "description_hash": "sha256:aec28f2f892e5652587969856c87fcbcc5630069a60727e7aba2e5369a681e2e",
+      "input_schema_hash": "sha256:9aa5f8c0f6731537e9f4fa566cd25537da46c2885c65bef94d49cb921640bc74",
+      "annotations_hash": "sha256:e0b9b38c2cfb7e493e67e0db2bc9e1678bb71e13b5bb09ff509649ad81b659a7",
+      "definition_hash": "sha256:cadeaf437c12d8ae864cfdbcf711850559c1352dbf16e81adde79c5e494b25a7"
+    }
+  }
+}

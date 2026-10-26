@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Dashboard · Flotrpy MCP servers</title>
+  <meta name="description" content="Live audit of the five Flotrpy MCP servers: lighthouse grades, protocol support, token cost per tool and lockfile drift.">
+  <meta name="theme-color" content="#fbfbfd" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles/tokens.css">
+  <link rel="stylesheet" href="styles/base.css">
+  <link rel="stylesheet" href="styles/layout.css">
+  <link rel="stylesheet" href="styles/dashboard.css">
+  <link rel="preload" href="data/dashboard.json" as="fetch" type="application/json" crossorigin>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="nav">
+    <nav class="wrap nav__inner" aria-label="Primary">
+      <a class="nav__brand" href="index.html" translate="no">flotrpy<span>/mcp</span></a>
+      <ul class="nav__links">
+        <li><a href="index.html#servers">Servers</a></li>
+        <li><a href="index.html#install">Install</a></li>
+        <li><a href="dashboard.html" aria-current="page">Dashboard</a></li>
+        <li><a href="https://github.com/Flotrpy/mcp">GitHub</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main" class="wrap dash" data-dashboard>
+    <header class="dash__head">
+      <p class="eyebrow">Audited by lighthouse · <time data-out="generated">–</time></p>
+      <h1 class="dash__title">Dashboard</h1>
+      <p class="dash__lede" data-out="headline">Loading the latest audit…</p>
+    </header>
+
+    <section class="stats" aria-label="Summary">
+      <div class="stat"><p class="stat__label">Average grade</p><p class="stat__value tabular" data-out="avg">–</p></div>
+      <div class="stat"><p class="stat__label">Tools</p><p class="stat__value tabular" data-out="tools">–</p></div>
+      <div class="stat"><p class="stat__label">Context cost, all servers</p><p class="stat__value tabular" data-out="tokens">–</p></div>
+      <div class="stat"><p class="stat__label">Lockfiles clean</p><p class="stat__value tabular" data-out="locks">–</p></div>
+    </section>
+
+    <section aria-labelledby="servers-title">
+      <h2 id="servers-title" class="dash__section">Servers</h2>
+      <ul class="cards" role="list" data-out="cards"></ul>
+    </section>
+
+    <section aria-labelledby="cost-title">
+      <h2 id="cost-title" class="dash__section">Token cost per tool</h2>
+      <p class="dash__note">What each tool definition costs the model on every turn it is connected. Lower is better.</p>
+      <div class="cost" data-out="cost"></div>
+    </section>
+
+    <noscript><p class="dash__note">The dashboard renders from <a href="data/dashboard.json">data/dashboard.json</a>; enable JavaScript to see charts.</p></noscript>
+  </main>
+
+  <footer class="wrap footer">
+    <p>Regenerate with <code translate="no">python3 site/tools/record.py</code> after a release build. CI fails if any server drops below an A or drifts from its lockfile.</p>
+  </footer>
+
+  <script type="module" src="js/dashboard.js"></script>
+</body>
+</html>

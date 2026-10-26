@@ -1,0 +1,565 @@
+/* Content sections: headings, the server bento and scroll reveals. */
+
+.section {
+  padding-block: var(--s-24);
+}
+
+@media (max-width: 40rem) {
+  .section,
+  .band {
+    padding-block: var(--s-16);
+  }
+  .section__head {
+    margin-bottom: var(--s-8);
+  }
+  .sag__readout dd {
+    font-size: var(--text-lg);
+  }
+}
+
+.section__head {
+  display: grid;
+  gap: var(--s-4);
+  max-width: 44rem;
+  margin-bottom: var(--s-12);
+}
+
+.section__title {
+  font-size: var(--text-2xl);
+  letter-spacing: var(--tracking-display);
+}
+
+.section__lede {
+  font-size: var(--text-lg);
+  line-height: 1.4;
+  color: var(--ink-2);
+}
+
+/* ---------- Bento ---------- */
+.bento {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: var(--s-4);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tile {
+  --pad: var(--s-8);
+  grid-column: span 2;
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+  padding: var(--pad);
+  border-radius: var(--r-lg);
+  background: var(--bg-elevated);
+  border: 1px solid var(--hairline);
+  box-shadow: var(--shadow-1);
+  transition: transform var(--dur) var(--ease-out), box-shadow var(--dur) var(--ease-out);
+}
+
+.tile--wide {
+  grid-column: span 4;
+}
+
+@media (hover: hover) {
+  .tile:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-2);
+  }
+}
+
+@media (max-width: 60rem) {
+  .tile,
+  .tile--wide {
+    grid-column: span 3;
+  }
+  .tile:last-child {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 40rem) {
+  .tile,
+  .tile--wide {
+    grid-column: 1 / -1;
+  }
+  .tile {
+    --pad: var(--s-6);
+  }
+}
+
+.tile__icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0.45rem;
+  /* Concentric with the tile: tile radius minus its padding, floored. */
+  border-radius: max(var(--r-sm), calc(var(--r-lg) - var(--pad)));
+  background: color-mix(in srgb, var(--accent) 12%, transparent);
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.tile__name {
+  margin-top: var(--s-2);
+  font-size: var(--text-xl);
+  letter-spacing: var(--tracking-tight);
+}
+
+.tile__pitch {
+  color: var(--ink-2);
+  max-width: 34rem;
+}
+
+.tile__points {
+  display: grid;
+  gap: var(--s-2);
+  margin: var(--s-2) 0 0;
+  padding: 0;
+  list-style: none;
+  font-size: var(--text-sm);
+  color: var(--ink-2);
+}
+
+.tile__points li {
+  position: relative;
+  padding-left: 1.1rem;
+}
+
+.tile__points li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.tile__meta {
+  display: flex;
+  gap: var(--s-4);
+  margin-top: auto;
+  padding-top: var(--s-4);
+  font-size: var(--text-xs);
+  color: var(--ink-3);
+}
+
+.tile__meta a {
+  margin-left: auto;
+  font-weight: 500;
+}
+
+/* ---------- Scroll reveal ----------
+   Scroll-driven where supported (no JS, off the main thread); elsewhere the
+   reveal script adds .is-visible via IntersectionObserver. */
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .reveal {
+      animation: reveal linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 40%;
+    }
+  }
+  @supports not (animation-timeline: view()) {
+    .js .reveal:not(.is-visible) {
+      opacity: 0;
+      transform: translateY(16px);
+    }
+    .js .reveal {
+      transition: opacity var(--dur-slow) var(--ease-out), transform var(--dur-slow) var(--ease-out);
+    }
+  }
+}
+
+@keyframes reveal {
+  from {
+    opacity: 0;
+    transform: translateY(24px) scale(0.985);
+  }
+}
+
+/* ---------- Full-bleed dark band (apple.com's alternating sections) ---------- */
+.band {
+  --band-bg: #000;
+  --band-ink: #f5f5f7;
+  --band-ink-2: #a1a1a6;
+  --band-surface: #161617;
+  --band-hairline: rgb(255 255 255 / 0.12);
+  padding-block: var(--s-24);
+  background: var(--band-bg);
+  color: var(--band-ink);
+  color-scheme: dark;
+}
+
+.band .eyebrow,
+.band .section__lede {
+  color: var(--band-ink-2);
+}
+
+/* ---------- Sag widget ---------- */
+.sag {
+  display: grid;
+  grid-template-columns: minmax(16rem, 22rem) 1fr;
+  gap: var(--s-8);
+  align-items: start;
+}
+
+@media (max-width: 52rem) {
+  .sag {
+    grid-template-columns: 1fr;
+  }
+}
+
+.sag__controls {
+  display: grid;
+  gap: var(--s-6);
+  padding: var(--s-6);
+  border-radius: var(--r-lg);
+  background: var(--band-surface);
+  border: 1px solid var(--band-hairline);
+}
+
+.field {
+  display: grid;
+  gap: var(--s-2);
+  margin: 0;
+  padding: 0;
+  border: 0;
+  min-width: 0;
+}
+
+.field__label {
+  display: flex;
+  justify-content: space-between;
+  padding: 0;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  letter-spacing: var(--tracking-small);
+  color: var(--band-ink-2);
+}
+
+.field__label output {
+  color: var(--band-ink);
+  font-weight: 500;
+}
+
+.field select {
+  min-height: 2.5rem;
+  padding: 0 var(--s-3);
+  border-radius: var(--r-sm);
+  border: 1px solid var(--band-hairline);
+  background-color: #1d1d1f;
+  color: var(--band-ink);
+}
+
+input[type="range"] {
+  width: 100%;
+  accent-color: var(--joinery);
+  cursor: pointer;
+}
+
+/* Segmented control: native radios, one generous hit target per option. */
+.segmented {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+  padding: 3px;
+  border-radius: var(--r-sm);
+  background: rgb(255 255 255 / 0.08);
+}
+
+.segmented label {
+  position: relative;
+  cursor: pointer;
+}
+
+.segmented input {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.segmented span {
+  display: grid;
+  place-items: center;
+  min-height: 2rem;
+  border-radius: calc(var(--r-sm) - 3px);
+  font-size: var(--text-sm);
+  color: var(--band-ink-2);
+  transition: background-color var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out);
+}
+
+.segmented input:checked + span {
+  background: rgb(255 255 255 / 0.18);
+  color: var(--band-ink);
+  box-shadow: 0 1px 2px rgb(0 0 0 / 0.4);
+}
+
+.segmented input:focus-visible + span {
+  outline: 2px solid var(--joinery);
+  outline-offset: 1px;
+}
+
+.sag__stage {
+  display: grid;
+  gap: var(--s-6);
+  padding: var(--s-6);
+  border-radius: var(--r-lg);
+  background: radial-gradient(120% 80% at 50% 0%, #1b1b1d, #0a0a0b);
+  border: 1px solid var(--band-hairline);
+}
+
+.sag__svg {
+  width: 100%;
+  height: auto;
+  touch-action: none;
+  user-select: none;
+}
+
+.sag__wall {
+  stroke: rgb(255 255 255 / 0.12);
+  stroke-width: 2;
+}
+
+.sag__shelf {
+  fill: none;
+  stroke: var(--joinery);
+  stroke-width: 16;
+  stroke-linecap: round;
+  transition: stroke var(--dur) var(--ease-out);
+}
+
+.sag[data-state="warn"] .sag__shelf {
+  stroke: var(--warn);
+}
+
+.sag[data-state="bad"] .sag__shelf {
+  stroke: var(--bad);
+}
+
+.sag__pin rect {
+  fill: #3a3a3c;
+}
+
+.sag__pin--drag {
+  cursor: ew-resize;
+}
+
+.sag__pin--drag circle {
+  fill: transparent;
+}
+
+.sag__pin--drag:hover rect,
+.sag__pin--drag[data-dragging] rect {
+  fill: #636366;
+}
+
+.sag__scale {
+  margin-top: calc(-1 * var(--s-4));
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-small);
+  color: var(--band-ink-2);
+  text-align: center;
+}
+
+.sag__readout {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--s-4);
+  margin: 0;
+}
+
+.sag__readout dt {
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-small);
+  color: var(--band-ink-2);
+}
+
+.sag__readout dd {
+  margin: 0;
+  font-size: var(--text-xl);
+  font-weight: 600;
+  letter-spacing: var(--tracking-tight);
+}
+
+.sag__verdict {
+  font-size: var(--text-lg);
+  font-weight: 500;
+}
+
+.sag__verdict strong[data-tone="ok"] {
+  color: var(--ok);
+}
+
+.sag__verdict strong[data-tone="warn"] {
+  color: var(--warn);
+}
+
+.sag__verdict strong[data-tone="bad"] {
+  color: var(--bad);
+}
+
+/* ---------- Scoreboard strip ---------- */
+.section--tight {
+  padding-block: var(--s-16);
+}
+
+.scoreboard {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: var(--s-12);
+  align-items: center;
+  padding: var(--s-12);
+  border-radius: var(--r-lg);
+  background: var(--bg-sunken);
+}
+
+@media (max-width: 52rem) {
+  .scoreboard {
+    grid-template-columns: 1fr;
+    padding: var(--s-8);
+  }
+}
+
+.scoreboard__title {
+  font-size: var(--text-xl);
+}
+
+.scoreboard__lede {
+  max-width: 34rem;
+  margin: var(--s-3) 0 var(--s-4);
+  color: var(--ink-2);
+}
+
+.scoreboard__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-3);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.scoreboard__list li {
+  display: grid;
+  justify-items: center;
+  gap: var(--s-1);
+  min-width: 5.5rem;
+  padding: var(--s-4) var(--s-3);
+  border-radius: var(--r-md);
+  background: var(--bg-elevated);
+  box-shadow: var(--shadow-1);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--ink-3);
+}
+
+.scoreboard__list b {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  line-height: 1;
+  color: var(--accent);
+}
+
+/* apple.com's "Learn more ›" link. */
+.chevron {
+  font-weight: 500;
+}
+
+.chevron::after {
+  content: "›";
+  display: inline-block;
+  margin-left: 0.3em;
+  transition: transform var(--dur-fast) var(--ease-out);
+}
+
+.chevron:hover::after {
+  transform: translateX(3px);
+}
+
+/* ---------- Footer ---------- */
+.footer {
+  padding-block: var(--s-12);
+  border-top: 1px solid var(--hairline);
+  font-size: var(--text-sm);
+  color: var(--ink-3);
+}
+
+.footer__inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--s-4);
+}
+
+.footer__links {
+  display: flex;
+  gap: var(--s-6);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* The joinery tile carries a genuine cut diagram beside its copy. */
+.tile--wide:has(.tile__figure) {
+  display: grid;
+  grid-template-columns: 1fr minmax(12rem, 16rem);
+  grid-template-rows: repeat(5, auto) 1fr;
+  column-gap: var(--s-8);
+}
+
+.tile--wide:has(.tile__figure) > :not(.tile__figure) {
+  grid-column: 1;
+}
+
+.tile__figure {
+  grid-column: 2;
+  grid-row: 1 / -1;
+  align-self: center;
+  margin: 0;
+}
+
+.tile__figure img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--r-sm);
+  box-shadow: var(--shadow-2);
+}
+
+.tile__figure figcaption {
+  margin-top: var(--s-3);
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-small);
+  color: var(--ink-3);
+}
+
+@media (max-width: 60rem) {
+  .tile--wide:has(.tile__figure) {
+    display: flex;
+  }
+  .tile__figure {
+    max-width: 18rem;
+  }
+}
+
+/* In dark mode the page is already black, so the band steps *up* a surface
+   (as apple.com alternates #000 / #161617) and keeps hairline edges. */
+@media (prefers-color-scheme: dark) {
+  .band {
+    --band-bg: #101012;
+    --band-surface: #1c1c1e;
+    border-block: 1px solid var(--hairline);
+  }
+}
+
+/* Focus rings must stay visible on the dark band. */
+.band :focus-visible {
+  outline-color: #2997ff;
+}
