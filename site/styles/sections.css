@@ -558,3 +558,8 @@ input[type="range"] {
     border-block: 1px solid var(--hairline);
   }
 }
+
+/* Focus rings must stay visible on the dark band. */
+.band :focus-visible {
+  outline-color: #2997ff;
+}
