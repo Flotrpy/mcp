@@ -14,6 +14,10 @@ _Research window: 2026-01-26 → 2026-10-26 (9 months). Collected 2026-10-26._
 
 Score notation: `points / comments`.
 
+> **Correction after the cross-check (see `mcp-ideas-web.md`).** The official MCP Registry has 50,204 servers, and almost every idea below already has *some* implementation there or on GitHub. That includes KiCad (10 registry servers), iOS Simulator (16), FL Studio/Logic/Reaper, Wireshark (1–3), rug-pull pinning (mcp-scan, RugSnare and others) and x402 payments (thousands of servers).
+>
+> So read each "Gap" line below as *the angle nobody has nailed yet* (consolidation, quality, local-first, UX), not as "nothing exists". That matches the brief: built once, small attention, momentum. The master sheet (`mcp-ideas-master.md`) lists the prior art for every idea.
+
 ---
 
 ## Top momentum ideas (ranked)
