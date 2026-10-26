@@ -5,4 +5,5 @@
 //! with a short ref (`e12`) the agent can act on, keeps refs stable across
 //! snapshots, and answers every action with only what changed.
 
+pub mod android;
 pub mod node;
