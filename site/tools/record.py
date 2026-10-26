@@ -78,6 +78,25 @@ def dashboard(tmp):
     return {"generated": time.strftime("%Y-%m-%d"), "servers": rows}
 
 
+def cut_diagram():
+    """The SVG joinery draws for the transcript's bookcase, for the joinery tile."""
+    parts = [
+        {"name": "side", "length": 1829, "width": 305, "quantity": 2},
+        {"name": "top", "length": 889, "width": 298, "quantity": 1},
+        {"name": "bottom", "length": 889, "width": 298, "quantity": 1},
+        {"name": "shelf", "length": 874, "width": 298, "quantity": 4},
+        {"name": "back", "length": 1829, "width": 895, "quantity": 1, "grain_locked": False},
+    ]
+    proc = subprocess.run(
+        [os.path.join(BIN, "joinery-mcp")],
+        input=json.dumps({"jsonrpc": "2.0", "id": 1, "method": "tools/call", "params": {
+            "name": "nest_parts", "arguments": {"parts": parts}, "_meta": META}}) + "\n",
+        capture_output=True, text=True, timeout=30,
+    )
+    result = json.loads(proc.stdout.splitlines()[0])["result"]
+    return result["structuredContent"]["svg"], result["content"][0]["text"]
+
+
 def main():
     tmp = tempfile.mkdtemp(prefix="mcp-site-")
     fixtures = os.path.join(ROOT, "crates", "handset", "tests", "fixtures")
@@ -115,6 +134,10 @@ def main():
     out = os.path.join(ROOT, "site", "data", "transcripts.json")
     with open(out, "w") as f:
         f.write(text + "\n")
+    svg, caption = cut_diagram()
+    with open(os.path.join(ROOT, "site", "data", "joinery-layout.svg"), "w") as f:
+        f.write(svg + "\n")
+    print("cut diagram:", caption)
     dash = dashboard(tmp)
     with open(os.path.join(ROOT, "site", "data", "dashboard.json"), "w") as f:
         f.write(json.dumps(dash, indent=1) + "\n")

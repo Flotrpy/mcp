@@ -47,7 +47,7 @@
    "migration": "ready",
    "handshake_ms": {
     "stateless": 2,
-    "legacy": 2
+    "legacy": 1
    },
    "tools": [
     {
@@ -83,7 +83,7 @@
    "deductions": [],
    "migration": "ready",
    "handshake_ms": {
-    "stateless": 2,
+    "stateless": 1,
     "legacy": 1
    },
    "tools": [
@@ -121,7 +121,7 @@
    "migration": "ready",
    "handshake_ms": {
     "stateless": 6,
-    "legacy": 6
+    "legacy": 5
    },
    "tools": [
     {
