@@ -41,6 +41,12 @@ _Merged from `hn-mcp-ideas.md` (Hacker News, 3,726 MCP stories + 39k comments) a
 | 26 | **Spend caps & cost tripwires for agents** | Safety / cost | ★★★ | Med | A hard per-task budget proxy across providers (the $78k Codex incident) |
 | 27 | **Grok Bot / new-marketplace connectors** | Distribution | ★★ | Low (new) | Be early in the marketplace opened Oct 14, 2026 |
 | 28 | **Library & catalogue MCPs** (GND, Wikidata, HAL, Zotero) | Libraries / academia | ★★ | Med | Cataloguer workflows: subject heading suggestion, authority control |
+| 29 | **Web change-watch → agent wake-up** | Monitoring | ★★★★ | Low (MCP-native) | Watch pages and APIs, diff, then *wake* the agent with the change instead of polling |
+| 30 | **Agent-to-agent teammate messaging** | Collaboration | ★★★ | Low–Med | My coding agent asks *your* coding agent, with consent and an audit trail |
+| 31 | **Decision provenance log** ("why did the agent change this / what did it reject") | Dev tools | ★★★ | Low | An append-only "why" ledger queried by later sessions and reviewers |
+| 32 | **Real-world action MCPs** (incorporate, mail, gifts, insurance, booking) | Commerce | ★★★ | Med | Pair with #8: irreversible real-world actions need approval UX |
+| 33 | **OpenAPI → SDK + MCP generator** (post-Stainless) | Dev tools | ★★ | Med | Open-source generator producing SDK, CLI and stateless MCP from one spec |
+| 34 | **Replacement reference datasets** (CIA Factbook shutdown, corporate filings, macro data) | Data | ★★ | Med | Curated, citable reference data as MCP where public sources vanish |
 
 ---
 
@@ -246,6 +252,35 @@ _Merged from `hn-mcp-ideas.md` (Hacker News, 3,726 MCP stories + 39k comments) a
 - **Spend caps (26):** the $78k Codex story; "Does OpenAI not support spending caps?"
 - **Grok Bot marketplace (27):** opened Oct 14, 2026.
 - **Library catalogue MCPs (28):** lobid-GND, Wikidata, HAL and Zotero (18 servers).
+
+### 29–34. Clusters from a final pass over unclassified Show HNs
+- **Web change-watch → agent wake-up (29):**
+  - [Sitespy: watches webpages and exposes changes as RSS](https://news.ycombinator.com/item?id=47337607), **320 / 76**.
+  - Combine with the "wish MCP had push notifications" demand from #14. Today the agent polls; the open angle is a watcher that wakes the agent.
+- **Agent-to-agent teammate messaging (30):**
+  - [Parley: your coding agent can talk to a teammate's agent](https://news.ycombinator.com/item?id=49257824).
+  - [AgentCouch](https://news.ycombinator.com/item?id=49111255).
+  - [Tether inter-LLM mailbox](https://news.ycombinator.com/item?id=47199729).
+  - [Ask HN: Is anyone using A2A?](https://news.ycombinator.com/item?id=48582679), 96 / 45.
+  - Many small builds, no winner yet.
+- **Decision provenance (31):**
+  - [Selvedge: captures why AI agents change code](https://news.ycombinator.com/item?id=48057104), and its [append-only log of what the agent rejected](https://news.ycombinator.com/item?id=49205059).
+  - [Ask HN: How do you capture WHY engineering decisions were made?](https://news.ycombinator.com/item?id=47368874), 41 / 64.
+  - [DecisionNode](https://news.ycombinator.com/item?id=47723505).
+- **Real-world action MCPs (32):**
+  - [Form an LLC/C-Corp via MCP](https://news.ycombinator.com/item?id=48372950).
+  - [G3M: physical outbound mail](https://news.ycombinator.com/item?id=49539359).
+  - [Send flowers from your agent](https://news.ycombinator.com/item?id=49599559).
+  - [Coverage Cat: umbrella insurance via your agent](https://news.ycombinator.com/item?id=49804931), 54 / 32.
+  - [One-click flight booking in Claude](https://news.ycombinator.com/item?id=50174185).
+- **OpenAPI → SDK + MCP generator (33):**
+  - "[Anthropic is killing Stainless, so we built our own SDK/MCP generator](https://news.ycombinator.com/item?id=48200281)".
+  - [Ask HN: What are Stainless users doing now?](https://news.ycombinator.com/item?id=48202774)
+  - A displaced user base is looking for a home.
+- **Replacement reference data (34):**
+  - [Bamwor: country data after the CIA Factbook shutdown](https://news.ycombinator.com/item?id=47587171).
+  - Japanese corporate filings API.
+  - Brazilian macro data and Polish company registries (dev.to).
 
 ---
 
