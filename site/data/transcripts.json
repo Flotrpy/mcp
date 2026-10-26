@@ -32,7 +32,7 @@
    "args": {
     "path": "./target/release/joinery-mcp"
    },
-   "reply": "Elf X86_64 64-bit, 3347496 bytes, 32 sections, 94 imports, 0 exports. Entropy: ▃▅▇▇▇▆▆▅▅▆▇▇▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▇▆▆▇▆▆▆▆▇▆▆▇▇▇▆▇▇▆▂"
+   "reply": "Elf X86_64 64-bit, 3350496 bytes, 32 sections, 94 imports, 0 exports. Entropy: ▃▅▇▇▇▆▆▅▅▆▇▇▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▇▆▆▇▆▆▆▆▇▆▆▇▇▇▆▇▇▅▂"
   },
   {
    "tool": "diff",
@@ -40,7 +40,7 @@
     "old_path": "./target/release/joinery-mcp",
     "new_path": "./target/release/binscope-mcp"
    },
-   "reply": "Size delta +412208 bytes; no headline changes."
+   "reply": "Size delta +412448 bytes; no headline changes."
   }
  ],
  "lighthouse": [

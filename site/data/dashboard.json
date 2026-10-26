@@ -36,7 +36,7 @@
     "clean": true,
     "summary": "No drift: every tool matches mcp.lock."
    },
-   "binary_bytes": 3347496
+   "binary_bytes": 3350496
   },
   {
    "server": "binscope",
@@ -73,7 +73,7 @@
     "clean": true,
     "summary": "No drift: every tool matches mcp.lock."
    },
-   "binary_bytes": 3759704
+   "binary_bytes": 3762944
   },
   {
    "server": "lighthouse",
@@ -83,7 +83,7 @@
    "deductions": [],
    "migration": "ready",
    "handshake_ms": {
-    "stateless": 1,
+    "stateless": 2,
     "legacy": 1
    },
    "tools": [
@@ -110,7 +110,7 @@
     "clean": true,
     "summary": "No drift: every tool matches mcp.lock."
    },
-   "binary_bytes": 3704864
+   "binary_bytes": 3705056
   },
   {
    "server": "vitals",
@@ -120,8 +120,8 @@
    "deductions": [],
    "migration": "ready",
    "handshake_ms": {
-    "stateless": 6,
-    "legacy": 5
+    "stateless": 5,
+    "legacy": 4
    },
    "tools": [
     {
@@ -151,7 +151,7 @@
     "clean": true,
     "summary": "No drift: every tool matches mcp.lock."
    },
-   "binary_bytes": 5670392
+   "binary_bytes": 5676024
   },
   {
    "server": "handset",
@@ -188,7 +188,7 @@
     "clean": true,
     "summary": "No drift: every tool matches mcp.lock."
    },
-   "binary_bytes": 3499768
+   "binary_bytes": 3502784
   }
  ]
 }
